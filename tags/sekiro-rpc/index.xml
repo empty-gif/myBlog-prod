@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sekiro RPC on Jane - A super concise theme for Hugo</title>
+    <link>https://578164.xyz/tags/sekiro-rpc/</link>
+    <description>Recent content in Sekiro RPC on Jane - A super concise theme for Hugo</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 21 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://578164.xyz/tags/sekiro-rpc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Teach you how to build a Frida &#43; Sekiro RPC framework</title>
+      <link>https://578164.xyz/post/other/teach-you-how-to-build-a-frida-&#43;-sekiro-rpc-framework/</link>
+      <pubDate>Thu, 21 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/teach-you-how-to-build-a-frida-&#43;-sekiro-rpc-framework/</guid>
+      <description>&lt;h2 id=&#34;objectives&#34;&gt;Objectives&lt;/h2&gt;&#xA;&lt;p&gt;Signing with a mobile phone is a tricky solution. We have introduced it before.&lt;/p&gt;&#xA;&lt;p&gt;Sekiro + Xposed signature solution&lt;/p&gt;&#xA;&lt;p&gt;Frida is now widely used, and Sekiro has also upgraded to a new version. Today we will teach you how to build a Frida + Sekiro Rpc framework.&lt;/p&gt;&#xA;&lt;h3 id=&#34;run-the-server-first&#34;&gt;Run the server first&lt;/h3&gt;&#xA;&lt;p&gt;The official website is here &lt;a href=&#34;https://github.com/virjar/sekiro&#34;&gt;https://github.com/virjar/sekiro&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;git clone it;&lt;/p&gt;&#xA;&lt;p&gt;On Linux or Mac, execute the script build_demo_server.sh, and then get the release compressed package: sekiro-service-demo/target/sekiro-release-demo.zip&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

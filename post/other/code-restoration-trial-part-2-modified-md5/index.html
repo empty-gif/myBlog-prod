@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage" data-theme="light">
+
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>
+  Code Restoration Trial (Part 2): Modified MD5 - Jane - A super concise theme for Hugo
+  </title>
+
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
+
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="color-scheme" content="light dark" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="h1yx" />
+<meta name="description" content="1. Objectives Boss: AI has already done the work of code restoration. Do we still need to write a tutorial for code restoration?
+Me: Of course I have to write it. AI is AI, it is a batch assembly line operation, how can it be as cool as my purely manual code? My code is warm.
+A famous person once said: You can never make money beyond your cognitive scope. So You can&rsquo;t command AI to do work beyond your cognitive scope.
+" />
+
+<meta name="keywords"
+  content="" />
+
+
+
+
+<meta name="generator" content="Hugo 0.136.4" />
+
+
+<link rel="canonical" href="https://578164.xyz/post/other/code-restoration-trial-part-2-modified-md5/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/style.min.4d9e22c6c4a4cfe9ca1e35f9578ca6c8ff84c408a5f0599c8cbdaf444e95eae8.css" integrity="sha256-TZ4ixsSkz&#43;nKHjX5V4ymyP&#43;ExAil8FmcjL2vRE6V6ug=" media="screen"
+  crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:url" content="https://578164.xyz/post/other/code-restoration-trial-part-2-modified-md5/">
+  <meta property="og:site_name" content="Jane - A super concise theme for Hugo">
+  <meta property="og:title" content="Code Restoration Trial (Part 2): Modified MD5">
+  <meta property="og:description" content="1. Objectives Boss: AI has already done the work of code restoration. Do we still need to write a tutorial for code restoration?
+Me: Of course I have to write it. AI is AI, it is a batch assembly line operation, how can it be as cool as my purely manual code? My code is warm.
+A famous person once said: You can never make money beyond your cognitive scope. So You can’t command AI to do work beyond your cognitive scope.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2023-03-13T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-03-13T00:00:00+00:00">
+    <meta property="article:tag" content="Frida">
+    <meta property="article:tag" content="Android">
+
+  <meta itemprop="name" content="Code Restoration Trial (Part 2): Modified MD5">
+  <meta itemprop="description" content="1. Objectives Boss: AI has already done the work of code restoration. Do we still need to write a tutorial for code restoration?
+Me: Of course I have to write it. AI is AI, it is a batch assembly line operation, how can it be as cool as my purely manual code? My code is warm.
+A famous person once said: You can never make money beyond your cognitive scope. So You can’t command AI to do work beyond your cognitive scope.">
+  <meta itemprop="datePublished" content="2023-03-13T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-03-13T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1323">
+  <meta itemprop="keywords" content="Frida,Android">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Code Restoration Trial (Part 2): Modified MD5">
+  <meta name="twitter:description" content="1. Objectives Boss: AI has already done the work of code restoration. Do we still need to write a tutorial for code restoration?
+Me: Of course I have to write it. AI is AI, it is a batch assembly line operation, how can it be as cool as my purely manual code? My code is warm.
+A famous person once said: You can never make money beyond your cognitive scope. So You can’t command AI to do work beyond your cognitive scope.">
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+
+<script>
+  (function () {
+    var savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  })();
+</script>
+
+</head>
+
+<body>
+  <div id="back-to-top"></div>
+
+  <header>
+    
+<div class="desktop-header">
+  <div class="desktop-header-logo">
+    <a href="/" class="logo">
+      
+      h1yx blog
+      
+    </a>
+  </div>
+
+  <nav class="desktop-navbar">
+    <ul id="menu" class="menu">
+      
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/">Home</a>
+        
+
+        
+
+      </li>
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/post/">Archives</a>
+        
+
+        
+
+      </li>
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/tags/">Tags</a>
+        
+
+        
+
+      </li>
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/about/">About</a>
+        
+
+        
+
+      </li>
+      
+
+      
+      
+
+      
+
+      <li class="menu-item">
+        <a class="theme-toggle menu-item-link" href="javascript:void(0);">
+
+            
+<svg aria-hidden="true" class="lucide lucide-sun hi-svg-inline theme-icon-light" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+
+            
+<svg aria-hidden="true" class="lucide lucide-moon hi-svg-inline theme-icon-dark" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a class="menu-item-link" href="https://578164.xyz/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+          title="rss" target="_blank">
+          
+<svg aria-hidden="true" class="lucide lucide-rss hi-svg-inline icon--rss" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+        </a>
+        
+      </li>
+    </ul>
+  </nav>
+</div>
+
+    
+
+<div class="mobile-header">
+  <div id="mobile-navbar" class="mobile-navbar">
+    <div id="mobile-navbar-icon" class="mobile-navbar-icon">
+      
+<svg aria-hidden="true" class="lucide lucide-menu hi-svg-inline icon--menu" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+    </div>
+    <div class="mobile-navbar-logo">
+      <a href="/%20/" class="logo">h1yx blog</a>
+    </div>
+  </div>
+
+  <div id="mobile-menu-close-modal" class="mobile-menu-close-modal"></div>
+  <nav id="mobile-menu" class="mobile-menu">
+    <ul class="mobile-menu-list">
+      <li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/">Home</a>
+        
+        
+      </li><li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/post/">Archives</a>
+        
+        
+      </li><li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/tags/">Tags</a>
+        
+        
+      </li><li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/about/">About</a>
+        
+        
+      </li>
+      
+
+      
+
+      <li class="mobile-menu-item">
+        <a class="theme-toggle menu-item-link" href="javascript:void(0);">
+
+            
+<svg aria-hidden="true" class="lucide lucide-sun hi-svg-inline theme-icon-light" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+
+            
+<svg aria-hidden="true" class="lucide lucide-moon hi-svg-inline theme-icon-dark" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+
+        </a>
+      </li>
+
+      <li class="mobile-menu-item">
+        <a class="menu-item-link" href="https://578164.xyz/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+          title="rss" target="_blank">
+          
+<svg aria-hidden="true" class="lucide lucide-rss hi-svg-inline icon--rss" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+        </a>
+        
+      </li>
+    </ul>
+  </nav>
+</div>
+
+  </header>
+
+  
+
+  
+
+
+
+  <main id="main" class="main pico container">
+    <div class="content-wrapper">
+  <aside class="sidebar">
+  </aside>
+  <div id="content" class="content">
+    <article class="post">
+      
+      <header class="post-header">
+        <h1 class="post-title">Code Restoration Trial (Part 2): Modified MD5</h1>
+        
+
+
+
+        <div class="post-meta-list">
+  <div class="post-meta-item post-meta-author">
+    
+<svg aria-hidden="true" class="lucide lucide-user-round-pen hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M2 21a8 8 0 0 1 10.821-7.487"/><path d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"/><circle cx="10" cy="8" r="5"/></svg>
+    <a href="/about">
+      <span class="post-meta-author-name">
+        h1yx
+      </span>
+    </a>
+    
+  </div>
+
+  <div class="post-meta-item post-meta-time">
+    
+<svg aria-hidden="true" class="lucide lucide-calendar-days hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
+    <time datetime=" 2023-03-13">
+      2023-03-13
+    </time>
+
+
+    
+
+  </div>
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-item post-meta-category">
+      <a href="https://578164.xyz/categories/android-technology/"> Android Technology </a>
+      
+    </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+      </header>
+
+      
+      <div class="post-content">
+        <h2 id="1-objectives">1. Objectives</h2>
+<p>Boss:  AI has already done the work of code restoration. Do we still need to write a tutorial for code restoration?</p>
+<p>Me: Of course I have to write it. AI is AI, it is a batch assembly line operation, how can it be as cool as my purely manual code? My code is warm.</p>
+<p>A famous person once said: You can never make money beyond your cognitive scope. So You can&rsquo;t command AI to do work beyond your cognitive scope.</p>
+<h2 id="2-steps">2. Steps</h2>
+<h4 id="2-conditional-breakpoints-3-data-printing">2. Conditional breakpoints 3. Data printing</h4>
+<p>We want to know when the program runs to 0x1170 x4=0xdd89ca68To know the origin of the code, you need to start tracing from the previous code.</p>
+<p>I searched upwards and found a judgment at 0x1144, which means that several cycles have been passed before.</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>.text:0000000000001144 7F 01 08 EB                 CMP             X11, X8
+.text:0000000000001148 88 CC FF 54                 B.HI            loc_AD8</code></pre>
+</div>
+<p>For the convenience of analysis, I only want to trace the code for analysis in the last loop, so a conditional breakpoint is needed.</p>
+<p>Before making a conditional breakpoint, we print out the values of X11 and X8.</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>debugger.addBreakPoint(module.base + 0x1144, new BreakPointCallback() {
+    @Override
+    public boolean onHit(Emulator&lt;?&gt; emulator, long address) {
+        Arm64RegisterContext ctx = emulator.getContext();
+        int iX11 = ctx.getXInt(11);
+        int iX8 = ctx.getXInt(8);;
+
+        System.out.printf(&#34;X11 = %d , X8 = %d\n&#34;, iX11,iX8);
+
+        return true;
+    }
+});</code></pre>
+</div>
+<p>Run a bit.</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>X11 = 64 , X8 = 64</code></pre>
+</div>
+<p>It&rsquo;s strange that it&rsquo;s only printed once, which means this is not a loop, or it&rsquo;s a false loop.</p>
+<p>Then keep looking upwards.</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>text:0000000000000C8C 8C 81 00 91                 ADD             X12, X12, #0x20 ; &#39; &#39;
+.text:0000000000000C90             ; 156:       while ( v24 &lt; 0x10 );
+.text:0000000000000C90 03 FA FF 54                 B.CC            loc_BD0
+.text:0000000000000C94 FE 17 50 29                 LDP             W30, W5, [SP,#0x110+var_90]
+.text:0000000000000C98 11 03 19 4A                 EOR             W17, W24, W25</code></pre>
+</div>
+<p>It seems that 0xC94 should be the location of the last calculation. (We can first set a breakpoint at 0xC94. If it is triggered only once, it means it is available. If it is triggered multiple times, it means it is in the loop body.)</p>
+<h4 id="5-trace-code">5. Trace code</h4>
+<p>There are two ways to run Unidbg Trace code. One is to write code directly to implement it and store the Trace result in traceCode1.log</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>try {
+    emulator.traceCode(module.base+0xC94, module.base+0x1170).setRedirect(new PrintStream(new File(&#34;traceCode1.log&#34;)));
+} catch (IOException e) {
+    throw new IllegalStateException(e);
+}</code></pre>
+</div>
+<p>The other is to enter the Trace command in the debug command line.</p>
+<p>First, set a breakpoint at 0xC94, enter the debugging window, enter the traceCode command and press Enter.</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>traceCode
+Set trace LinuxModule{base=0x40000000, size=12288, name=&#39;libnative-lib.so&#39;} instructions success.</code></pre>
+</div>
+<p>If you want to save the trace results to a file, add the file name traceCode traceCode1.log</p>
+<p>Then the c command continues to execute and the Trace results appear.</p>
+<h4 id="start-the-restoration-algorithm">Start the restoration algorithm</h4>
+<p>Searching for 0xdd89ca68 in the Trace result, we found that it was flipped from 0x68ca89dd</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>0x40001154: &#34;rev w4, w22&#34; w22=0x68ca89dd =&gt; w4=0xdd89ca68</code></pre>
+</div>
+<p>If you encounter unfamiliar instructions here, you can naturally consult AI</p>
+<p>We first pick out the results related to 0x68ca89dd. The principle is to trace back from the results to the input parameters.</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>0x40001048: &#34;add w12, w12, w15&#34; w12=0x47448b48 w15=0x93f6f2bb =&gt; w12=0xdb3b7e03
+
+0x40001098: &#34;orn w12, w12, w11&#34; w12=0xdb3b7e03 w11=0x49ac16b =&gt; w12=0xfb7f7e97
+0x4000109c: &#34;eor w12, w12, w16&#34; w12=0xfb7f7e97 w16=0xa96ba62 =&gt; w12=0xf1e9c4f5
+0x400010a0: &#34;add w12, w12, w15&#34; w12=0xf1e9c4f5 w15=0x93f6f2bb =&gt; w12=0x85e0b7b0
+0x400010b0: &#34;add w12, w12, w15&#34; w12=0x85e0b7b0 w15=0x4212f2e5 =&gt; w12=0xc7f3aa95
+
+0x4000107c: &#34;add w11, w11, w17&#34; w11=0xffa26fc9 w17=0x2cc489bc =&gt; w11=0x2c66f985
+0x40001088: &#34;add w11, w11, w17&#34; w11=0x2c66f985 w17=0xf3d1564b =&gt; w11=0x20384fd0
+0x4000108c: &#34;ror w11, w11, #0xb&#34; w11=0x20384fd0 =&gt; w11=0xfa040709
+
+0x400010b4: &#34;ror w12, w12, #0x1a&#34; w12=0xc7f3aa95 =&gt; w12=0xfceaa571
+0x40001090: &#34;add w11, w11, w16&#34; w11=0xfa040709 w16=0xa96ba62 =&gt; w11=0x49ac16b
+
+0x400010b8: &#34;add w12, w12, w11&#34; w12=0xfceaa571 w11=0x49ac16b =&gt; w12=0x18566dc
+
+0x40001048: &#34;add w12, w12, w15&#34; w12=0x47448b48 w15=0x93f6f2bb =&gt; w12=0xdb3b7e03
+
+0x40001098: &#34;orn w12, w12, w11&#34; w12=0xdb3b7e03 w11=0x49ac16b =&gt; w12=0xfb7f7e97
+0x4000109c: &#34;eor w12, w12, w16&#34; w12=0xfb7f7e97 w16=0xa96ba62 =&gt; w12=0xf1e9c4f5
+0x400010a0: &#34;add w12, w12, w15&#34; w12=0xf1e9c4f5 w15=0x93f6f2bb =&gt; w12=0x85e0b7b0
+0x400010b0: &#34;add w12, w12, w15&#34; w12=0x85e0b7b0 w15=0x4212f2e5 =&gt; w12=0xc7f3aa95
+
+0x4000107c: &#34;add w11, w11, w17&#34; w11=0xffa26fc9 w17=0x2cc489bc =&gt; w11=0x2c66f985
+0x40001088: &#34;add w11, w11, w17&#34; w11=0x2c66f985 w17=0xf3d1564b =&gt; w11=0x20384fd0
+0x4000108c: &#34;ror w11, w11, #0xb&#34; w11=0x20384fd0 =&gt; w11=0xfa040709
+
+0x400010b4: &#34;ror w12, w12, #0x1a&#34; w12=0xc7f3aa95 =&gt; w12=0xfceaa571
+0x40001090: &#34;add w11, w11, w16&#34; w11=0xfa040709 w16=0xa96ba62 =&gt; w11=0x49ac16b
+
+0x400010b8: &#34;add w12, w12, w11&#34; w12=0xfceaa571 w11=0x49ac16b =&gt; w12=0x18566dc
+
+0x40001108: &#34;add w22, w12, w22&#34; w12=0x18566dc w22=0x67452301 =&gt; w22=0x68ca89dd</code></pre>
+</div>
+<p>Then open VSCode and start writing code</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>int w12,w11,w15;
+
+w12 = w12 | ~w11          // 0x40001098: &#34;orn w12, w12, w11&#34; w12=0xdb3b7e03 w11=0x49ac16b =&gt; w12=0xfb7f7e97
+w12 = w12 ^ w16                 // 0x4000109c: &#34;eor w12, w12, w16&#34; w12=0xfb7f7e97 w16=0xa96ba62 =&gt; w12=0xf1e9c4f5
+
+// w12 = (w12 | ~w11) ^ w16
+
+w12 = w12 + w15                                // 0x400010a0: &#34;add w12, w12, w15&#34; w12=0xf1e9c4f5 w15=0x93f6f2bb =&gt; w12=0x85e0b7b0
+w12 = w12 + Num_w15        // 0x400010b0: &#34;add w12, w12, w15&#34; w12=0x85e0b7b0 w15=0x4212f2e5 =&gt; w12=0xc7f3aa95
+w12 = w12 &gt;&gt; 0x1a;        // 0x400010b4: &#34;ror w12, w12, #0x1a&#34; w12=0xc7f3aa95 =&gt; w12=0xfceaa571
+w12 = w12 + w11;                // 0x400010b8: &#34;add w12, w12, w11&#34; w12=0xfceaa571 w11=0x49ac16b =&gt; w12=0x18566dc</code></pre>
+</div>
+<p>Yes, the restoration algorithm is so simple and boring.</p>
+<p>w12 = (w12 | ~w11) ^ w16 This formula makes us a little excited</p>
+<p>It is very similar to the I of the standard MD5 algorithm.</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>#define F(x,y,z) ((x &amp; y) | (~x &amp; z))
+#define G(x,y,z) ((x &amp; z) | (y &amp; ~z))
+#define H(x,y,z) (x^y^z)
+#define I(x,y,z) (y ^ (x | ~z))</code></pre>
+</div>
+<p>In this way, we may be able to restore it more easily within the framework of the standard MD5 algorithm and only find the modified parts.</p>
+<h4 id="i-cant-help-but-use-ai">I can&rsquo;t help but use AI</h4>
+<p>Throw this boring process toCursorWhat will happen</p>
+<p>Use C language to restore the calculation process of w12 and add Chinese comments</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>0x40001048: &#34;add w12, w12, w15&#34; w12=0x47448b48 w15=0x93f6f2bb =&gt; w12=0xdb3b7e03
+
+0x40001098: &#34;orn w12, w12, w11&#34; w12=0xdb3b7e03 w11=0x49ac16b =&gt; w12=0xfb7f7e97
+0x4000109c: &#34;eor w12, w12, w16&#34; w12=0xfb7f7e97 w16=0xa96ba62 =&gt; w12=0xf1e9c4f5
+0x400010a0: &#34;add w12, w12, w15&#34; w12=0xf1e9c4f5 w15=0x93f6f2bb =&gt; w12=0x85e0b7b0
+0x400010b0: &#34;add w12, w12, w15&#34; w12=0x85e0b7b0 w15=0x4212f2e5 =&gt; w12=0xc7f3aa95
+
+0x4000107c: &#34;add w11, w11, w17&#34; w11=0xffa26fc9 w17=0x2cc489bc =&gt; w11=0x2c66f985
+0x40001088: &#34;add w11, w11, w17&#34; w11=0x2c66f985 w17=0xf3d1564b =&gt; w11=0x20384fd0
+0x4000108c: &#34;ror w11, w11, #0xb&#34; w11=0x20384fd0 =&gt; w11=0xfa040709
+
+0x400010b4: &#34;ror w12, w12, #0x1a&#34; w12=0xc7f3aa95 =&gt; w12=0xfceaa571
+0x40001090: &#34;add w11, w11, w16&#34; w11=0xfa040709 w16=0xa96ba62 =&gt; w11=0x49ac16b
+
+0x400010b8: &#34;add w12, w12, w11&#34; w12=0xfceaa571 w11=0x49ac16b =&gt; w12=0x18566dc
+
+#include &lt;stdio.h&gt;
+
+int main() {
+    unsigned int w12 = 0x47448b48;
+    unsigned int w15 = 0x93f6f2bb;
+    unsigned int w11 = 0xffa26fc9;
+    unsigned int w17 = 0x2cc489bc;
+    unsigned int w16 = 0xa96ba62;
+
+    w12 = w12 + w15;
+    printf(&#34;w12 = %x\n&#34;, w12);
+
+    w12 = (w12 | ~w11);
+    printf(&#34;w12 = %x\n&#34;, w12);
+
+    w12 = w12 ^ w16;
+    printf(&#34;w12 = %x\n&#34;, w12);
+
+    w12 = w12 + w15;
+    printf(&#34;w12 = %x\n&#34;, w12);
+
+    w12 = w12 + 0x4212f2e5;
+    printf(&#34;w12 = %x\n&#34;, w12);
+
+    w11 = w11 + w17;
+    printf(&#34;w11 = %x\n&#34;, w11);
+
+    w11 = w11 + 0xf3d1564b;
+    printf(&#34;w11 = %x\n&#34;, w11);
+
+    w11 = (w11 &gt;&gt; 11) | (w11 &lt;&lt; (32 - 11));
+    printf(&#34;w11 = %x\n&#34;, w11);
+
+    w12 = (w12 &gt;&gt; 26) | (w12 &lt;&lt; (32 - 26));
+    printf(&#34;w12 = %x\n&#34;, w12);
+
+    w11 = w11 + w16;
+    printf(&#34;w11 = %x\n&#34;, w11);
+
+    w12 = w12 + w11;
+    printf(&#34;w12 = %x\n&#34;, w12);
+
+    return 0;
+}</code></pre>
+</div>
+<p>I think it&rsquo;s better than what I wrote. Programmers are going to evolve into a new breed, that is, to write for AI.prompt</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>I used to think being a leader was a blessing. I didn’t have to do any work and could just direct my subordinates to do their work.</p>
+<p>Later, when I really became a leader, I realized that I had to know language A to Z, otherwise the guy who worked on PHP said that this thing could not be implemented, and the guy who worked on Flash said that this function would take a month to complete.</p>
+<p>The same goes for AI. It can do mechanical and repetitive tasks better than you, but you still have to do the creative and guiding work yourself.</p>
+
+      </div>
+
+      
+      
+
+
+
+      
+      
+
+
+      <footer class="post-footer">
+        <div class="post-tags">
+          <a href="https://578164.xyz/tags/frida/">frida</a>
+          <a href="https://578164.xyz/tags/android/">android</a>
+          
+        </div>
+
+
+        
+        <nav class="post-nav">
+          
+          <a class="prev" href="/post/other/qbdi-user-guide/">
+            
+            <i class="iconfont">
+              
+<svg aria-hidden="true" class="lucide lucide-chevron-left hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m15 18-6-6 6-6"/></svg>
+            </i>
+            <span class="prev-text nav-default">QBDI User Guide</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+          
+          <a class="next" href="/post/other/android-high-version-installation-system-certificate-https-packet-capture---the-ultimate-solution/">
+            <span class="next-text nav-default">Android high version installation system certificate HTTPS packet capture - the ultimate solution</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              
+<svg aria-hidden="true" class="lucide lucide-chevron-right hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m9 18 6-6-6-6"/></svg>
+            </i>
+          </a>
+        </nav>
+      </footer>
+    </article>
+
+    
+    
+
+
+    
+    
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+    
+
+  
+
+  
+
+
+  </div>
+
+  
+  <nav class="toc" id="toc">
+    <div class="toc-title">Table of Contents</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-objectives">1. Objectives</a></li>
+    <li><a href="#2-steps">2. Steps</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+</div>
+  </main>
+
+  <footer id="footer" class="footer">
+    <div class="social-icon-links">
+  
+
+
+
+
+<a href="https://578164.xyz/index.xml" rel="noopener alternate" type="application/rss&#43;xml" class="social-icon-link" title="rss"
+  target="_blank">
+  
+<svg aria-hidden="true" class="lucide lucide-rss hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+</a>
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+    2019 -
+    2024
+    <span class="heart">
+      
+      <i class="iconfont">
+        
+<svg aria-hidden="true" class="lucide lucide-heart hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+      </i>
+    </span><span class="author">
+      h1yx
+      
+    </span></span>
+
+  
+  
+
+  
+</div>
+
+  </footer>
+
+  
+
+
+
+
+<script type="text/javascript" src="/js/main.337fdc53bc7899023427e1f23060e9c67160243e2ff4f7f876358e1277d8664d.js" integrity="sha256-M3/cU7x4mQI0J&#43;HyMGDpxnFgJD4v9Pf4djWOEnfYZk0=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

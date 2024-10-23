@@ -2,153 +2,123 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Jane - A super concise theme for Hugo</title>
-    <link>http://localhost:1313/post/</link>
+    <link>https://578164.xyz/post/</link>
     <description>Recent content in Posts on Jane - A super concise theme for Hugo</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <managingEditor>me@example.com (Jane)</managingEditor>
-    <webMaster>me@example.com (Jane)</webMaster>
-    <lastBuildDate>Fri, 20 Sep 2024 16:01:23 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 02 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://578164.xyz/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Jane Theme V3 Major Update</title>
-      <link>http://localhost:1313/post/jane-theme-v3-major-update/</link>
-      <pubDate>Fri, 20 Sep 2024 16:01:23 +0800</pubDate><author>me@example.com (Jane)</author>
-      <guid>http://localhost:1313/post/jane-theme-v3-major-update/</guid>
-      <description>&lt;h2 id=&#34;update-content&#34;&gt;Update Content&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Use &lt;a href=&#34;https://picocss.com/&#34;&gt;Pico CSS&lt;/a&gt; as the color scheme, allowing theme color switching and dark/light mode toggle.&lt;/li&gt;&#xA;&lt;li&gt;Added STYLE SETTINGS, located at &lt;code&gt;/assets/sass/_settings.scss&lt;/code&gt; .&lt;/li&gt;&#xA;&lt;li&gt;Deprecated the Category page, merging it into the Archive page.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Please note that due to the extensive modifications, some areas may still need refinement. I appreciate your understanding!&lt;/p&gt;</description>
+      <title>Code restoration technology: Unidbg hook_add_new to achieve conditional breakpoints (Part 2)</title>
+      <link>https://578164.xyz/post/other/code-restoration-technology-unidbg-hook_add_new-to-achieve-conditional-breakpoints-part-2/</link>
+      <pubDate>Mon, 02 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/code-restoration-technology-unidbg-hook_add_new-to-achieve-conditional-breakpoints-part-2/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;When doing code restoration, sometimes you will analyze a set of results and hope to set a conditional breakpoint in the middle, such as triggering a breakpoint at code line 0x1234, R0=0x5678.&lt;/p&gt;&#xA;&lt;p&gt;Let’s try it today.&lt;/p&gt;&#xA;&lt;h6 id=&#34;tip&#34;&gt;Tip:&lt;/h6&gt;&#xA;&lt;p&gt;The Unidbg code has been synchronized to the latest official version, which already supports the display of floating-point registers.&lt;/p&gt;&#xA;&lt;h2 id=&#34;2-steps&#34;&gt;2. Steps&lt;/h2&gt;&#xA;&lt;h3 id=&#34;write-a-floatdemotwo-first&#34;&gt;Write a floatdemotwo first&lt;/h3&gt;&#xA;&lt;p&gt;Upgrade the ancestral algorithm&lt;/p&gt;&#xA;&lt;div class=&#34;highlight-container&#34;&gt;&#xA;&#xA;  &lt;button class=&#34;copy-code-btn outline&#34;&gt;Copy&lt;/button&gt;&#xA;&#xA;  &#xA;  &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;extern &amp;#34;C&amp;#34; JNIEXPORT jstring JNICALL&#xA;Java_com_h1yx_app_floatdemo_MainActivity_stringFromJNI(&#xA;        JNIEnv* env,&#xA;        jobject Obj, jdouble value) {&#xA;    std::string hello = &amp;#34;Hello from C++&amp;#34;;&#xA;&#xA;    double p=3.14159;&#xA;    double s,v,rc;&#xA;&#xA;    for(int i=0 ; i&amp;lt; 10; i++){&#xA;        hello +=&amp;#34;\n&amp;#34;;&#xA;&#xA;        v = 2*p* (value + i);&#xA;        s = p * (value + i) * (value + i);&#xA;&#xA;        rc = v+s;&#xA;&#xA;        hello += std::to_string(rc);&#xA;&#xA;    }&#xA;&#xA;    return env-&amp;gt;NewStringUTF(hello.c_str());&#xA;}&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;Calculate the sum of the circumference and area of 10 circles.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Jane 主题 V3 大版本更新</title>
-      <link>http://localhost:1313/post/jane-theme-v3-major-update.zh-cn/</link>
-      <pubDate>Fri, 20 Sep 2024 16:01:23 +0800</pubDate><author>me@example.com (Jane)</author>
-      <guid>http://localhost:1313/post/jane-theme-v3-major-update.zh-cn/</guid>
-      <description>&lt;h2 id=&#34;更新内容&#34;&gt;更新内容&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;使用 &lt;a href=&#34;https://picocss.com/&#34;&gt;Pico CSS&lt;/a&gt; 作为配色方案，可切换主题颜色，可切换 dark / light 模式。&lt;/li&gt;&#xA;&lt;li&gt;添加 STYLE SETTINGS ，位于 /assets/sass/_settings.scss ；&lt;/li&gt;&#xA;&lt;li&gt;弃用 Category 页面，合并到 Archive 页面。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;由于修改的地方比较多，还有很多地方不完善，请您谅解！&lt;/p&gt;</description>
+      <title>A series of operations merged the Unidbg update and continued to run the sign</title>
+      <link>https://578164.xyz/post/other/a-series-of-operations-merged-the-unidbg-update-and-continued-to-run-the-sign/</link>
+      <pubDate>Fri, 12 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/a-series-of-operations-merged-the-unidbg-update-and-continued-to-run-the-sign/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;The author of Unidbg has been updating quite frequently recently. We have to keep up with him so as not to be left behind.&lt;/p&gt;&#xA;&lt;h2 id=&#34;2-analysis&#34;&gt;2. Analysis&lt;/h2&gt;&#xA;&lt;h3 id=&#34;code-comparison&#34;&gt;Code comparison&lt;/h3&gt;&#xA;&lt;p&gt;Pull back the latest code first&lt;/p&gt;&#xA;&lt;div class=&#34;highlight-container&#34;&gt;&#xA;&#xA;  &lt;button class=&#34;copy-code-btn outline&#34;&gt;Copy&lt;/button&gt;&#xA;&#xA;  &#xA;  &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git pull&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;Then compared with our previous code, it seems that there are a lot of changes. I merged 3-5 files manually and vomited blood&amp;hellip;&lt;/p&gt;&#xA;&lt;h3 id=&#34;git&#34;&gt;git&lt;/h3&gt;&#xA;&lt;p&gt;As a certified senior programmer, I actually still merged codes manually, and my boss almost suspected that my senior certificate was issued in Zhongguancun.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Jane 主题预览</title>
-      <link>http://localhost:1313/post/jane-theme-preview.zh-cn/</link>
-      <pubDate>Tue, 06 Mar 2018 16:01:23 +0800</pubDate><author>me@example.com (Jane)</author>
-      <guid>http://localhost:1313/post/jane-theme-preview.zh-cn/</guid>
-      <description>&lt;p&gt;主题预览,内容有待填充。&lt;/p&gt;</description>
+      <title>QBDI User Guide</title>
+      <link>https://578164.xyz/post/other/qbdi-user-guide/</link>
+      <pubDate>Mon, 25 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/qbdi-user-guide/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;Today I would like to introduce a new friend to you, &lt;a href=&#34;https://qbdi.quarkslab.com/&#34;&gt;QBDI&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;It can be quickly integrated into your frida script to perform assembly-level trace&lt;/p&gt;&#xA;&lt;h2 id=&#34;2-steps&#34;&gt;2. Steps&lt;/h2&gt;&#xA;&lt;h3 id=&#34;install&#34;&gt;Install&lt;/h3&gt;&#xA;&lt;p&gt;It is very convenient to use QBDI on Android. First go to the official website to download the latest version&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/QBDI/QBDI/releases/download/v0.10.0/QBDI-0.10.0-android-AARCH64.tar.gz&#34;&gt;https://github.com/QBDI/QBDI/releases/download/v0.10.0/QBDI-0.10.0-android-AARCH64.tar.gz&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;For our use of Frida, there are mainly two files in itlibQBDI.soandfrida-qbdi.js, the former is the injection library, the latter is the js encapsulation&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Jane Theme Preview</title>
-      <link>http://localhost:1313/post/jane-theme-preview/</link>
-      <pubDate>Mon, 01 Jan 2018 16:01:23 +0800</pubDate><author>me@example.com (Jane)</author>
-      <guid>http://localhost:1313/post/jane-theme-preview/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Markdown&lt;/strong&gt; is created by &lt;a href=&#34;http://daringfireball.net/&#34;&gt;Daring Fireball&lt;/a&gt;, the original guideline is &lt;a href=&#34;http://daringfireball.net/projects/markdown/syntax&#34;&gt;here&lt;/a&gt;. Its syntax, however, varies between different parsers or editors.&lt;/p&gt;&#xA;&lt;p&gt;Please note that HTML fragments in markdown source will be recognized but not parsed or rendered. Also, there may be small reformatting on the original markdown source code after saving.&lt;/p&gt;</description>
+      <title>Code Restoration Trial (Part 2): Modified MD5</title>
+      <link>https://578164.xyz/post/other/code-restoration-trial-part-2-modified-md5/</link>
+      <pubDate>Mon, 13 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/code-restoration-trial-part-2-modified-md5/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;Boss:  AI has already done the work of code restoration. Do we still need to write a tutorial for code restoration?&lt;/p&gt;&#xA;&lt;p&gt;Me: Of course I have to write it. AI is AI, it is a batch assembly line operation, how can it be as cool as my purely manual code? My code is warm.&lt;/p&gt;&#xA;&lt;p&gt;A famous person once said: You can never make money beyond your cognitive scope. So You can&amp;rsquo;t command AI to do work beyond your cognitive scope.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>How to Contribute</title>
-      <link>http://localhost:1313/post/docs/how-to-contribute/</link>
-      <pubDate>Sat, 15 Oct 2022 00:00:00 +0000</pubDate><author>me@example.com (Jane)</author>
-      <guid>http://localhost:1313/post/docs/how-to-contribute/</guid>
-      <description>&lt;h2 id=&#34;contributing-to-jane&#34;&gt;Contributing to Jane&lt;/h2&gt;&#xA;&lt;p&gt;There are many ways to contribute to the Jane theme: submitting pull requests, reporting issues, providing new translations, and creating suggestions.&lt;/p&gt;&#xA;&lt;h2 id=&#34;build-and-run&#34;&gt;Build and Run&lt;/h2&gt;&#xA;&lt;p&gt;If you want to understand how Jane works, you&amp;rsquo;ll want to get the source, build it, and run locally.&lt;/p&gt;&#xA;&lt;h3 id=&#34;getting-the-sources&#34;&gt;Getting the sources&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight-container&#34;&gt;&#xA;&#xA;  &lt;button class=&#34;copy-code-btn outline&#34;&gt;Copy&lt;/button&gt;&#xA;&#xA;  &#xA;  &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git clone https://github.com/xianmin/hugo-theme-jane.git&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;h3 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h3&gt;&#xA;&lt;p&gt;You need install the &lt;code&gt;Hugo_extended&lt;/code&gt; version to use &lt;a href=&#34;https://gohugo.io/hugo-pipes/&#34;&gt;Hugo Pipes&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;We recommend that you use VSCode. And if you edit &lt;code&gt;.html&lt;/code&gt; files, recommend you install prettier and &lt;a href=&#34;https://github.com/NiklasPor/prettier-plugin-go-template&#34;&gt;prettier-plugin-go-template&lt;/a&gt; &lt;strong&gt;globally&lt;/strong&gt; . And open &lt;code&gt;Prettier: Resolve Global Modules&lt;/code&gt; in your VSCode Settings.&lt;/p&gt;</description>
+      <title>Android high version installation system certificate HTTPS packet capture - the ultimate solution</title>
+      <link>https://578164.xyz/post/other/android-high-version-installation-system-certificate-https-packet-capture---the-ultimate-solution/</link>
+      <pubDate>Sun, 05 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/android-high-version-installation-system-certificate-https-packet-capture---the-ultimate-solution/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;To capture App packages, you first need the App to trust the certificate of the capture software.&lt;/p&gt;&#xA;&lt;p&gt;However, starting from Android 7.0, the system no longer trusts user CA certificates, so you need to install the CA certificate to the system CA certificate directory.&lt;/p&gt;&#xA;&lt;p&gt;If you use Magisk jailbreak, this task is relatively simple. You only need to install a module Move Certificates.&lt;/p&gt;&#xA;&lt;p&gt;But today&amp;rsquo;s story starts with me flashing a new ROM. This ROM is quite strange. After flashing, the adb connection is directly in root state, but the App cannot obtain the root state.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Demo: toc</title>
-      <link>http://localhost:1313/post/demo/2-toc/</link>
-      <pubDate>Tue, 22 Feb 2022 00:00:00 +0000</pubDate><author>me@example.com (Jane)</author>
-      <guid>http://localhost:1313/post/demo/2-toc/</guid>
-      <description>&lt;h2 id=&#34;header&#34;&gt;Header&lt;/h2&gt;&#xA;&lt;p&gt;This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.&lt;/p&gt;&#xA;&lt;h2 id=&#34;header-1&#34;&gt;Header&lt;/h2&gt;&#xA;&lt;p&gt;This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.&lt;/p&gt;</description>
+      <title>Code Restoration Trial (I): Modified MD5</title>
+      <link>https://578164.xyz/post/other/code-restoration-trial-i-modified-md5/</link>
+      <pubDate>Wed, 22 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/code-restoration-trial-i-modified-md5/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;It’s 2023, and MD5 is already the most basic signature algorithm, but if you still only do a simple MD5 on the input, you will definitely be laughed at by your peers. Adding salt is a basic improvement, but in this era of severe employment, just adding salt is definitely not enough.&lt;/p&gt;&#xA;&lt;p&gt;Today we will talk about the modified MD5 to make this algorithm more advanced.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Vegetable rolls&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;The simplest way to modify it is to change the initial parameters of MD5.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Demo: toc, global toc is true, but this post should not show toc</title>
-      <link>http://localhost:1313/post/other/test-toc/global-toc-except-this/</link>
-      <pubDate>Mon, 21 Feb 2022 00:00:00 +0000</pubDate><author>me@example.com (Jane)</author>
-      <guid>http://localhost:1313/post/other/test-toc/global-toc-except-this/</guid>
-      <description>&lt;h2 id=&#34;header&#34;&gt;Header&lt;/h2&gt;&#xA;&lt;p&gt;This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.&lt;/p&gt;&#xA;&lt;h2 id=&#34;header-1&#34;&gt;Header&lt;/h2&gt;&#xA;&lt;p&gt;This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.&lt;/p&gt;</description>
+      <title>Compile and flash Android 10 source code (QP1A.190711.020) under Mac 10.14.x (Pixel 2 XL)</title>
+      <link>https://578164.xyz/post/other/compile-and-flash-android-10-source-code-qp1a.190711.020-under-mac-10.14.x-pixel-2-xl/</link>
+      <pubDate>Mon, 12 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/compile-and-flash-android-10-source-code-qp1a.190711.020-under-mac-10.14.x-pixel-2-xl/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;Older generations of Windows reverse engineers have been analyzing the Windows kernel one after another, dreaming of taking a look at the Windows source code, but so far they can only see leaked source code from several generations ago. The mobile era is a blessing, the latest version of Android source code is open to you, and you can&amp;rsquo;t just look at it, you have to touch it.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>no header, no toc</title>
-      <link>http://localhost:1313/post/other/test-toc/no-header-dont-show-toc/</link>
-      <pubDate>Sun, 20 Feb 2022 00:00:00 +0000</pubDate><author>me@example.com (Jane)</author>
-      <guid>http://localhost:1313/post/other/test-toc/no-header-dont-show-toc/</guid>
-      <description>&lt;p&gt;This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.&lt;/p&gt;</description>
+      <title>Analysis of the sig3 signature of a novel app</title>
+      <link>https://578164.xyz/post/other/analysis-of-the-__sig3-signature-of-a-novel-app/</link>
+      <pubDate>Mon, 10 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/analysis-of-the-__sig3-signature-of-a-novel-app/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;This sample is somewhat similar to the previous short video app. The signature name and algorithm are probably the same. So if you understand this, you can probably understand the latest version of the short video app.&lt;/p&gt;&#xA;&lt;p&gt;So what is the difference between reading novels and watching short videos?&lt;/p&gt;&#xA;&lt;p&gt;The more I read novels, the sleepier I feel. The more I watch short videos, the more awake I feel. This proves that AI knows you better than you know yourself.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Demo: Math</title>
-      <link>http://localhost:1313/post/demo/5-math/</link>
-      <pubDate>Mon, 04 Mar 2019 16:01:23 +0800</pubDate><author>me@example.com (Jane)</author>
-      <guid>http://localhost:1313/post/demo/5-math/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://www.intmath.com/cg5/katex-mathjax-comparison.php&#34;&gt;KaTeX and MathJax Comparison Demo, currently processed as KaTeX&lt;/a&gt;&lt;/p&gt;</description>
+      <title>An analysis of the encryption of the communication protocol of a car networking app (Part 2) Unidbg step by step</title>
+      <link>https://578164.xyz/post/other/an-analysis-of-the-encryption-of-the-communication-protocol-of-a-car-networking-app-part-2-unidbg-step-by-step/</link>
+      <pubDate>Thu, 08 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/an-analysis-of-the-encryption-of-the-communication-protocol-of-a-car-networking-app-part-2-unidbg-step-by-step/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;It has been a while since I wrote an article related to unidbg. This sample is quite suitable, with moderate difficulty and a small pit for you. So the following is a series of articles, including unidbg environment supplement, Trace Block comparison process, Trace Code location difference. Mastering this series of routines, Native analysis can be considered an entry.&lt;/p&gt;&#xA;&lt;p&gt;This time, let&amp;rsquo;s run so with unidbg&lt;/p&gt;&#xA;&lt;p&gt;v6.1.0&lt;/p&gt;&#xA;&lt;h2 id=&#34;2-steps&#34;&gt;2. Steps&lt;/h2&gt;&#xA;&lt;h3 id=&#34;dump-so&#34;&gt;Dump so&lt;/h3&gt;&#xA;&lt;p&gt;IDA openslibencrypt.soGo to the offset addresses 0x24424 and 0x2B1BC corresponding to the two functions checkcode and decheckcode we want to analyze. We will find a strange problem that there is no assembly code at these two addresses, both are 0x00.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Demo: more Shortcodes</title>
-      <link>http://localhost:1313/post/demo/7-shortcodes-preview/</link>
-      <pubDate>Sun, 04 Mar 2018 16:01:23 +0800</pubDate><author>me@example.com (Jane)</author>
-      <guid>http://localhost:1313/post/demo/7-shortcodes-preview/</guid>
-      <description>&lt;h2 id=&#34;what-a-shortcode-is&#34;&gt;What a Shortcode is&lt;/h2&gt;&#xA;&lt;p&gt;Hugo loves Markdown because of its simple content format, but there are times when Markdown falls short. Often, content authors are forced to add raw HTML (e.g., video &lt;code&gt;&amp;lt;iframes&amp;gt;&lt;/code&gt;) to Markdown content. We think this contradicts the beautiful simplicity of Markdown&amp;rsquo;s syntax.&lt;/p&gt;&#xA;&lt;p&gt;Hugo created &lt;strong&gt;shortcodes&lt;/strong&gt; to circumvent these limitations.&lt;/p&gt;&#xA;&lt;p&gt;A shortcode is a simple snippet inside a content file that Hugo will render using a predefined template. Note that shortcodes will not work in template files. If you need the type of drop-in functionality that shortcodes provide but in a template, you most likely want a [partial template][partials] instead.&lt;/p&gt;&#xA;&lt;p&gt;In addition to cleaner Markdown, shortcodes can be updated any time to reflect new classes, techniques, or standards. At the point of site generation, Hugo shortcodes will easily merge in your changes. You avoid a possibly complicated search and replace operation.&lt;/p&gt;&#xA;&lt;p&gt;More details: &lt;a href=&#34;https://gohugo.io/content-management/shortcodes/&#34;&gt;https://gohugo.io/content-management/shortcodes/&lt;/a&gt;&lt;/p&gt;</description>
+      <title>Encryption Analysis of a Car Network App Communication Protocol (Part 1)</title>
+      <link>https://578164.xyz/post/other/encryption-analysis-of-a-car-network-app-communication-protocol-part-1/</link>
+      <pubDate>Tue, 30 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/encryption-analysis-of-a-car-network-app-communication-protocol-part-1/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;Boss: I just bought a new car recently. The app that came with it is quite interesting. Would you like to take a look at it?&lt;/p&gt;&#xA;&lt;p&gt;Me: Oh my god, it’s packed, it’s quite interesting, let me try it.&lt;/p&gt;&#xA;&lt;p&gt;v6.1.0&lt;/p&gt;&#xA;&lt;h2 id=&#34;2-steps&#34;&gt;2. Steps&lt;/h2&gt;&#xA;&lt;h3 id=&#34;packet-capture&#34;&gt;Packet capture&lt;/h3&gt;&#xA;&lt;p&gt;My packet capture environment is Mac 10.14.6 + httpToolKit, and I captured the packet smoothly in this step.&lt;/p&gt;&#xA;&lt;p&gt;1:main&lt;/p&gt;&#xA;&lt;p&gt;As you can see, both the http request and the return value are encrypted. This is our goal.requestandresponseThe origin of .&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Demo: Image</title>
-      <link>http://localhost:1313/post/demo/1-image/</link>
-      <pubDate>Sat, 03 Mar 2018 16:01:23 +0800</pubDate><author>me@example.com (Jane)</author>
-      <guid>http://localhost:1313/post/demo/1-image/</guid>
-      <description>&lt;p&gt;Thanks for &lt;a href=&#34;https://github.com/liwenyip/hugo-easy-gallery&#34;&gt;liwenyip/hugo-easy-gallery&lt;/a&gt; &amp;amp; &lt;a href=&#34;https://github.com/xianmin/hugo-theme-jane/pull/48&#34;&gt;Zebradil · Pull Request #48&lt;/a&gt; .&lt;/p&gt;&#xA;&lt;p&gt;Now, we could use &lt;code&gt;{{&amp;lt; gallery &amp;gt;}}&lt;/code&gt; shortcode in hugo-theme-jane.&lt;/p&gt;&#xA;&lt;h2 id=&#34;normal-image&#34;&gt;Normal Image&lt;/h2&gt;&#xA;&lt;p&gt;This is an image in &lt;code&gt;static/image&lt;/code&gt; folder.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight-container&#34;&gt;&#xA;&#xA;  &lt;button class=&#34;copy-code-btn outline&#34;&gt;Copy&lt;/button&gt;&#xA;&#xA;  &#xA;  &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;![&lt;span style=&#34;color:#f92672&#34;&gt;This is an image in `static/image` folder.&lt;/span&gt;](&lt;span style=&#34;color:#a6e22e&#34;&gt;/image/example.jpg&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&#xA;&lt;/div&gt;</description>
+      <title>appdbg: A virtual machine disguised as a debugger</title>
+      <link>https://578164.xyz/post/other/appdbg-a-virtual-machine-disguised-as-a-debugger/</link>
+      <pubDate>Sun, 29 May 2022 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/appdbg-a-virtual-machine-disguised-as-a-debugger/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;Today&amp;rsquo;s apps are restless. The Java layer tries to flirt with the Native layer, and the Native layer likes to collude with Jave.&lt;/p&gt;&#xA;&lt;p&gt;It&amp;rsquo;s too difficult to analyze a so quietly.&lt;/p&gt;&#xA;&lt;p&gt;Is it possible to simulate the execution of the App on the PC, so that when Native is connected to the Jave layer, a lot of work of supplementing the environment can be saved?&lt;/p&gt;&#xA;&lt;p&gt;appdbg is such a virtual machine disguised as a debugger.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Demo: Shortcodes Notice</title>
-      <link>http://localhost:1313/post/demo/6-shortcode-notice/</link>
-      <pubDate>Sat, 03 Mar 2018 16:01:23 +0800</pubDate><author>me@example.com (Jane)</author>
-      <guid>http://localhost:1313/post/demo/6-shortcode-notice/</guid>
-      <description>&lt;h2 id=&#34;normal-use&#34;&gt;normal use&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;Note&lt;/code&gt; example:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight-container&#34;&gt;&#xA;&#xA;  &lt;button class=&#34;copy-code-btn outline&#34;&gt;Copy&lt;/button&gt;&#xA;&#xA;  &#xA;  &lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-shortcode&#34; data-lang=&#34;shortcode&#34;&gt;{{% notice note %}}&#xA;A notice disclaimer&#xA;{{% /notice %}}&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;&lt;strong&gt;Result:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;You could &lt;strong&gt;custom title&lt;/strong&gt; :&lt;/p&gt;&#xA;&lt;div class=&#34;highlight-container&#34;&gt;&#xA;&#xA;  &lt;button class=&#34;copy-code-btn outline&#34;&gt;Copy&lt;/button&gt;&#xA;&#xA;  &#xA;  &lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-shortcode&#34; data-lang=&#34;shortcode&#34;&gt;{{% notice note 笔记 %}}&#xA;A notice disclaimer&#xA;{{% /notice %}}&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;h2 id=&#34;tip&#34;&gt;tip&lt;/h2&gt;&#xA;&lt;div class=&#34;highlight-container&#34;&gt;&#xA;&#xA;  &lt;button class=&#34;copy-code-btn outline&#34;&gt;Copy&lt;/button&gt;&#xA;&#xA;  &#xA;  &lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-shortcode&#34; data-lang=&#34;shortcode&#34;&gt;{{% notice tip %}}&#xA;A tip disclaimer&#xA;{{% /tip %}}&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;h2 id=&#34;info&#34;&gt;info&lt;/h2&gt;&#xA;&lt;div class=&#34;highlight-container&#34;&gt;&#xA;&#xA;  &lt;button class=&#34;copy-code-btn outline&#34;&gt;Copy&lt;/button&gt;&#xA;&#xA;  &#xA;  &lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-shortcode&#34; data-lang=&#34;shortcode&#34;&gt;{{% notice info %}}&#xA;A info disclaimer&#xA;{{% /notice %}}&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;h2 id=&#34;warning&#34;&gt;warning&lt;/h2&gt;&#xA;&lt;div class=&#34;highlight-container&#34;&gt;&#xA;&#xA;  &lt;button class=&#34;copy-code-btn outline&#34;&gt;Copy&lt;/button&gt;&#xA;&#xA;  &#xA;  &lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-shortcode&#34; data-lang=&#34;shortcode&#34;&gt;{{% notice warning %}}&#xA;A warning disclaimer&#xA;{{% /notice %}}&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;!-- raw HTML omitted --&gt;</description>
+      <title>Teach you how to build a Frida &#43; Sekiro RPC framework</title>
+      <link>https://578164.xyz/post/other/teach-you-how-to-build-a-frida-&#43;-sekiro-rpc-framework/</link>
+      <pubDate>Thu, 21 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/teach-you-how-to-build-a-frida-&#43;-sekiro-rpc-framework/</guid>
+      <description>&lt;h2 id=&#34;objectives&#34;&gt;Objectives&lt;/h2&gt;&#xA;&lt;p&gt;Signing with a mobile phone is a tricky solution. We have introduced it before.&lt;/p&gt;&#xA;&lt;p&gt;Sekiro + Xposed signature solution&lt;/p&gt;&#xA;&lt;p&gt;Frida is now widely used, and Sekiro has also upgraded to a new version. Today we will teach you how to build a Frida + Sekiro Rpc framework.&lt;/p&gt;&#xA;&lt;h3 id=&#34;run-the-server-first&#34;&gt;Run the server first&lt;/h3&gt;&#xA;&lt;p&gt;The official website is here &lt;a href=&#34;https://github.com/virjar/sekiro&#34;&gt;https://github.com/virjar/sekiro&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;git clone it;&lt;/p&gt;&#xA;&lt;p&gt;On Linux or Mac, execute the script build_demo_server.sh, and then get the release compressed package: sekiro-service-demo/target/sekiro-release-demo.zip&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Demo: Footnote</title>
-      <link>http://localhost:1313/post/demo/4-footnote/</link>
-      <pubDate>Thu, 01 Mar 2018 16:01:23 +0800</pubDate><author>me@example.com (Jane)</author>
-      <guid>http://localhost:1313/post/demo/4-footnote/</guid>
-      <description>&lt;p&gt;Hugo-theme-jane optimized for footnote. When you mouse hover the footnote&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; , footnote content will be displayed.&lt;/p&gt;</description>
+      <title>An e-commerce App sign algorithm upgrade verification</title>
+      <link>https://578164.xyz/post/other/an-e-commerce-app-sign-algorithm-upgrade-verification/</link>
+      <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/an-e-commerce-app-sign-algorithm-upgrade-verification/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;The app has been upgraded, but has its algorithm also been upgraded? This is a question. We need to verify it quickly, otherwise Mr. Li will go crazy.&lt;/p&gt;&#xA;&lt;h6 id=&#34;note&#34;&gt;Note:&lt;/h6&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Objection&lt;/li&gt;&#xA;&lt;li&gt;Unidbg&lt;/li&gt;&#xA;&lt;li&gt;gettimeofday&lt;/li&gt;&#xA;&lt;li&gt;lrand48&lt;/li&gt;&#xA;&lt;li&gt;V9.4.2&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;2-analysis&#34;&gt;2. Analysis&lt;/h2&gt;&#xA;&lt;p&gt;In the previous analysis of a signature algorithm of an e-commerce app (Part 1) we located the &lt;strong&gt;com.xxxxxxxx.common.utils.BitmapkitUtils&lt;/strong&gt; class and its &lt;strong&gt;getSignFromJni&lt;/strong&gt; function as the key functions for calculating the sign.&lt;/p&gt;&#xA;&lt;p&gt;In the new version, we first use Objection to hook com.xxxxxxxx.common.utils.BitmapkitUtils&lt;/p&gt;</description>
     </item>
     <item>
-      <title>English Creating a New Theme</title>
-      <link>http://localhost:1313/post/other/english-preview/</link>
-      <pubDate>Thu, 31 Aug 2017 15:43:48 +0800</pubDate><author>me@example.com (Jane)</author>
-      <guid>http://localhost:1313/post/other/english-preview/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.&lt;/p&gt;</description>
+      <title>Code Restoration Technology ARM Assembly Introduction Tutorial (I) Hello World!</title>
+      <link>https://578164.xyz/post/other/code-restoration-technology-arm-assembly-introduction-tutorial-i-hello-world/</link>
+      <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/code-restoration-technology-arm-assembly-introduction-tutorial-i-hello-world/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Why learn ARM assembly?&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;No reason.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Is it useful to learn ARM assembly?&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;It&amp;rsquo;s useless&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Can I find a job after learning ARM assembly?&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;None of the popular large-scale software is written in assembly language, so what do you think?&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Do you still need to learn ARM assembly?&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Why not learn it? You have nothing to do anyway. Knowing some low-level languages and getting close to the essence of computer operation is still very cool.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>This is a very long title This is a very long title This is a very long title This is a very long title This is a very long title</title>
-      <link>http://localhost:1313/post/other/this-is-a-very-long-title/</link>
-      <pubDate>Wed, 30 Aug 2017 15:43:48 +0800</pubDate><author>me@example.com (Jane)</author>
-      <guid>http://localhost:1313/post/other/this-is-a-very-long-title/</guid>
-      <description>&lt;p&gt;This is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long title&lt;/p&gt;</description>
+      <title>Iphone Jailbreak 2020</title>
+      <link>https://578164.xyz/post/other/iphone-jailbreak-2020/</link>
+      <pubDate>Sat, 31 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/iphone-jailbreak-2020/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;h6 id=&#34;note&#34;&gt;Note:&lt;/h6&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;iOS jailbreak&lt;/li&gt;&#xA;&lt;li&gt;MacOS Mojave 10.14.6&lt;/li&gt;&#xA;&lt;li&gt;Xcode Version 11.3.1&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;I was planning to build a framework for app signature calculation based on iOS, but I found that the system of my test phone iPhone 11.2.2 could not be jailbroken. A lot of xx assistants&amp;rsquo; corporate signatures have expired, so I couldn&amp;rsquo;t install jailbreak software. Fortunately, I had used Cydia Impactor to do self-signing before, so I continued to use it, and the result was:&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Creating a New Theme</title>
-      <link>http://localhost:1313/post/other/creating-a-new-theme/</link>
-      <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate><author>me@example.com (Jane)</author>
-      <guid>http://localhost:1313/post/other/creating-a-new-theme/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.&lt;/p&gt;&#xA;&lt;p&gt;We&amp;rsquo;ll start with creating a new site with a very basic template. Then we&amp;rsquo;ll add in a few pages and posts. With small variations on that, you will be able to create many different types of web sites.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>(Hu)go Template Primer</title>
-      <link>http://localhost:1313/post/other/goisforlovers/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate><author>me@example.com (Jane)</author>
-      <guid>http://localhost:1313/post/other/goisforlovers/</guid>
-      <description>&lt;p&gt;Hugo uses the excellent &lt;a href=&#34;http://golang.org/&#34;&gt;go&lt;/a&gt; &lt;a href=&#34;http://golang.org/pkg/html/template/&#34;&gt;html/template&lt;/a&gt; library for&#xA;its template engine. It is an extremely lightweight engine that provides a very&#xA;small amount of logic. In our experience that it is just the right amount of&#xA;logic to be able to create a good static website. If you have used other&#xA;template systems from different languages or frameworks you will find a lot of&#xA;similarities in go templates.&lt;/p&gt;&#xA;&lt;p&gt;This document is a brief primer on using go templates. The &lt;a href=&#34;http://golang.org/pkg/html/template/&#34;&gt;go docs&lt;/a&gt;&#xA;provide more details.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Getting Started with Hugo</title>
-      <link>http://localhost:1313/post/other/hugoisforlovers/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate><author>me@example.com (Jane)</author>
-      <guid>http://localhost:1313/post/other/hugoisforlovers/</guid>
-      <description>&lt;h2 id=&#34;step-1-install-hugo&#34;&gt;Step 1. Install Hugo&lt;/h2&gt;&#xA;&lt;p&gt;Goto &lt;a href=&#34;https://github.com/spf13/hugo/releases&#34;&gt;hugo releases&lt;/a&gt; and download the&#xA;appropriate version for your os and architecture.&lt;/p&gt;&#xA;&lt;p&gt;Save it somewhere specific as we will be using it in the next step.&lt;/p&gt;&#xA;&lt;p&gt;More complete instructions are available at &lt;a href=&#34;http://localhost:1313/overview/installing/&#34;&gt;installing hugo&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;step-2-build-the-docs&#34;&gt;Step 2. Build the Docs&lt;/h2&gt;&#xA;&lt;p&gt;Hugo has its own example site which happens to also be the documentation site&#xA;you are reading right now.&lt;/p&gt;&#xA;&lt;p&gt;Follow the following steps:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Clone the &lt;a href=&#34;https://github.com/gohugoio/hugo&#34;&gt;hugo repository&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Go into the repo&lt;/li&gt;&#xA;&lt;li&gt;Run hugo in server mode and build the docs&lt;/li&gt;&#xA;&lt;li&gt;Open your browser to http://localhost:1313&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Corresponding pseudo commands:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Migrate to Hugo from Jekyll</title>
-      <link>http://localhost:1313/post/other/migrate-from-jekyll/</link>
-      <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate><author>me@example.com (Jane)</author>
-      <guid>http://localhost:1313/post/other/migrate-from-jekyll/</guid>
-      <description>&lt;h2 id=&#34;move-static-content-to-static&#34;&gt;Move static content to &lt;code&gt;static&lt;/code&gt;&lt;/h2&gt;&#xA;&lt;p&gt;Jekyll has a rule that any directory not starting with &lt;code&gt;_&lt;/code&gt; will be copied as-is to the &lt;code&gt;_site&lt;/code&gt; output. Hugo keeps all static content under &lt;code&gt;static&lt;/code&gt;. You should therefore move it all there.&#xA;With Jekyll, something that looked like&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;▾ &amp;lt;root&amp;gt;/&#xA;    ▾ images/&#xA;        logo.png&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;should become&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;▾ &amp;lt;root&amp;gt;/&#xA;    ▾ static/&#xA;        ▾ images/&#xA;            logo.png&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as &lt;code&gt;CNAME&lt;/code&gt;) to be moved to &lt;code&gt;static&lt;/code&gt;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Demo: Syntax Highlighting</title>
-      <link>http://localhost:1313/post/demo/3-syntax-highlighting/</link>
-      <pubDate>Tue, 30 Aug 2011 16:01:23 +0800</pubDate><author>me@example.com (Jane)</author>
-      <guid>http://localhost:1313/post/demo/3-syntax-highlighting/</guid>
-      <description>&lt;p&gt;More detail: &lt;a href=&#34;https://gohugo.io/content-management/syntax-highlighting/&#34;&gt;Syntax Highlighting | Hugo&lt;/a&gt;&lt;/p&gt;&#xA;&lt;div class=&#34;highlight-container&#34;&gt;&#xA;&#xA;  &lt;button class=&#34;copy-code-btn outline&#34;&gt;Copy&lt;/button&gt;&#xA;&#xA;  &#xA;  &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;helloWorld&lt;/span&gt; () {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;alert&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&#xA;&lt;/div&gt;</description>
+      <title>Frida installation (I)</title>
+      <link>https://578164.xyz/post/other/frida-installation-i/</link>
+      <pubDate>Fri, 09 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/frida-installation-i/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;Frida is a hook framework based on python+javascript, which can run on various platforms such as android, ios, linux, win, etc. It mainly uses dynamic binary instrumentation technology. It is also a widely used reverse engineering tool.&lt;/p&gt;&#xA;&lt;h2 id=&#34;2-installation&#34;&gt;2. Installation&lt;/h2&gt;&#xA;&lt;h3 id=&#34;install-frida-on-mac&#34;&gt;Install frida on Mac&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight-container&#34;&gt;&#xA;&#xA;  &lt;button class=&#34;copy-code-btn outline&#34;&gt;Copy&lt;/button&gt;&#xA;&#xA;  &#xA;  &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip install frida&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;h6 id=&#34;tip&#34;&gt;Tip:&lt;/h6&gt;&#xA;&lt;div class=&#34;highlight-container&#34;&gt;&#xA;&#xA;  &lt;button class=&#34;copy-code-btn outline&#34;&gt;Copy&lt;/button&gt;&#xA;&#xA;  &#xA;  &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip install frida&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;If you have installed an old version before, you must uninstall the old version first.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight-container&#34;&gt;&#xA;&#xA;  &lt;button class=&#34;copy-code-btn outline&#34;&gt;Copy&lt;/button&gt;&#xA;&#xA;  &#xA;  &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip uninstall frida&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;Then install frida-tools&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

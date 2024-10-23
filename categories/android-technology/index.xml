@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Android Technology on Jane - A super concise theme for Hugo</title>
+    <link>https://578164.xyz/categories/android-technology/</link>
+    <description>Recent content in Android Technology on Jane - A super concise theme for Hugo</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 25 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://578164.xyz/categories/android-technology/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>QBDI User Guide</title>
+      <link>https://578164.xyz/post/other/qbdi-user-guide/</link>
+      <pubDate>Mon, 25 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/qbdi-user-guide/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;Today I would like to introduce a new friend to you, &lt;a href=&#34;https://qbdi.quarkslab.com/&#34;&gt;QBDI&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;It can be quickly integrated into your frida script to perform assembly-level trace&lt;/p&gt;&#xA;&lt;h2 id=&#34;2-steps&#34;&gt;2. Steps&lt;/h2&gt;&#xA;&lt;h3 id=&#34;install&#34;&gt;Install&lt;/h3&gt;&#xA;&lt;p&gt;It is very convenient to use QBDI on Android. First go to the official website to download the latest version&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/QBDI/QBDI/releases/download/v0.10.0/QBDI-0.10.0-android-AARCH64.tar.gz&#34;&gt;https://github.com/QBDI/QBDI/releases/download/v0.10.0/QBDI-0.10.0-android-AARCH64.tar.gz&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;For our use of Frida, there are mainly two files in itlibQBDI.soandfrida-qbdi.js, the former is the injection library, the latter is the js encapsulation&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Code Restoration Trial (Part 2): Modified MD5</title>
+      <link>https://578164.xyz/post/other/code-restoration-trial-part-2-modified-md5/</link>
+      <pubDate>Mon, 13 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/code-restoration-trial-part-2-modified-md5/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;Boss:  AI has already done the work of code restoration. Do we still need to write a tutorial for code restoration?&lt;/p&gt;&#xA;&lt;p&gt;Me: Of course I have to write it. AI is AI, it is a batch assembly line operation, how can it be as cool as my purely manual code? My code is warm.&lt;/p&gt;&#xA;&lt;p&gt;A famous person once said: You can never make money beyond your cognitive scope. So You can&amp;rsquo;t command AI to do work beyond your cognitive scope.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Android high version installation system certificate HTTPS packet capture - the ultimate solution</title>
+      <link>https://578164.xyz/post/other/android-high-version-installation-system-certificate-https-packet-capture---the-ultimate-solution/</link>
+      <pubDate>Sun, 05 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/android-high-version-installation-system-certificate-https-packet-capture---the-ultimate-solution/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;To capture App packages, you first need the App to trust the certificate of the capture software.&lt;/p&gt;&#xA;&lt;p&gt;However, starting from Android 7.0, the system no longer trusts user CA certificates, so you need to install the CA certificate to the system CA certificate directory.&lt;/p&gt;&#xA;&lt;p&gt;If you use Magisk jailbreak, this task is relatively simple. You only need to install a module Move Certificates.&lt;/p&gt;&#xA;&lt;p&gt;But today&amp;rsquo;s story starts with me flashing a new ROM. This ROM is quite strange. After flashing, the adb connection is directly in root state, but the App cannot obtain the root state.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Analysis of the sig3 signature of a novel app</title>
+      <link>https://578164.xyz/post/other/analysis-of-the-__sig3-signature-of-a-novel-app/</link>
+      <pubDate>Mon, 10 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/analysis-of-the-__sig3-signature-of-a-novel-app/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;This sample is somewhat similar to the previous short video app. The signature name and algorithm are probably the same. So if you understand this, you can probably understand the latest version of the short video app.&lt;/p&gt;&#xA;&lt;p&gt;So what is the difference between reading novels and watching short videos?&lt;/p&gt;&#xA;&lt;p&gt;The more I read novels, the sleepier I feel. The more I watch short videos, the more awake I feel. This proves that AI knows you better than you know yourself.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>An analysis of the encryption of the communication protocol of a car networking app (Part 2) Unidbg step by step</title>
+      <link>https://578164.xyz/post/other/an-analysis-of-the-encryption-of-the-communication-protocol-of-a-car-networking-app-part-2-unidbg-step-by-step/</link>
+      <pubDate>Thu, 08 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/an-analysis-of-the-encryption-of-the-communication-protocol-of-a-car-networking-app-part-2-unidbg-step-by-step/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;It has been a while since I wrote an article related to unidbg. This sample is quite suitable, with moderate difficulty and a small pit for you. So the following is a series of articles, including unidbg environment supplement, Trace Block comparison process, Trace Code location difference. Mastering this series of routines, Native analysis can be considered an entry.&lt;/p&gt;&#xA;&lt;p&gt;This time, let&amp;rsquo;s run so with unidbg&lt;/p&gt;&#xA;&lt;p&gt;v6.1.0&lt;/p&gt;&#xA;&lt;h2 id=&#34;2-steps&#34;&gt;2. Steps&lt;/h2&gt;&#xA;&lt;h3 id=&#34;dump-so&#34;&gt;Dump so&lt;/h3&gt;&#xA;&lt;p&gt;IDA openslibencrypt.soGo to the offset addresses 0x24424 and 0x2B1BC corresponding to the two functions checkcode and decheckcode we want to analyze. We will find a strange problem that there is no assembly code at these two addresses, both are 0x00.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Encryption Analysis of a Car Network App Communication Protocol (Part 1)</title>
+      <link>https://578164.xyz/post/other/encryption-analysis-of-a-car-network-app-communication-protocol-part-1/</link>
+      <pubDate>Tue, 30 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/encryption-analysis-of-a-car-network-app-communication-protocol-part-1/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;Boss: I just bought a new car recently. The app that came with it is quite interesting. Would you like to take a look at it?&lt;/p&gt;&#xA;&lt;p&gt;Me: Oh my god, it’s packed, it’s quite interesting, let me try it.&lt;/p&gt;&#xA;&lt;p&gt;v6.1.0&lt;/p&gt;&#xA;&lt;h2 id=&#34;2-steps&#34;&gt;2. Steps&lt;/h2&gt;&#xA;&lt;h3 id=&#34;packet-capture&#34;&gt;Packet capture&lt;/h3&gt;&#xA;&lt;p&gt;My packet capture environment is Mac 10.14.6 + httpToolKit, and I captured the packet smoothly in this step.&lt;/p&gt;&#xA;&lt;p&gt;1:main&lt;/p&gt;&#xA;&lt;p&gt;As you can see, both the http request and the return value are encrypted. This is our goal.requestandresponseThe origin of .&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>appdbg: A virtual machine disguised as a debugger</title>
+      <link>https://578164.xyz/post/other/appdbg-a-virtual-machine-disguised-as-a-debugger/</link>
+      <pubDate>Sun, 29 May 2022 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/appdbg-a-virtual-machine-disguised-as-a-debugger/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;Today&amp;rsquo;s apps are restless. The Java layer tries to flirt with the Native layer, and the Native layer likes to collude with Jave.&lt;/p&gt;&#xA;&lt;p&gt;It&amp;rsquo;s too difficult to analyze a so quietly.&lt;/p&gt;&#xA;&lt;p&gt;Is it possible to simulate the execution of the App on the PC, so that when Native is connected to the Jave layer, a lot of work of supplementing the environment can be saved?&lt;/p&gt;&#xA;&lt;p&gt;appdbg is such a virtual machine disguised as a debugger.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Teach you how to build a Frida &#43; Sekiro RPC framework</title>
+      <link>https://578164.xyz/post/other/teach-you-how-to-build-a-frida-&#43;-sekiro-rpc-framework/</link>
+      <pubDate>Thu, 21 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/teach-you-how-to-build-a-frida-&#43;-sekiro-rpc-framework/</guid>
+      <description>&lt;h2 id=&#34;objectives&#34;&gt;Objectives&lt;/h2&gt;&#xA;&lt;p&gt;Signing with a mobile phone is a tricky solution. We have introduced it before.&lt;/p&gt;&#xA;&lt;p&gt;Sekiro + Xposed signature solution&lt;/p&gt;&#xA;&lt;p&gt;Frida is now widely used, and Sekiro has also upgraded to a new version. Today we will teach you how to build a Frida + Sekiro Rpc framework.&lt;/p&gt;&#xA;&lt;h3 id=&#34;run-the-server-first&#34;&gt;Run the server first&lt;/h3&gt;&#xA;&lt;p&gt;The official website is here &lt;a href=&#34;https://github.com/virjar/sekiro&#34;&gt;https://github.com/virjar/sekiro&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;git clone it;&lt;/p&gt;&#xA;&lt;p&gt;On Linux or Mac, execute the script build_demo_server.sh, and then get the release compressed package: sekiro-service-demo/target/sekiro-release-demo.zip&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

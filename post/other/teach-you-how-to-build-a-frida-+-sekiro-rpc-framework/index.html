@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage" data-theme="light">
+
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>
+  Teach you how to build a Frida &#43; Sekiro RPC framework - Jane - A super concise theme for Hugo
+  </title>
+
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
+
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="color-scheme" content="light dark" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="h1yx" />
+<meta name="description" content="Objectives Signing with a mobile phone is a tricky solution. We have introduced it before.
+Sekiro &#43; Xposed signature solution
+Frida is now widely used, and Sekiro has also upgraded to a new version. Today we will teach you how to build a Frida &#43; Sekiro Rpc framework.
+Run the server first The official website is here https://github.com/virjar/sekiro
+git clone it;
+On Linux or Mac, execute the script build_demo_server.sh, and then get the release compressed package: sekiro-service-demo/target/sekiro-release-demo.zip
+" />
+
+<meta name="keywords"
+  content="" />
+
+
+
+
+<meta name="generator" content="Hugo 0.136.4" />
+
+
+<link rel="canonical" href="https://578164.xyz/post/other/teach-you-how-to-build-a-frida-&#43;-sekiro-rpc-framework/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/style.min.4d9e22c6c4a4cfe9ca1e35f9578ca6c8ff84c408a5f0599c8cbdaf444e95eae8.css" integrity="sha256-TZ4ixsSkz&#43;nKHjX5V4ymyP&#43;ExAil8FmcjL2vRE6V6ug=" media="screen"
+  crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:url" content="https://578164.xyz/post/other/teach-you-how-to-build-a-frida-&#43;-sekiro-rpc-framework/">
+  <meta property="og:site_name" content="Jane - A super concise theme for Hugo">
+  <meta property="og:title" content="Teach you how to build a Frida &#43; Sekiro RPC framework">
+  <meta property="og:description" content="Objectives Signing with a mobile phone is a tricky solution. We have introduced it before.
+Sekiro &#43; Xposed signature solution
+Frida is now widely used, and Sekiro has also upgraded to a new version. Today we will teach you how to build a Frida &#43; Sekiro Rpc framework.
+Run the server first The official website is here https://github.com/virjar/sekiro
+git clone it;
+On Linux or Mac, execute the script build_demo_server.sh, and then get the release compressed package: sekiro-service-demo/target/sekiro-release-demo.zip">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2022-04-21T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-04-21T00:00:00+00:00">
+    <meta property="article:tag" content="Frida">
+    <meta property="article:tag" content="Sekiro RPC">
+
+  <meta itemprop="name" content="Teach you how to build a Frida &#43; Sekiro RPC framework">
+  <meta itemprop="description" content="Objectives Signing with a mobile phone is a tricky solution. We have introduced it before.
+Sekiro &#43; Xposed signature solution
+Frida is now widely used, and Sekiro has also upgraded to a new version. Today we will teach you how to build a Frida &#43; Sekiro Rpc framework.
+Run the server first The official website is here https://github.com/virjar/sekiro
+git clone it;
+On Linux or Mac, execute the script build_demo_server.sh, and then get the release compressed package: sekiro-service-demo/target/sekiro-release-demo.zip">
+  <meta itemprop="datePublished" content="2022-04-21T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2022-04-21T00:00:00+00:00">
+  <meta itemprop="wordCount" content="449">
+  <meta itemprop="keywords" content="Frida,Sekiro RPC">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Teach you how to build a Frida &#43; Sekiro RPC framework">
+  <meta name="twitter:description" content="Objectives Signing with a mobile phone is a tricky solution. We have introduced it before.
+Sekiro &#43; Xposed signature solution
+Frida is now widely used, and Sekiro has also upgraded to a new version. Today we will teach you how to build a Frida &#43; Sekiro Rpc framework.
+Run the server first The official website is here https://github.com/virjar/sekiro
+git clone it;
+On Linux or Mac, execute the script build_demo_server.sh, and then get the release compressed package: sekiro-service-demo/target/sekiro-release-demo.zip">
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+
+<script>
+  (function () {
+    var savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  })();
+</script>
+
+</head>
+
+<body>
+  <div id="back-to-top"></div>
+
+  <header>
+    
+<div class="desktop-header">
+  <div class="desktop-header-logo">
+    <a href="/" class="logo">
+      
+      h1yx blog
+      
+    </a>
+  </div>
+
+  <nav class="desktop-navbar">
+    <ul id="menu" class="menu">
+      
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/">Home</a>
+        
+
+        
+
+      </li>
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/post/">Archives</a>
+        
+
+        
+
+      </li>
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/tags/">Tags</a>
+        
+
+        
+
+      </li>
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/about/">About</a>
+        
+
+        
+
+      </li>
+      
+
+      
+      
+
+      
+
+      <li class="menu-item">
+        <a class="theme-toggle menu-item-link" href="javascript:void(0);">
+
+            
+<svg aria-hidden="true" class="lucide lucide-sun hi-svg-inline theme-icon-light" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+
+            
+<svg aria-hidden="true" class="lucide lucide-moon hi-svg-inline theme-icon-dark" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a class="menu-item-link" href="https://578164.xyz/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+          title="rss" target="_blank">
+          
+<svg aria-hidden="true" class="lucide lucide-rss hi-svg-inline icon--rss" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+        </a>
+        
+      </li>
+    </ul>
+  </nav>
+</div>
+
+    
+
+<div class="mobile-header">
+  <div id="mobile-navbar" class="mobile-navbar">
+    <div id="mobile-navbar-icon" class="mobile-navbar-icon">
+      
+<svg aria-hidden="true" class="lucide lucide-menu hi-svg-inline icon--menu" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+    </div>
+    <div class="mobile-navbar-logo">
+      <a href="/%20/" class="logo">h1yx blog</a>
+    </div>
+  </div>
+
+  <div id="mobile-menu-close-modal" class="mobile-menu-close-modal"></div>
+  <nav id="mobile-menu" class="mobile-menu">
+    <ul class="mobile-menu-list">
+      <li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/">Home</a>
+        
+        
+      </li><li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/post/">Archives</a>
+        
+        
+      </li><li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/tags/">Tags</a>
+        
+        
+      </li><li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/about/">About</a>
+        
+        
+      </li>
+      
+
+      
+
+      <li class="mobile-menu-item">
+        <a class="theme-toggle menu-item-link" href="javascript:void(0);">
+
+            
+<svg aria-hidden="true" class="lucide lucide-sun hi-svg-inline theme-icon-light" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+
+            
+<svg aria-hidden="true" class="lucide lucide-moon hi-svg-inline theme-icon-dark" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+
+        </a>
+      </li>
+
+      <li class="mobile-menu-item">
+        <a class="menu-item-link" href="https://578164.xyz/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+          title="rss" target="_blank">
+          
+<svg aria-hidden="true" class="lucide lucide-rss hi-svg-inline icon--rss" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+        </a>
+        
+      </li>
+    </ul>
+  </nav>
+</div>
+
+  </header>
+
+  
+
+  
+
+
+
+  <main id="main" class="main pico container">
+    <div class="content-wrapper">
+  <aside class="sidebar">
+  </aside>
+  <div id="content" class="content">
+    <article class="post">
+      
+      <header class="post-header">
+        <h1 class="post-title">Teach you how to build a Frida &#43; Sekiro RPC framework</h1>
+        
+
+
+
+        <div class="post-meta-list">
+  <div class="post-meta-item post-meta-author">
+    
+<svg aria-hidden="true" class="lucide lucide-user-round-pen hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M2 21a8 8 0 0 1 10.821-7.487"/><path d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"/><circle cx="10" cy="8" r="5"/></svg>
+    <a href="/about">
+      <span class="post-meta-author-name">
+        h1yx
+      </span>
+    </a>
+    
+  </div>
+
+  <div class="post-meta-item post-meta-time">
+    
+<svg aria-hidden="true" class="lucide lucide-calendar-days hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
+    <time datetime=" 2022-04-21">
+      2022-04-21
+    </time>
+
+
+    
+
+  </div>
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-item post-meta-category">
+      <a href="https://578164.xyz/categories/android-technology/"> Android Technology </a>
+      
+    </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+      </header>
+
+      
+      <div class="post-content">
+        <h2 id="objectives">Objectives</h2>
+<p>Signing with a mobile phone is a tricky solution. We have introduced it before.</p>
+<p>Sekiro + Xposed signature solution</p>
+<p>Frida is now widely used, and Sekiro has also upgraded to a new version. Today we will teach you how to build a Frida + Sekiro Rpc framework.</p>
+<h3 id="run-the-server-first">Run the server first</h3>
+<p>The official website is here <a href="https://github.com/virjar/sekiro">https://github.com/virjar/sekiro</a></p>
+<p>git clone it;</p>
+<p>On Linux or Mac, execute the script build_demo_server.sh, and then get the release compressed package: sekiro-service-demo/target/sekiro-release-demo.zip</p>
+<p>If you are using Windows, or don&rsquo;t want to build it yourself, you can download it directly here</p>
+<p><a href="https://oss.virjar.com/sekiro/sekiro-demo">https://oss.virjar.com/sekiro/sekiro-demo</a></p>
+<p>Transfer the zip package to the server and decompress it</p>
+<p>Run sekiro.bat on Windows and sekiro.sh on Linux/Mac</p>
+<p>This way the server is running.</p>
+<h3 id="firda-develops-sekiro-client">firda develops sekiro client</h3>
+<p>Sekiro is a pretty awesome library that basically works out of the box.</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>new SekiroClient(&#34;test-android&#34;, UUID.randomUUID().toString())
+        .setupSekiroRequestInitializer(new SekiroRequestInitializer() {
+            @Override
+            public void onSekiroRequest(SekiroRequest sekiroRequest, HandlerRegistry handlerRegistry) {
+                handlerRegistry.registerSekiroHandler(new ClientTimeHandler());
+            }
+        }).start();</code></pre>
+</div>
+<p>In the Android code, just add an API like this, and then write the logic in the ClientTimeHandler class</p>
+<p>The use of frida is a little bit complicated. The complexity lies in creating a java class ClientTimeHandler to handle the calling logic.</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>function initSekiro() {
+    const SekiroClient = Java.use(&#39;com.virjar.sekiro.business.api.SekiroClient&#39;);
+    const ActionHandler = Java.use(&#39;com.virjar.sekiro.business.api.interfaze.ActionHandler&#39;);
+    const SekiroRequestInitializer = Java.use(&#39;com.virjar.sekiro.business.api.interfaze.SekiroRequestInitializer&#39;);
+
+    const ClientTimeHandler = Java.registerClass({
+        name: &#39;ClientTimeHandler&#39;,
+        implements: [ActionHandler],
+        methods: {
+            action: function () {
+                return &#39;mobile&#39;;
+            },
+            handleRequest: function (sekiroRequest, sekiroResponse) {
+                                const requestJsonData = sekiroRequest.getJsonModel();
+                                const requestData = JSON.parse(requestJsonData)[&#39;requestData&#39;];
+
+                                if(!requestData){
+                                        sekiroResponse.failed(JavaString.$new(&#39;requestData 不能为空&#39;));
+                                }else{
+                                        try{
+                                                sekiroResponse.success(callMobile(requestData));
+                                        }catch(error){
+                                                sekiroResponse.failed(JavaString.$new(error.stack));
+                                                throw error;
+                                        }
+                                }
+            }
+        }
+    })
+
+     const SekiroRequestDefault = Java.registerClass({
+        name: &#34;SekiroRequestDefault&#34;,
+        implements: [SekiroRequestInitializer],
+        methods: {
+            onSekiroRequest: function (sekiroRequest, handlerRegistry) {
+                handlerRegistry.registerSekiroHandler(ClientTimeHandler.$new());
+            }
+        }
+    });
+
+    const clientID = guid();
+    const group = &#39;fridaHook_atlasEncrypt&#39;;
+    const ip = &#39;110.42.246.110&#39;;
+
+    const sekiro = SekiroClient.$new(group, clientID, ip, 8989);
+    sekiro.setupSekiroRequestInitializer(SekiroRequestDefault.$new());
+    sekiro.start();
+}</code></pre>
+</div>
+<p>That&rsquo;s it, hang up frida and run</p>
+<h3 id="sekiro-status-viewing-and-access-service">Sekiro status viewing and access service</h3>
+<p>http://110.42.246.110:8989/business-demo/groupList displays all groups registered in the current system</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>{&#34;data&#34;:[&#34;fridaHook_atlasEncrypt&#34;],&#34;ok&#34;:true,&#34;status&#34;:0}</code></pre>
+</div>
+<p>http://110.42.246.110:8989/business-demo/clientQueue?group=fridaHook_atlasEncrypt shows the clients/mobile phones registered under a specific group.</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>{&#34;data&#34;:[&#34;65c8e8b5-1a67-2036-5b38-769cb670aeb3&#34;],&#34;ok&#34;:true,&#34;status&#34;:0}</code></pre>
+</div>
+<p>Execute it and see the result</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code># -*- coding: utf-8 -*-
+
+import requests
+
+url = &#39;http://110.42.246.110:8989/business-demo/invoke&#39;
+
+mobileid = &#39;18913872618&#39;
+
+data = {
+    &#39;group&#39;: &#39;fridaHook_atlasEncrypt&#39;,
+    &#39;action&#39;: &#39;mobile&#39;,
+    &#39;requestData&#39;: mobileid
+    }
+
+res = requests.post(url,json=data).json()
+print(res[&#39;data&#39;])</code></pre>
+</div>
+<p>The result is perfect</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>3sCt3iAAMzIwOTAxMjA4AM8HAO7Jtk8ia8xTExAAAACFS7z70nRA3Ppgtdz9Kefb</code></pre>
+</div>
+<p>Fresh beer after work</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Basically, frida can use Java libraries seamlessly, which is much more convenient than Xposed.</p>
+<p>There is a small problem that the frida hook app has a chance of crashing, so a watchdog is needed to implement this.</p>
+<p>Sekiro official documentation <a href="https://sekiro.virjar.com/sekiro-doc/index.html">https://sekiro.virjar.com/sekiro-doc/index.html</a></p>
+<p>frida loads sekiro dex file to interact with the server <a href="https://www.qinless.com/387">https://www.qinless.com/387</a></p>
+<p>Only then did I realize that all my efforts were just to complete an ordinary life.</p>
+
+      </div>
+
+      
+      
+
+
+
+      
+      
+
+
+      <footer class="post-footer">
+        <div class="post-tags">
+          <a href="https://578164.xyz/tags/frida/">frida</a>
+          <a href="https://578164.xyz/tags/sekiro-rpc/">Sekiro RPC</a>
+          
+        </div>
+
+
+        
+        <nav class="post-nav">
+          
+          <a class="prev" href="/post/other/appdbg-a-virtual-machine-disguised-as-a-debugger/">
+            
+            <i class="iconfont">
+              
+<svg aria-hidden="true" class="lucide lucide-chevron-left hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m15 18-6-6 6-6"/></svg>
+            </i>
+            <span class="prev-text nav-default">appdbg: A virtual machine disguised as a debugger</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+          
+          <a class="next" href="/post/other/an-e-commerce-app-sign-algorithm-upgrade-verification/">
+            <span class="next-text nav-default">An e-commerce App sign algorithm upgrade verification</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              
+<svg aria-hidden="true" class="lucide lucide-chevron-right hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m9 18 6-6-6-6"/></svg>
+            </i>
+          </a>
+        </nav>
+      </footer>
+    </article>
+
+    
+    
+
+
+    
+    
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+    
+
+  
+
+  
+
+
+  </div>
+
+  
+  <nav class="toc" id="toc">
+    <div class="toc-title">Table of Contents</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#objectives">Objectives</a>
+      <ul>
+        <li><a href="#run-the-server-first">Run the server first</a></li>
+        <li><a href="#firda-develops-sekiro-client">firda develops sekiro client</a></li>
+        <li><a href="#sekiro-status-viewing-and-access-service">Sekiro status viewing and access service</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+</div>
+  </main>
+
+  <footer id="footer" class="footer">
+    <div class="social-icon-links">
+  
+
+
+
+
+<a href="https://578164.xyz/index.xml" rel="noopener alternate" type="application/rss&#43;xml" class="social-icon-link" title="rss"
+  target="_blank">
+  
+<svg aria-hidden="true" class="lucide lucide-rss hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+</a>
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+    2019 -
+    2024
+    <span class="heart">
+      
+      <i class="iconfont">
+        
+<svg aria-hidden="true" class="lucide lucide-heart hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+      </i>
+    </span><span class="author">
+      h1yx
+      
+    </span></span>
+
+  
+  
+
+  
+</div>
+
+  </footer>
+
+  
+
+
+
+
+<script type="text/javascript" src="/js/main.337fdc53bc7899023427e1f23060e9c67160243e2ff4f7f876358e1277d8664d.js" integrity="sha256-M3/cU7x4mQI0J&#43;HyMGDpxnFgJD4v9Pf4djWOEnfYZk0=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

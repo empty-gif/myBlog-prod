@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Advanced Learning on Jane - A super concise theme for Hugo</title>
+    <link>https://578164.xyz/categories/advanced-learning/</link>
+    <description>Recent content in Advanced Learning on Jane - A super concise theme for Hugo</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 12 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://578164.xyz/categories/advanced-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A series of operations merged the Unidbg update and continued to run the sign</title>
+      <link>https://578164.xyz/post/other/a-series-of-operations-merged-the-unidbg-update-and-continued-to-run-the-sign/</link>
+      <pubDate>Fri, 12 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/a-series-of-operations-merged-the-unidbg-update-and-continued-to-run-the-sign/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;The author of Unidbg has been updating quite frequently recently. We have to keep up with him so as not to be left behind.&lt;/p&gt;&#xA;&lt;h2 id=&#34;2-analysis&#34;&gt;2. Analysis&lt;/h2&gt;&#xA;&lt;h3 id=&#34;code-comparison&#34;&gt;Code comparison&lt;/h3&gt;&#xA;&lt;p&gt;Pull back the latest code first&lt;/p&gt;&#xA;&lt;div class=&#34;highlight-container&#34;&gt;&#xA;&#xA;  &lt;button class=&#34;copy-code-btn outline&#34;&gt;Copy&lt;/button&gt;&#xA;&#xA;  &#xA;  &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git pull&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;Then compared with our previous code, it seems that there are a lot of changes. I merged 3-5 files manually and vomited blood&amp;hellip;&lt;/p&gt;&#xA;&lt;h3 id=&#34;git&#34;&gt;git&lt;/h3&gt;&#xA;&lt;p&gt;As a certified senior programmer, I actually still merged codes manually, and my boss almost suspected that my senior certificate was issued in Zhongguancun.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Compile and flash Android 10 source code (QP1A.190711.020) under Mac 10.14.x (Pixel 2 XL)</title>
+      <link>https://578164.xyz/post/other/compile-and-flash-android-10-source-code-qp1a.190711.020-under-mac-10.14.x-pixel-2-xl/</link>
+      <pubDate>Mon, 12 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/compile-and-flash-android-10-source-code-qp1a.190711.020-under-mac-10.14.x-pixel-2-xl/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;Older generations of Windows reverse engineers have been analyzing the Windows kernel one after another, dreaming of taking a look at the Windows source code, but so far they can only see leaked source code from several generations ago. The mobile era is a blessing, the latest version of Android source code is open to you, and you can&amp;rsquo;t just look at it, you have to touch it.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>An e-commerce App sign algorithm upgrade verification</title>
+      <link>https://578164.xyz/post/other/an-e-commerce-app-sign-algorithm-upgrade-verification/</link>
+      <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/an-e-commerce-app-sign-algorithm-upgrade-verification/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;The app has been upgraded, but has its algorithm also been upgraded? This is a question. We need to verify it quickly, otherwise Mr. Li will go crazy.&lt;/p&gt;&#xA;&lt;h6 id=&#34;note&#34;&gt;Note:&lt;/h6&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Objection&lt;/li&gt;&#xA;&lt;li&gt;Unidbg&lt;/li&gt;&#xA;&lt;li&gt;gettimeofday&lt;/li&gt;&#xA;&lt;li&gt;lrand48&lt;/li&gt;&#xA;&lt;li&gt;V9.4.2&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;2-analysis&#34;&gt;2. Analysis&lt;/h2&gt;&#xA;&lt;p&gt;In the previous analysis of a signature algorithm of an e-commerce app (Part 1) we located the &lt;strong&gt;com.xxxxxxxx.common.utils.BitmapkitUtils&lt;/strong&gt; class and its &lt;strong&gt;getSignFromJni&lt;/strong&gt; function as the key functions for calculating the sign.&lt;/p&gt;&#xA;&lt;p&gt;In the new version, we first use Objection to hook com.xxxxxxxx.common.utils.BitmapkitUtils&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

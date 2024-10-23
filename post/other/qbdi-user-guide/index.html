@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage" data-theme="light">
+
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>
+  QBDI User Guide - Jane - A super concise theme for Hugo
+  </title>
+
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
+
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="color-scheme" content="light dark" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="h1yx" />
+<meta name="description" content="1. Objectives Today I would like to introduce a new friend to you, QBDI
+It can be quickly integrated into your frida script to perform assembly-level trace
+2. Steps Install It is very convenient to use QBDI on Android. First go to the official website to download the latest version
+https://github.com/QBDI/QBDI/releases/download/v0.10.0/QBDI-0.10.0-android-AARCH64.tar.gz
+For our use of Frida, there are mainly two files in itlibQBDI.soandfrida-qbdi.js, the former is the injection library, the latter is the js encapsulation
+" />
+
+<meta name="keywords"
+  content="" />
+
+
+
+
+<meta name="generator" content="Hugo 0.136.4" />
+
+
+<link rel="canonical" href="https://578164.xyz/post/other/qbdi-user-guide/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/style.min.4d9e22c6c4a4cfe9ca1e35f9578ca6c8ff84c408a5f0599c8cbdaf444e95eae8.css" integrity="sha256-TZ4ixsSkz&#43;nKHjX5V4ymyP&#43;ExAil8FmcjL2vRE6V6ug=" media="screen"
+  crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:url" content="https://578164.xyz/post/other/qbdi-user-guide/">
+  <meta property="og:site_name" content="Jane - A super concise theme for Hugo">
+  <meta property="og:title" content="QBDI User Guide">
+  <meta property="og:description" content="1. Objectives Today I would like to introduce a new friend to you, QBDI
+It can be quickly integrated into your frida script to perform assembly-level trace
+2. Steps Install It is very convenient to use QBDI on Android. First go to the official website to download the latest version
+https://github.com/QBDI/QBDI/releases/download/v0.10.0/QBDI-0.10.0-android-AARCH64.tar.gz
+For our use of Frida, there are mainly two files in itlibQBDI.soandfrida-qbdi.js, the former is the injection library, the latter is the js encapsulation">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2023-12-25T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-12-25T00:00:00+00:00">
+    <meta property="article:tag" content="Obqi">
+
+  <meta itemprop="name" content="QBDI User Guide">
+  <meta itemprop="description" content="1. Objectives Today I would like to introduce a new friend to you, QBDI
+It can be quickly integrated into your frida script to perform assembly-level trace
+2. Steps Install It is very convenient to use QBDI on Android. First go to the official website to download the latest version
+https://github.com/QBDI/QBDI/releases/download/v0.10.0/QBDI-0.10.0-android-AARCH64.tar.gz
+For our use of Frida, there are mainly two files in itlibQBDI.soandfrida-qbdi.js, the former is the injection library, the latter is the js encapsulation">
+  <meta itemprop="datePublished" content="2023-12-25T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-12-25T00:00:00+00:00">
+  <meta itemprop="wordCount" content="857">
+  <meta itemprop="keywords" content="Obqi">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="QBDI User Guide">
+  <meta name="twitter:description" content="1. Objectives Today I would like to introduce a new friend to you, QBDI
+It can be quickly integrated into your frida script to perform assembly-level trace
+2. Steps Install It is very convenient to use QBDI on Android. First go to the official website to download the latest version
+https://github.com/QBDI/QBDI/releases/download/v0.10.0/QBDI-0.10.0-android-AARCH64.tar.gz
+For our use of Frida, there are mainly two files in itlibQBDI.soandfrida-qbdi.js, the former is the injection library, the latter is the js encapsulation">
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+
+<script>
+  (function () {
+    var savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  })();
+</script>
+
+</head>
+
+<body>
+  <div id="back-to-top"></div>
+
+  <header>
+    
+<div class="desktop-header">
+  <div class="desktop-header-logo">
+    <a href="/" class="logo">
+      
+      h1yx blog
+      
+    </a>
+  </div>
+
+  <nav class="desktop-navbar">
+    <ul id="menu" class="menu">
+      
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/">Home</a>
+        
+
+        
+
+      </li>
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/post/">Archives</a>
+        
+
+        
+
+      </li>
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/tags/">Tags</a>
+        
+
+        
+
+      </li>
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/about/">About</a>
+        
+
+        
+
+      </li>
+      
+
+      
+      
+
+      
+
+      <li class="menu-item">
+        <a class="theme-toggle menu-item-link" href="javascript:void(0);">
+
+            
+<svg aria-hidden="true" class="lucide lucide-sun hi-svg-inline theme-icon-light" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+
+            
+<svg aria-hidden="true" class="lucide lucide-moon hi-svg-inline theme-icon-dark" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a class="menu-item-link" href="https://578164.xyz/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+          title="rss" target="_blank">
+          
+<svg aria-hidden="true" class="lucide lucide-rss hi-svg-inline icon--rss" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+        </a>
+        
+      </li>
+    </ul>
+  </nav>
+</div>
+
+    
+
+<div class="mobile-header">
+  <div id="mobile-navbar" class="mobile-navbar">
+    <div id="mobile-navbar-icon" class="mobile-navbar-icon">
+      
+<svg aria-hidden="true" class="lucide lucide-menu hi-svg-inline icon--menu" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+    </div>
+    <div class="mobile-navbar-logo">
+      <a href="/%20/" class="logo">h1yx blog</a>
+    </div>
+  </div>
+
+  <div id="mobile-menu-close-modal" class="mobile-menu-close-modal"></div>
+  <nav id="mobile-menu" class="mobile-menu">
+    <ul class="mobile-menu-list">
+      <li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/">Home</a>
+        
+        
+      </li><li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/post/">Archives</a>
+        
+        
+      </li><li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/tags/">Tags</a>
+        
+        
+      </li><li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/about/">About</a>
+        
+        
+      </li>
+      
+
+      
+
+      <li class="mobile-menu-item">
+        <a class="theme-toggle menu-item-link" href="javascript:void(0);">
+
+            
+<svg aria-hidden="true" class="lucide lucide-sun hi-svg-inline theme-icon-light" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+
+            
+<svg aria-hidden="true" class="lucide lucide-moon hi-svg-inline theme-icon-dark" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+
+        </a>
+      </li>
+
+      <li class="mobile-menu-item">
+        <a class="menu-item-link" href="https://578164.xyz/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+          title="rss" target="_blank">
+          
+<svg aria-hidden="true" class="lucide lucide-rss hi-svg-inline icon--rss" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+        </a>
+        
+      </li>
+    </ul>
+  </nav>
+</div>
+
+  </header>
+
+  
+
+  
+
+
+
+  <main id="main" class="main pico container">
+    <div class="content-wrapper">
+  <aside class="sidebar">
+  </aside>
+  <div id="content" class="content">
+    <article class="post">
+      
+      <header class="post-header">
+        <h1 class="post-title">QBDI User Guide</h1>
+        
+
+
+
+        <div class="post-meta-list">
+  <div class="post-meta-item post-meta-author">
+    
+<svg aria-hidden="true" class="lucide lucide-user-round-pen hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M2 21a8 8 0 0 1 10.821-7.487"/><path d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"/><circle cx="10" cy="8" r="5"/></svg>
+    <a href="/about">
+      <span class="post-meta-author-name">
+        h1yx
+      </span>
+    </a>
+    
+  </div>
+
+  <div class="post-meta-item post-meta-time">
+    
+<svg aria-hidden="true" class="lucide lucide-calendar-days hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
+    <time datetime=" 2023-12-25">
+      2023-12-25
+    </time>
+
+
+    
+
+  </div>
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-item post-meta-category">
+      <a href="https://578164.xyz/categories/android-technology/"> Android Technology </a>
+      
+    </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+      </header>
+
+      
+      <div class="post-content">
+        <h2 id="1-objectives">1. Objectives</h2>
+<p>Today I would like to introduce a new friend to you, <a href="https://qbdi.quarkslab.com/">QBDI</a></p>
+<p>It can be quickly integrated into your frida script to perform assembly-level trace</p>
+<h2 id="2-steps">2. Steps</h2>
+<h3 id="install">Install</h3>
+<p>It is very convenient to use QBDI on Android. First go to the official website to download the latest version</p>
+<p><a href="https://github.com/QBDI/QBDI/releases/download/v0.10.0/QBDI-0.10.0-android-AARCH64.tar.gz">https://github.com/QBDI/QBDI/releases/download/v0.10.0/QBDI-0.10.0-android-AARCH64.tar.gz</a></p>
+<p>For our use of Frida, there are mainly two files in itlibQBDI.soandfrida-qbdi.js, the former is the injection library, the latter is the js encapsulation</p>
+<p>Then putlibQBDI.soPut it in the /data/local/tmp directory</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>adb push libQBDI.so /data/local/tmp</code></pre>
+</div>
+<h3 id="use">use</h3>
+<p>The first usage is to actively call the target function to trace</p>
+<p>Because it needs to loadfrida-qbdi.jsModule, so here we need to use frida&rsquo;s module development. The usual method is to use a template using TS from big bearded <a href="https://github.com/oleavr/frida-agent-example">https://github.com/oleavr/frida-agent-example .</a></p>
+<p>But I&rsquo;m too lazy to learn another TS language, so today we use another method</p>
+<p>index.js</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>import {
+    VM,
+    InstPosition,
+    VMAction,
+    Options,
+    MemoryAccessType,
+    AnalysisType,
+    RegisterAccessType,
+    OperandType,
+    SyncDirection
+} from &#34;./frida-qbdi.js&#34;;
+
+.... call fridaQBDI</code></pre>
+</div>
+<p>Then compile using frida-compile</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>frida-compile -w index.js -o frida-qbdi-agent.js
+frida -Uf com.example.myapplication --runtime=v8 -l frida-qbdi-agent.js</code></pre>
+</div>
+<h3 id="active-call">Active call</h3>
+<p>Consider that there is an addTesth1yx function in the so in the apk</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>extern &#34;C&#34; int addTesth1yx(){
+    int a = 2;
+    int b = 3;
+    int c = a ^ b;
+    c = c + a + b;
+    LOGD(&#34;addTesth1yx : %d&#34;, c);
+    return c;
+}</code></pre>
+</div>
+<p>We can use the following method to actively call in warp_vm_run.js</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>/**
+ * warp_vm_run
+ * @param {*} vm_run_func   
+ * @param {*} log_file_path 
+ */
+export default function warp_vm_run(vm_run_func, log_file_path) {
+    let libnative_name = &#34;libmyapplication.so&#34;; 
+    let func_name = &#34;addTesth1yx&#34;;
+
+    let libnative_base = Process.findModuleByName(libnative_name).base;
+    console.log(&#34;warp_vm_run libnative_base 0x&#34; +  libnative_base.toString(16));
+
+    const func_addr = Module.findExportByName(libnative_name, func_name);
+    console.log(&#34;func_addr = &#34; + func_addr);
+
+    let ret = vm_run_func(null,func_addr, [], log_file_path,false);
+        console.log(ret);
+}</code></pre>
+</div>
+<p>Then hang up your beloved frida and execute</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>Failed to load /data/local/tmp/libQBDI.so (dlopen failed: couldn&#39;t map &#34;/data/local/tmp/libQBDI.so&#34; segment 1: Permission denied)</code></pre>
+</div>
+<p>It&rsquo;s an error. I don&rsquo;t have permission. Then give it</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>#setenforce 0</code></pre>
+</div>
+<p>Each line of executed code, register changes, and memory read and write are printed out</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>start vm.call ===
+0x77d5661b00 [libmyapplication.so!0x1eb00]         stp        x29, x30, [sp, #-16]!         r[FP=0x77d6b03100 LR=0x2a SP=0x77d6b03080]   w[SP=0x77d6b03070]
+memory write at 77d6b03070, data size = 8, data value = 77d6b03100
+memory write at 77d6b03078, data size = 8, data value = 2a
+0x77d5661b04 [libmyapplication.so!0x1eb04]         mov        x29, sp         r[SP=0x77d6b03070]   w[FP=0x77d6b03070]
+0x77d5661b08 [libmyapplication.so!0x1eb08]         adrp        x8, #172032          w[X8=0x77d568b000]
+0x77d5661b0c [libmyapplication.so!0x1eb0c]         ldrb        w8, [x8, #3912]         r[X8=0x77d568b000]   w[W8=0x1]
+memory read at 77d568bf48, data size = 1, data value = 1
+0x77d5661b10 [libmyapplication.so!0x1eb10]         cbz        w8, #32         r[W8=0x1]
+0x77d5661b14 [libmyapplication.so!0x1eb14]         adrp        x1, #-40960          w[X1=0x77d5657000]
+0x77d5661b18 [libmyapplication.so!0x1eb18]         adrp        x2, #-40960           w[X2=0x77d5657000]
+0x77d5661b1c [libmyapplication.so!0x1eb1c]         add        x1, x1, #1895         r[X1=0x77d5657000]   w[X1=0x77d5657767]
+0x77d5661b20 [libmyapplication.so!0x1eb20]         add        x2, x2, #806         r[X2=0x77d5657000]   w[X2=0x77d5657326]
+0x77d5661b24 [libmyapplication.so!0x1eb24]         mov        w0, #3          w[W0=0x3]
+0x77d5661b28 [libmyapplication.so!0x1eb28]         mov        w3, #6          w[W3=0x6]
+0x77d5661b2c [libmyapplication.so!0x1eb2c]         bl        #148868         r[SP=0x77d6b03070] w[LR=0x77d5661b30]
+0x77d56860b0 [libmyapplication.so!0x430b0]         adrp        x16, #16384         w[X16=0x77d568a000]
+0x77d56860b4 [libmyapplication.so!0x430b4]         ldr        x17, [x16, #3032]         r[X16=0x77d568a000] w[X17=0x78cb2dd788]
+memory read at 77d568abd8, data size = 8, data value = 78cb2dd788
+0x77d56860b8 [libmyapplication.so!0x430b8]         add        x16, x16, #3032         r[X16=0x77d568a000] w[X16=0x77d568abd8]
+0x77d56860bc [libmyapplication.so!0x430bc]         br        x17         r[X17=0x78cb2dd788]
+0x77d5661b30 [libmyapplication.so!0x1eb30]         mov        w0, #6         w[W0=0x6]
+0x77d5661b34 [libmyapplication.so!0x1eb34]         ldp        x29, x30, [sp], #16         r[SP=0x77d6b03070]  w[FP=0x77d6b03100 LR=0x2a SP=0x77d6b03080]
+memory read at 77d6b03070, data size = 8, data value = 77d6b03100
+memory read at 77d6b03078, data size = 8, data value = 2a
+0x77d5661b38 [libmyapplication.so!0x1eb38]         ret         r[LR=0x2a]
+cost is 0.063s
+0x6</code></pre>
+</div>
+<p>If you want to call a function with parameters, you can do it like this</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>let ret = vm_run_func(null,func_addr, [2,3], log_file_path);</code></pre>
+</div>
+<h3 id="hook-replacement">Hook Replacement</h3>
+<p>Sometimes, we don’t want to construct parameters to actively call functions, but want to hook and replace the target function during the execution of the app, and then print its actual process.</p>
+<p>There are two points to note here: 1 is replacement, and 2 is updating the context, that is, updating the value of the register</p>
+<p>In the vm_run function of the traceCodeQBDI.js file,</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>function vm_run(ctx,func_ptr, args, log_file_path,postSync) {
+    let start_time = new Date().getTime();
+
+    let vm = new VM();
+    vm.setOptions(Options.OPT_DISABLE_LOCAL_MONITOR | Options.OPT_BYPASS_PAUTH | Options.OPT_ENABLE_BTI)
+
+    var state = vm.getGPRState();
+    vm.allocateVirtualStack(state, 0x100000);
+
+    if(postSync){
+        console.log(&#34;==== synchronizeContext FRIDA_TO_QBDI &#34;);
+        state.synchronizeContext(ctx,SyncDirection.FRIDA_TO_QBDI);
+    }
+
+    ......
+
+    if(postSync){
+        console.log(&#34;synchronizeContext QBDI_TO_FRIDA ====&#34;);
+        state.synchronizeContext(ctx,SyncDirection.QBDI_TO_FRIDA);
+    }
+    return ret;
+
+}</code></pre>
+</div>
+<p>Then replace it in warp_vm_run</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>export default function warp_vm_run(vm_run_func, log_file_path) {
+    let libnative_name = &#34;libmyapplication.so&#34;;
+
+    let libnative_base = Process.findModuleByName(libnative_name).base;
+    console.log(&#34;warp_vm_run libnative_base 0x&#34; +  libnative_base.toString(16));
+
+    //*
+    let env = Java.vm.tryGetEnv();
+    console.log(JSON.stringify(env));
+
+       let func_name = &#34;Java_com_example_myapplication_MainActivity_FFTestAdd&#34;;
+       let func_addr = Module.findExportByName(libnative_name, func_name);
+    console.log(&#34;Hook func_addr = &#34; + func_addr);
+
+    Interceptor.replace(func_addr,new NativeCallback(function (vmEnv,vmContext,a,b){
+        console.log(&#34; ============== &#34;);
+        console.log(&#34;[+] &#34; + func_addr.sub(libnative_base) + &#34;(&#34; + a + &#34;, &#34; + b + &#34;) called&#34;);
+
+        Interceptor.revert(func_addr);
+        Interceptor.flush();
+        console.log(env.handle);
+
+        var retVal = vm_run_func(this.context, func_addr, [vmEnv,vmContext,a,b],log_file_path,true);
+        warp_vm_run(vm_run_func,log_file_path);
+
+        const resultStr = env.stringFromJni(retVal);
+        console.log(&#34;Result: &#34; + resultStr);
+
+        return retVal;
+    }, &#34;pointer&#34;, [&#34;pointer&#34;, &#34;pointer&#34;,&#34;int&#34;,&#34;int&#34;]));
+    // */
+
+
+}</code></pre>
+</div>
+<p>This execution can print out the instructions when the actual app is running.</p>
+<h6 id="tip">Tip:</h6>
+<p>If there are parameters such as jobject MainActivity /* this */ in the function parameters, no matter it is an active call or a hook call, it will crash when the function returns. The reason has not been found yet:(</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Instruction-level trace also has many application scenarios, such as printing only XOR instructions, or monitoring only SVC instructions.</p>
+<p>References</p>
+<p><a href="https://github.com/lasting-yang/frida-qbdi-tracer">https://github.com/lasting-yang/frida-qbdi-tracer</a></p>
+<p><a href="https://blog.quarkslab.com/why-are-frida-and-qbdi-a-great-blend-on-android.html">https://blog.quarkslab.com/why-are-frida-and-qbdi-a-great-blend-on-android.html</a></p>
+
+      </div>
+
+      
+      
+
+
+
+      
+      
+
+
+      <footer class="post-footer">
+        <div class="post-tags">
+          <a href="https://578164.xyz/tags/obqi/">obqi</a>
+          
+        </div>
+
+
+        
+        <nav class="post-nav">
+          
+          <a class="prev" href="/post/other/a-series-of-operations-merged-the-unidbg-update-and-continued-to-run-the-sign/">
+            
+            <i class="iconfont">
+              
+<svg aria-hidden="true" class="lucide lucide-chevron-left hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m15 18-6-6 6-6"/></svg>
+            </i>
+            <span class="prev-text nav-default">A series of operations merged the Unidbg update and continued to run the sign</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+          
+          <a class="next" href="/post/other/code-restoration-trial-part-2-modified-md5/">
+            <span class="next-text nav-default">Code Restoration Trial (Part 2): Modified MD5</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              
+<svg aria-hidden="true" class="lucide lucide-chevron-right hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m9 18 6-6-6-6"/></svg>
+            </i>
+          </a>
+        </nav>
+      </footer>
+    </article>
+
+    
+    
+
+
+    
+    
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+    
+
+  
+
+  
+
+
+  </div>
+
+  
+  <nav class="toc" id="toc">
+    <div class="toc-title">Table of Contents</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-objectives">1. Objectives</a></li>
+    <li><a href="#2-steps">2. Steps</a>
+      <ul>
+        <li><a href="#install">Install</a></li>
+        <li><a href="#use">use</a></li>
+        <li><a href="#active-call">Active call</a></li>
+        <li><a href="#hook-replacement">Hook Replacement</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+</div>
+  </main>
+
+  <footer id="footer" class="footer">
+    <div class="social-icon-links">
+  
+
+
+
+
+<a href="https://578164.xyz/index.xml" rel="noopener alternate" type="application/rss&#43;xml" class="social-icon-link" title="rss"
+  target="_blank">
+  
+<svg aria-hidden="true" class="lucide lucide-rss hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+</a>
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+    2019 -
+    2024
+    <span class="heart">
+      
+      <i class="iconfont">
+        
+<svg aria-hidden="true" class="lucide lucide-heart hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+      </i>
+    </span><span class="author">
+      h1yx
+      
+    </span></span>
+
+  
+  
+
+  
+</div>
+
+  </footer>
+
+  
+
+
+
+
+<script type="text/javascript" src="/js/main.337fdc53bc7899023427e1f23060e9c67160243e2ff4f7f876358e1277d8664d.js" integrity="sha256-M3/cU7x4mQI0J&#43;HyMGDpxnFgJD4v9Pf4djWOEnfYZk0=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

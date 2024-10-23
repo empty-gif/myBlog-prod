@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage" data-theme="light">
+
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>
+  Code Restoration Trial (I): Modified MD5 - Jane - A super concise theme for Hugo
+  </title>
+
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
+
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="color-scheme" content="light dark" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="h1yx" />
+<meta name="description" content="1. Objectives It’s 2023, and MD5 is already the most basic signature algorithm, but if you still only do a simple MD5 on the input, you will definitely be laughed at by your peers. Adding salt is a basic improvement, but in this era of severe employment, just adding salt is definitely not enough.
+Today we will talk about the modified MD5 to make this algorithm more advanced.
+Vegetable rolls The simplest way to modify it is to change the initial parameters of MD5.
+" />
+
+<meta name="keywords"
+  content="" />
+
+
+
+
+<meta name="generator" content="Hugo 0.136.4" />
+
+
+<link rel="canonical" href="https://578164.xyz/post/other/code-restoration-trial-i-modified-md5/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/style.min.4d9e22c6c4a4cfe9ca1e35f9578ca6c8ff84c408a5f0599c8cbdaf444e95eae8.css" integrity="sha256-TZ4ixsSkz&#43;nKHjX5V4ymyP&#43;ExAil8FmcjL2vRE6V6ug=" media="screen"
+  crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:url" content="https://578164.xyz/post/other/code-restoration-trial-i-modified-md5/">
+  <meta property="og:site_name" content="Jane - A super concise theme for Hugo">
+  <meta property="og:title" content="Code Restoration Trial (I): Modified MD5">
+  <meta property="og:description" content="1. Objectives It’s 2023, and MD5 is already the most basic signature algorithm, but if you still only do a simple MD5 on the input, you will definitely be laughed at by your peers. Adding salt is a basic improvement, but in this era of severe employment, just adding salt is definitely not enough.
+Today we will talk about the modified MD5 to make this algorithm more advanced.
+Vegetable rolls The simplest way to modify it is to change the initial parameters of MD5.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2023-02-22T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-02-22T00:00:00+00:00">
+    <meta property="article:tag" content="Frida">
+
+  <meta itemprop="name" content="Code Restoration Trial (I): Modified MD5">
+  <meta itemprop="description" content="1. Objectives It’s 2023, and MD5 is already the most basic signature algorithm, but if you still only do a simple MD5 on the input, you will definitely be laughed at by your peers. Adding salt is a basic improvement, but in this era of severe employment, just adding salt is definitely not enough.
+Today we will talk about the modified MD5 to make this algorithm more advanced.
+Vegetable rolls The simplest way to modify it is to change the initial parameters of MD5.">
+  <meta itemprop="datePublished" content="2023-02-22T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-02-22T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1562">
+  <meta itemprop="keywords" content="Frida">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Code Restoration Trial (I): Modified MD5">
+  <meta name="twitter:description" content="1. Objectives It’s 2023, and MD5 is already the most basic signature algorithm, but if you still only do a simple MD5 on the input, you will definitely be laughed at by your peers. Adding salt is a basic improvement, but in this era of severe employment, just adding salt is definitely not enough.
+Today we will talk about the modified MD5 to make this algorithm more advanced.
+Vegetable rolls The simplest way to modify it is to change the initial parameters of MD5.">
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+
+<script>
+  (function () {
+    var savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  })();
+</script>
+
+</head>
+
+<body>
+  <div id="back-to-top"></div>
+
+  <header>
+    
+<div class="desktop-header">
+  <div class="desktop-header-logo">
+    <a href="/" class="logo">
+      
+      h1yx blog
+      
+    </a>
+  </div>
+
+  <nav class="desktop-navbar">
+    <ul id="menu" class="menu">
+      
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/">Home</a>
+        
+
+        
+
+      </li>
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/post/">Archives</a>
+        
+
+        
+
+      </li>
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/tags/">Tags</a>
+        
+
+        
+
+      </li>
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/about/">About</a>
+        
+
+        
+
+      </li>
+      
+
+      
+      
+
+      
+
+      <li class="menu-item">
+        <a class="theme-toggle menu-item-link" href="javascript:void(0);">
+
+            
+<svg aria-hidden="true" class="lucide lucide-sun hi-svg-inline theme-icon-light" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+
+            
+<svg aria-hidden="true" class="lucide lucide-moon hi-svg-inline theme-icon-dark" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a class="menu-item-link" href="https://578164.xyz/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+          title="rss" target="_blank">
+          
+<svg aria-hidden="true" class="lucide lucide-rss hi-svg-inline icon--rss" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+        </a>
+        
+      </li>
+    </ul>
+  </nav>
+</div>
+
+    
+
+<div class="mobile-header">
+  <div id="mobile-navbar" class="mobile-navbar">
+    <div id="mobile-navbar-icon" class="mobile-navbar-icon">
+      
+<svg aria-hidden="true" class="lucide lucide-menu hi-svg-inline icon--menu" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+    </div>
+    <div class="mobile-navbar-logo">
+      <a href="/%20/" class="logo">h1yx blog</a>
+    </div>
+  </div>
+
+  <div id="mobile-menu-close-modal" class="mobile-menu-close-modal"></div>
+  <nav id="mobile-menu" class="mobile-menu">
+    <ul class="mobile-menu-list">
+      <li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/">Home</a>
+        
+        
+      </li><li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/post/">Archives</a>
+        
+        
+      </li><li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/tags/">Tags</a>
+        
+        
+      </li><li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/about/">About</a>
+        
+        
+      </li>
+      
+
+      
+
+      <li class="mobile-menu-item">
+        <a class="theme-toggle menu-item-link" href="javascript:void(0);">
+
+            
+<svg aria-hidden="true" class="lucide lucide-sun hi-svg-inline theme-icon-light" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+
+            
+<svg aria-hidden="true" class="lucide lucide-moon hi-svg-inline theme-icon-dark" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+
+        </a>
+      </li>
+
+      <li class="mobile-menu-item">
+        <a class="menu-item-link" href="https://578164.xyz/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+          title="rss" target="_blank">
+          
+<svg aria-hidden="true" class="lucide lucide-rss hi-svg-inline icon--rss" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+        </a>
+        
+      </li>
+    </ul>
+  </nav>
+</div>
+
+  </header>
+
+  
+
+  
+
+
+
+  <main id="main" class="main pico container">
+    <div class="content-wrapper">
+  <aside class="sidebar">
+  </aside>
+  <div id="content" class="content">
+    <article class="post">
+      
+      <header class="post-header">
+        <h1 class="post-title">Code Restoration Trial (I): Modified MD5</h1>
+        
+
+
+
+        <div class="post-meta-list">
+  <div class="post-meta-item post-meta-author">
+    
+<svg aria-hidden="true" class="lucide lucide-user-round-pen hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M2 21a8 8 0 0 1 10.821-7.487"/><path d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"/><circle cx="10" cy="8" r="5"/></svg>
+    <a href="/about">
+      <span class="post-meta-author-name">
+        h1yx
+      </span>
+    </a>
+    
+  </div>
+
+  <div class="post-meta-item post-meta-time">
+    
+<svg aria-hidden="true" class="lucide lucide-calendar-days hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
+    <time datetime=" 2023-02-22">
+      2023-02-22
+    </time>
+
+
+    
+
+  </div>
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-item post-meta-category">
+      <a href="https://578164.xyz/categories/basic-learning/"> Basic Learning </a>
+      
+    </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+      </header>
+
+      
+      <div class="post-content">
+        <h2 id="1-objectives">1. Objectives</h2>
+<p>It’s 2023, and MD5 is already the most basic signature algorithm, but if you still only do a simple MD5 on the input, you will definitely be laughed at by your peers. Adding salt is a basic improvement, but in this era of severe employment, just adding salt is definitely not enough.</p>
+<p>Today we will talk about the modified MD5 to make this algorithm more advanced.</p>
+<ol>
+<li>Vegetable rolls</li>
+</ol>
+<p>The simplest way to modify it is to change the initial parameters of MD5.</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>     context-&gt;state[0] = 0x67452301;
+     context-&gt;state[1] = 0xEFCDAB89;
+     context-&gt;state[2] = 0x98BADCFE;
+     context-&gt;state[3] = 0x10325476;</code></pre>
+</div>
+<p>Just modify these four parameters. By modifying these parameters, we can change the result of MD5 calculation. But this method is too simple and cannot be rolled up.</p>
+<p>Next, we will introduce more advanced curling methods.</p>
+<ol start="2">
+<li>Meat roll</li>
+</ol>
+<p>md5 will perform 64 rounds of operations, each of which uses a constant to form a constant table K.</p>
+<p>The original value of K is calculated as 2^32 * |sin i |, and then the integer part is taken.</p>
+<p>Then ideal students can change the K value, for example, change sin to cos or tan, so that it can be rolled up.</p>
+<ol start="3">
+<li>Volume within volume</li>
+</ol>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>#define F(x,y,z) ((x &amp; y) | (~x &amp; z))
+#define G(x,y,z) ((x &amp; z) | (y &amp; ~z))
+#define H(x,y,z) (x^y^z)
+#define I(x,y,z) (y ^ (x | ~z))
+
+#define ROTATE_LEFT(x,n) ((x &lt;&lt; n) | (x &gt;&gt; (32-n)))</code></pre>
+</div>
+<p>To really roll it up, we need to change the four nonlinear transformation functions F, G, H, and I in MD5. We can addXORor reduceandThis advanced method can fool the boss and make the algorithm look advanced.</p>
+<p>Our goal today is to try to restore a modified MD5 algorithm and understand the basic methods of algorithm restoration through this practice.</p>
+<p>In this sample, our input parameter is a string: &ldquo;1677038066553&rdquo;</p>
+<p>The return value is 32 characters: &ldquo;DD89CA684D91818B970710F75A75743D&rdquo;</p>
+<h2 id="2-steps">2. Steps</h2>
+<h3 id="first-step">first step</h3>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>We need to use Unidbg to run the algorithm. Compared with our predecessors who used ida to debug in ancient times, the emergence of Unidbg directly reduced the difficulty of restoring the algorithm by an order of magnitude.</code></pre>
+</div>
+<h3 id="step-2">Step 2</h3>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>We need to reverse the result Z step by step back to the original input A. This method is called reversing the cause and effect, which is a basic routine of reverse analysis.
+Assuming that this sample is MD5 or a modified MD5, we can use the following methods to restore the algorithm:
+1. Debug breakpoints
+2. Conditional breakpoints
+3. Data printing
+4. Trace memory reading and writing
+5. Trace code</code></pre>
+</div>
+<h4 id="1-debug-breakpoints">1. Debug breakpoints</h4>
+<p>Reverse analysis is an empirical science. Although there are some basic routines, it is still based on trial and error. First, use IDA to open libnative-lib.so and find the exported function from the Exports export table.Java_com_littleq_cryptography_md5_MainActivity_sign</p>
+<p>The start address of this function is 0x1234, and the end address is 0x12B4, but the main code logic is in the function sub_A3C. Let&rsquo;s try setting a breakpoint at the end of the sub_A3C function.</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>text:00000000000011D4 E0 07 40 F9                 LDR             X0, [SP,#0x110+var_108]
+.text:00000000000011D8 03 00 00 90+                ADRL            X3, aSSSS ; &#34;%s%s%s%s&#34;
+.text:00000000000011D8 63 EC 0A 91
+.text:00000000000011E0 E4 83 01 91                 ADD             X4, SP, #0x110+var_B0
+.text:00000000000011E4 E5 43 01 91                 ADD             X5, SP, #0x110+var_C0
+.text:00000000000011E8 E6 03 01 91                 ADD             X6, SP, #0x110+var_D0
+.text:00000000000011EC E7 C3 00 91                 ADD             X7, SP, #0x110+var_E0
+.text:00000000000011F0 01 00 80 92                 MOV             X1, #0xFFFFFFFFFFFFFFFF
+.text:00000000000011F4 02 08 80 52                 MOV             W2, #0x40 ; &#39;@&#39;</code></pre>
+</div>
+<p>This 0x11D8 looks like a format string.</p>
+<p>We set a breakpoint at 0x11D8 in Unidbg</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>    Debugger debugger = emulator.attach();
+    debugger.addBreakPoint(module.base + 0x11D8);</code></pre>
+</div>
+<p>Run it and it will break smoothly.</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>debugger break at: 0x400011d8 @ Function64 address=0x40001234, arguments=[unidbg@0xfffe1640[libandroid.so]0x640, 1853170425, 2008362258]
+&gt;&gt;&gt; x0=0xbffff690(-1073744240) x1=0x0 x2=0x4 x3=0xbfffed20 x4=0x40230200 x5=0x402302c0 x6=0x1 x7=0xbffff708 x8=0x0 x9=0x0 x10=0x1 x11=0x0 x12=0x8 x13=0x8 x14=0x8
+&gt;&gt;&gt; x15=0x8 x16=0x40228d70 x17=0x40177ddc x18=0x8 x19=0x4cf3a208 x20=0x400012b8 x21=0x0 x22=0x68ca89dd x23=0x3d74755a x24=0x72e737bb x25=0xddf5ac1 x26=0xd0d5adc6 x27=0x8b81914d x28=0xf7100797 fp=0xbffff680
+LR=RX@0x400011d4[libnative-lib.so]0x11d4
+SP=0xbffff570
+PC=RX@0x400011d8[libnative-lib.so]0x11d8
+nzcv: N=0, Z=1, C=1, V=0, EL0, use SP_EL0
+start + 0xae8
+=&gt; *[libnative-lib.so*0x011d8]*[03000090]*0x400011d8:*&#34;adrp x3, #0x40001000&#34;
+    [libnative-lib.so 0x011dc] [63ec0a91] 0x400011dc: &#34;add x3, x3, #0x2bb&#34;
+    [libnative-lib.so 0x011e0] [e4830191] 0x400011e0: &#34;add x4, sp, #0x60&#34;
+    [libnative-lib.so 0x011e4] [e5430191] 0x400011e4: &#34;add x5, sp, #0x50&#34;
+    [libnative-lib.so 0x011e8] [e6030191] 0x400011e8: &#34;add x6, sp, #0x40&#34;
+    [libnative-lib.so 0x011ec] [e7c30091] 0x400011ec: &#34;add x7, sp, #0x30&#34;
+    [libnative-lib.so 0x011f0] [01008092] 0x400011f0: &#34;mov x1, #-1&#34;
+    [libnative-lib.so 0x011f4] [02088052] 0x400011f4: &#34;mov w2, #0x40&#34;
+    [libnative-lib.so 0x011f8] [5bfdff97] 0x400011f8: &#34;bl #0x40000764&#34;</code></pre>
+</div>
+<p>In Arm assembly, before calling a function, the input parameters are stored in x0, x1, x2 ……</p>
+<p>From this code, we can see that the address 0x400011f8 will call the 0x40000764 function and pass in 7 parameters, from x0 to x7.</p>
+<p>Although Unidbg&rsquo;s debugging is a bit crude, it is sufficient. With such a magical tool in hand, what else do you want?</p>
+<p>The debugging commands should first be mastered as follows:</p>
+<p>s single step into, that is, it will enter when encountering a function call.</p>
+<p>n Single stepping, will not enter the function when encountering a function call.</p>
+<p>c Continue execution</p>
+<p>b Breakpoint</p>
+<p>r cancel the current breakpoint</p>
+<p>m View memory</p>
+<p>Let&rsquo;s sss a few times and single-step to 0x400011f8</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>debugger break at: 0x400011f8 @ Function64 address=0x40001234, arguments=[unidbg@0xfffe1640[libandroid.so]0x640, 1853170425, 2008362258]
+&gt;&gt;&gt; x0=0xbffff690(-1073744240) x1=0xffffffffffffffff x2=0x40 x3=0x400012bb x4=0xbffff5d0 x5=0xbffff5c0 x6=0xbffff5b0 x7=0xbffff5a0 x8=0x0 x9=0x0 x10=0x1 x11=0x0 x12=0x8 x13=0x8 x14=0x8
+LR=RX@0x400011d4[libnative-lib.so]0x11d4
+SP=0xbffff570
+PC=RX@0x400011f8[libnative-lib.so]0x11f8
+nzcv: N=0, Z=1, C=1, V=0, EL0, use SP_EL0
+start + 0xb08
+=&gt; *[libnative-lib.so*0x011f8]*[5bfdff97]*0x400011f8:*&#34;bl #0x40000764&#34;</code></pre>
+</div>
+<p>At this point, the input parameters are ready. Let&rsquo;s look at them one by one.</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>mx7
+
+&gt;-----------------------------------------------------------------------------&lt;
+[10:40:26 646]x7=unidbg@0xbffff5a0, md5=d6c164ca9ef531557fc14e1bf7173663,
+size: 112
+0000: 35 41 37 35 37 34 33 44 00 B3 22 40 00 00 00 00    5A75743D..&#34;@....
+0010: 39 37 30 37 31 30 46 37 00 8D 09 40 00 00 00 00    970710F7...@....
+0020: 34 44 39 31 38 31 38 42 00 77 12 40 02 00 00 00    4D91818B.w.@....
+0030: 44 44 38 39 43 41 36 38 00 1B 17 40 02 00 00 00    DD89CA68...@....
+0040: 31 36 37 37 30 33 38 30 36 36 35 35 33 80 00 00    1677038066553...
+0050: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+0060: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+^-----------------------------------------------------------------------------^</code></pre>
+</div>
+<p>You can see that this time the function 0x40000764 is called, which is basically assembling the final result.</p>
+<p>What we need to do is to find the locations where these results are generated to analyze how the final result is calculated, that is, the process of Y → Z.</p>
+<h4 id="4-trace-memory-reading-and-writing">4. Trace memory reading and writing</h4>
+<p>Now that we know the location of the result Z, the next step is to know who calculated Z.</p>
+<p>This requires the use of a powerful function of Unidbg: memory read and write monitoring</p>
+<p>This time we set the debug breakpoint earlier, at the beginning of the sub_A3C function.</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>debugger break at: 0x40000a3c @ Function64 address=0x40001234, arguments=[unidbg@0xfffe1640[libandroid.so]0x640, 1853170425, 2008362258]
+&gt;&gt;&gt; x0=0x40004000 x1=0xbffff690 x2=0x0 x3=0x1 x4=0x0 x5=0x1 x6=0x0 x7=0x0 x8=0xfffe0a70 x9=0x3002 x10=0x0 x11=0x1 x12=0x3 x13=0x40003018 x14=0x40003028
+&gt;&gt;&gt; x15=0x1 x16=0x40228910 x17=0x0 x18=0x17 x19=0xfffe1640 x20=0xbffff708 x21=0x0 x22=0x0 x23=0x0 x24=0x0 x25=0x0 x26=0x0 x27=0x0 x28=0x0 fp=0xbffff6f0
+LR=RX@0x40001280[libnative-lib.so]0x1280
+SP=0xbffff690
+PC=RX@0x40000a3c[libnative-lib.so]0xa3c
+nzcv: N=0, Z=0, C=1, V=0, EL0, use SP_EL0
+start + 0x34c
+=&gt; *[libnative-lib.so*0x00a3c]*[ff8304d1]*0x40000a3c:*&#34;sub sp, sp, #0x120&#34;
+
+traceWrite 0xbffff5d0 0xbffff5d8
+Set trace 0xbffff5d0-&gt;0xbffff5d8 memory write success.
+c
+[11:41:41 656] Memory WRITE at 0xbffff5d8, data size = 1, data value = 0x0, PC=RX@0x40001168[libnative-lib.so]0x1168, LR=null
+[11:41:41 657] Memory WRITE at 0xbffff5d0, data size = 8, data value = 0x0, PC=RX@0x4000116c[libnative-lib.so]0x116c, LR=null
+[11:41:41 661] Memory WRITE at 0xbffff5d8, data size = 1, data value = 0x0, PC=RX@0x401b48cc[libc.so]0x648cc, LR=RX@0x401b48c8[libc.so]0x648c8</code></pre>
+</div>
+<p>traceWrite is to monitor the memory write command.</p>
+<p>It looks like the memory at 0xbffff5d0 is writtenDD89CA68The location of the data is: 0x116c</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>text:000000000000114C 14 00 00 90+                ADRL            X20, unk_12B8
+.text:000000000000114C 94 E2 0A 91
+.text:0000000000001154 C4 0A C0 5A                 REV             W4, W22
+.text:0000000000001158 E0 83 01 91                 ADD             X0, SP, #0x110+var_B0
+.text:000000000000115C 21 01 80 52                 MOV             W1, #9
+.text:0000000000001160 22 01 80 52                 MOV             W2, #9
+.text:0000000000001164 E3 03 14 AA                 MOV             X3, X20
+.text:0000000000001168 FF A3 01 39                 STRB            WZR, [SP,#0x110+var_A8]
+.text:000000000000116C FF 33 00 F9                 STR             XZR, [SP,#0x110+var_B0]
+.text:0000000000001170 7D FD FF 97                 BL              sub_764</code></pre>
+</div>
+<p>The instruction STR XZR at 0x116c is a write operation, but it does not look like writing data. SP,#0x110+var_B0The data at this address is cleared to zero.</p>
+<p>Then let&rsquo;s start over again. (The advantage of Unidbg is that it can be replayed infinitely, which is many times more convenient than debugging the App on a real machine.)</p>
+<p>This time go a little further and set a breakpoint at 0x114C.</p>
+<p>After breaking down, after single-stepping once every s, check m0xbffff5d0.</p>
+<p>Finally, it was found that after running 0x1170, the value of the memory at 0xbffff5d0 changed to,DD89CA68This means that 0xbffff5d0 is written by sub_764 function.</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>debugger break at: 0x40001170 @ Function64 address=0x40001234, arguments=[unidbg@0xfffe1640[libandroid.so]0x640, 1853170425, 2008362258]
+&gt;&gt;&gt; x0=0xbffff5d0(-1073744432) x1=0x9 x2=0x9 x3=0x400012b8 x4=0xdd89ca68 x5=0xe6cd8e62 x6=0x24523012 x7=0x29b9c389 x8=0x40 x9=0x40318041 x10=0xbffff5e0 x11=0x40 x12=0x3d5ebb2b x13=0x6450c165 x14=0xfc63b7e7
+&gt;&gt;&gt; x15=0x49ac16b x16=0xac6af723 x17=0xf3d1564b x18=0x18 x19=0x4cf3a208 x20=0x400012b8 x21=0x0 x22=0x68ca89dd x23=0x3d74755a x24=0x72e737bb x25=0xddf5ac1 x26=0xd0d5adc6 x27=0x8b81914d x28=0xf7100797 fp=0xbffff680
+LR=null
+SP=0xbffff570
+PC=RX@0x40001170[libnative-lib.so]0x1170
+nzcv: N=0, Z=1, C=1, V=0, EL0, use SP_EL0
+start + 0xa80
+=&gt; *[libnative-lib.so*0x01170]*[7dfdff97]*0x40001170:*&#34;bl #0x40000764&#34;</code></pre>
+</div>
+<p>But back to 0x1170, we found a familiar string of numbersx4=0xdd89ca68, Okay, our question becomes how is the value of x4 calculated?</p>
+
+      </div>
+
+      
+      
+
+
+
+      
+      
+
+
+      <footer class="post-footer">
+        <div class="post-tags">
+          <a href="https://578164.xyz/tags/frida/">frida</a>
+          
+        </div>
+
+
+        
+        <nav class="post-nav">
+          
+          <a class="prev" href="/post/other/android-high-version-installation-system-certificate-https-packet-capture---the-ultimate-solution/">
+            
+            <i class="iconfont">
+              
+<svg aria-hidden="true" class="lucide lucide-chevron-left hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m15 18-6-6 6-6"/></svg>
+            </i>
+            <span class="prev-text nav-default">Android high version installation system certificate HTTPS packet capture - the ultimate solution</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+          
+          <a class="next" href="/post/other/compile-and-flash-android-10-source-code-qp1a.190711.020-under-mac-10.14.x-pixel-2-xl/">
+            <span class="next-text nav-default">Compile and flash Android 10 source code (QP1A.190711.020) under Mac 10.14.x (Pixel 2 XL)</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              
+<svg aria-hidden="true" class="lucide lucide-chevron-right hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m9 18 6-6-6-6"/></svg>
+            </i>
+          </a>
+        </nav>
+      </footer>
+    </article>
+
+    
+    
+
+
+    
+    
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+    
+
+  
+
+  
+
+
+  </div>
+
+  
+  <nav class="toc" id="toc">
+    <div class="toc-title">Table of Contents</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-objectives">1. Objectives</a></li>
+    <li><a href="#2-steps">2. Steps</a>
+      <ul>
+        <li><a href="#first-step">first step</a></li>
+        <li><a href="#step-2">Step 2</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+</div>
+  </main>
+
+  <footer id="footer" class="footer">
+    <div class="social-icon-links">
+  
+
+
+
+
+<a href="https://578164.xyz/index.xml" rel="noopener alternate" type="application/rss&#43;xml" class="social-icon-link" title="rss"
+  target="_blank">
+  
+<svg aria-hidden="true" class="lucide lucide-rss hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+</a>
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+    2019 -
+    2024
+    <span class="heart">
+      
+      <i class="iconfont">
+        
+<svg aria-hidden="true" class="lucide lucide-heart hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+      </i>
+    </span><span class="author">
+      h1yx
+      
+    </span></span>
+
+  
+  
+
+  
+</div>
+
+  </footer>
+
+  
+
+
+
+
+<script type="text/javascript" src="/js/main.337fdc53bc7899023427e1f23060e9c67160243e2ff4f7f876358e1277d8664d.js" integrity="sha256-M3/cU7x4mQI0J&#43;HyMGDpxnFgJD4v9Pf4djWOEnfYZk0=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

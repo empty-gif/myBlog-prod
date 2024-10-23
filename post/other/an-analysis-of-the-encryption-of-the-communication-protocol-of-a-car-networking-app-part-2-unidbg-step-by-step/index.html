@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage" data-theme="light">
+
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>
+  An analysis of the encryption of the communication protocol of a car networking app (Part 2) Unidbg step by step - Jane - A super concise theme for Hugo
+  </title>
+
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
+
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="color-scheme" content="light dark" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="h1yx" />
+<meta name="description" content="1. Objectives It has been a while since I wrote an article related to unidbg. This sample is quite suitable, with moderate difficulty and a small pit for you. So the following is a series of articles, including unidbg environment supplement, Trace Block comparison process, Trace Code location difference. Mastering this series of routines, Native analysis can be considered an entry.
+This time, let&rsquo;s run so with unidbg
+v6.1.0
+2. Steps Dump so IDA openslibencrypt.soGo to the offset addresses 0x24424 and 0x2B1BC corresponding to the two functions checkcode and decheckcode we want to analyze. We will find a strange problem that there is no assembly code at these two addresses, both are 0x00.
+" />
+
+<meta name="keywords"
+  content="" />
+
+
+
+
+<meta name="generator" content="Hugo 0.136.4" />
+
+
+<link rel="canonical" href="https://578164.xyz/post/other/an-analysis-of-the-encryption-of-the-communication-protocol-of-a-car-networking-app-part-2-unidbg-step-by-step/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/style.min.4d9e22c6c4a4cfe9ca1e35f9578ca6c8ff84c408a5f0599c8cbdaf444e95eae8.css" integrity="sha256-TZ4ixsSkz&#43;nKHjX5V4ymyP&#43;ExAil8FmcjL2vRE6V6ug=" media="screen"
+  crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:url" content="https://578164.xyz/post/other/an-analysis-of-the-encryption-of-the-communication-protocol-of-a-car-networking-app-part-2-unidbg-step-by-step/">
+  <meta property="og:site_name" content="Jane - A super concise theme for Hugo">
+  <meta property="og:title" content="An analysis of the encryption of the communication protocol of a car networking app (Part 2) Unidbg step by step">
+  <meta property="og:description" content="1. Objectives It has been a while since I wrote an article related to unidbg. This sample is quite suitable, with moderate difficulty and a small pit for you. So the following is a series of articles, including unidbg environment supplement, Trace Block comparison process, Trace Code location difference. Mastering this series of routines, Native analysis can be considered an entry.
+This time, let’s run so with unidbg
+v6.1.0
+2. Steps Dump so IDA openslibencrypt.soGo to the offset addresses 0x24424 and 0x2B1BC corresponding to the two functions checkcode and decheckcode we want to analyze. We will find a strange problem that there is no assembly code at these two addresses, both are 0x00.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2022-09-08T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-09-08T00:00:00+00:00">
+    <meta property="article:tag" content="Frida">
+    <meta property="article:tag" content="Android">
+
+  <meta itemprop="name" content="An analysis of the encryption of the communication protocol of a car networking app (Part 2) Unidbg step by step">
+  <meta itemprop="description" content="1. Objectives It has been a while since I wrote an article related to unidbg. This sample is quite suitable, with moderate difficulty and a small pit for you. So the following is a series of articles, including unidbg environment supplement, Trace Block comparison process, Trace Code location difference. Mastering this series of routines, Native analysis can be considered an entry.
+This time, let’s run so with unidbg
+v6.1.0
+2. Steps Dump so IDA openslibencrypt.soGo to the offset addresses 0x24424 and 0x2B1BC corresponding to the two functions checkcode and decheckcode we want to analyze. We will find a strange problem that there is no assembly code at these two addresses, both are 0x00.">
+  <meta itemprop="datePublished" content="2022-09-08T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2022-09-08T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1170">
+  <meta itemprop="keywords" content="Frida,Android">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="An analysis of the encryption of the communication protocol of a car networking app (Part 2) Unidbg step by step">
+  <meta name="twitter:description" content="1. Objectives It has been a while since I wrote an article related to unidbg. This sample is quite suitable, with moderate difficulty and a small pit for you. So the following is a series of articles, including unidbg environment supplement, Trace Block comparison process, Trace Code location difference. Mastering this series of routines, Native analysis can be considered an entry.
+This time, let’s run so with unidbg
+v6.1.0
+2. Steps Dump so IDA openslibencrypt.soGo to the offset addresses 0x24424 and 0x2B1BC corresponding to the two functions checkcode and decheckcode we want to analyze. We will find a strange problem that there is no assembly code at these two addresses, both are 0x00.">
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+
+<script>
+  (function () {
+    var savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  })();
+</script>
+
+</head>
+
+<body>
+  <div id="back-to-top"></div>
+
+  <header>
+    
+<div class="desktop-header">
+  <div class="desktop-header-logo">
+    <a href="/" class="logo">
+      
+      h1yx blog
+      
+    </a>
+  </div>
+
+  <nav class="desktop-navbar">
+    <ul id="menu" class="menu">
+      
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/">Home</a>
+        
+
+        
+
+      </li>
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/post/">Archives</a>
+        
+
+        
+
+      </li>
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/tags/">Tags</a>
+        
+
+        
+
+      </li>
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/about/">About</a>
+        
+
+        
+
+      </li>
+      
+
+      
+      
+
+      
+
+      <li class="menu-item">
+        <a class="theme-toggle menu-item-link" href="javascript:void(0);">
+
+            
+<svg aria-hidden="true" class="lucide lucide-sun hi-svg-inline theme-icon-light" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+
+            
+<svg aria-hidden="true" class="lucide lucide-moon hi-svg-inline theme-icon-dark" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a class="menu-item-link" href="https://578164.xyz/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+          title="rss" target="_blank">
+          
+<svg aria-hidden="true" class="lucide lucide-rss hi-svg-inline icon--rss" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+        </a>
+        
+      </li>
+    </ul>
+  </nav>
+</div>
+
+    
+
+<div class="mobile-header">
+  <div id="mobile-navbar" class="mobile-navbar">
+    <div id="mobile-navbar-icon" class="mobile-navbar-icon">
+      
+<svg aria-hidden="true" class="lucide lucide-menu hi-svg-inline icon--menu" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+    </div>
+    <div class="mobile-navbar-logo">
+      <a href="/%20/" class="logo">h1yx blog</a>
+    </div>
+  </div>
+
+  <div id="mobile-menu-close-modal" class="mobile-menu-close-modal"></div>
+  <nav id="mobile-menu" class="mobile-menu">
+    <ul class="mobile-menu-list">
+      <li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/">Home</a>
+        
+        
+      </li><li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/post/">Archives</a>
+        
+        
+      </li><li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/tags/">Tags</a>
+        
+        
+      </li><li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/about/">About</a>
+        
+        
+      </li>
+      
+
+      
+
+      <li class="mobile-menu-item">
+        <a class="theme-toggle menu-item-link" href="javascript:void(0);">
+
+            
+<svg aria-hidden="true" class="lucide lucide-sun hi-svg-inline theme-icon-light" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+
+            
+<svg aria-hidden="true" class="lucide lucide-moon hi-svg-inline theme-icon-dark" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+
+        </a>
+      </li>
+
+      <li class="mobile-menu-item">
+        <a class="menu-item-link" href="https://578164.xyz/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+          title="rss" target="_blank">
+          
+<svg aria-hidden="true" class="lucide lucide-rss hi-svg-inline icon--rss" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+        </a>
+        
+      </li>
+    </ul>
+  </nav>
+</div>
+
+  </header>
+
+  
+
+  
+
+
+
+  <main id="main" class="main pico container">
+    <div class="content-wrapper">
+  <aside class="sidebar">
+  </aside>
+  <div id="content" class="content">
+    <article class="post">
+      
+      <header class="post-header">
+        <h1 class="post-title">An analysis of the encryption of the communication protocol of a car networking app (Part 2) Unidbg step by step</h1>
+        
+
+
+
+        <div class="post-meta-list">
+  <div class="post-meta-item post-meta-author">
+    
+<svg aria-hidden="true" class="lucide lucide-user-round-pen hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M2 21a8 8 0 0 1 10.821-7.487"/><path d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"/><circle cx="10" cy="8" r="5"/></svg>
+    <a href="/about">
+      <span class="post-meta-author-name">
+        h1yx
+      </span>
+    </a>
+    
+  </div>
+
+  <div class="post-meta-item post-meta-time">
+    
+<svg aria-hidden="true" class="lucide lucide-calendar-days hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
+    <time datetime=" 2022-09-08">
+      2022-09-08
+    </time>
+
+
+    
+
+  </div>
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-item post-meta-category">
+      <a href="https://578164.xyz/categories/android-technology/"> Android Technology </a>
+      
+    </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+      </header>
+
+      
+      <div class="post-content">
+        <h2 id="1-objectives">1. Objectives</h2>
+<p>It has been a while since I wrote an article related to unidbg. This sample is quite suitable, with moderate difficulty and a small pit for you. So the following is a series of articles, including unidbg environment supplement, Trace Block comparison process, Trace Code location difference. Mastering this series of routines, Native analysis can be considered an entry.</p>
+<p>This time, let&rsquo;s run so with unidbg</p>
+<p>v6.1.0</p>
+<h2 id="2-steps">2. Steps</h2>
+<h3 id="dump-so">Dump so</h3>
+<p>IDA openslibencrypt.soGo to the offset addresses 0x24424 and 0x2B1BC corresponding to the two functions checkcode and decheckcode we want to analyze. We will find a strange problem that there is no assembly code at these two addresses, both are 0x00.</p>
+<p>I guess the shell is playing tricks on us. It extracts part of the code of these two key functions and fills it back when running, which prevents you from statically analyzing the so.</p>
+<p>However, no matter how the shell is added, the complete code must exist in the memory when running, otherwise the App will not run.</p>
+<p>So we also added drama, Dump</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>function dumpSo(){
+    var libxx = Process.getModuleByName(&#34;libencrypt.so&#34;);
+    console.log(&#34;*****************************************************&#34;);
+    console.log(TAG + &#34;name: &#34; +libxx.name);
+    console.log(TAG + &#34;base: &#34; +libxx.base);
+    console.log(TAG + &#34;size: &#34; +ptr(libxx.size));
+
+    var file_path = &#34;/data/data/com.xxx.aeri.caranywhere/&#34; + libxx.name + &#34;_&#34; + libxx.base + &#34;_&#34; + ptr(libxx.size) + &#34;.so&#34;;
+    console.log(TAG + file_path);
+
+    var file_handle = new File(file_path, &#34;wb&#34;);
+    if (file_handle &amp;&amp; file_handle != null) {
+        Memory.protect(ptr(libxx.base), libxx.size, &#39;rwx&#39;);
+        var libso_buffer = ptr(libxx.base).readByteArray(libxx.size);
+        file_handle.write(libso_buffer);
+        file_handle.flush();
+        file_handle.close();
+        console.log(TAG + &#34;[dump]:&#34;, file_path);
+    }
+}</code></pre>
+</div>
+<h3 id="unidbg-run-so-basic-framework">unidbg run so basic framework</h3>
+<p>After dumping the complete code of so, we start to build the basic framework of unidbg run so. The latest unidbg library code can be downloaded from the original author&rsquo;s github.</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>public class CaranywhereDemo  extends AbstractJni {
+    public AndroidEmulator emulator;
+    public VM vm;
+    public Module module;
+    public DvmClass dvmClass;
+
+    public static void main(String[] args) throws DecoderException, IOException {
+        String apkPath = &#34;/Users/h1yx/Desktop/xxx/6.1.0.apk&#34;;
+        CaranywhereDemo carObj = new CaranywhereDemo(apkPath);
+        carObj.destroy();
+    }
+
+    public CaranywhereDemo(String apkFilePath) throws DecoderException, IOException {
+        //*
+        emulator = AndroidEmulatorBuilder.for64Bit()
+                .setProcessName(&#34;com.xxx.aeri.caranywhere&#34;)
+                .addBackendFactory(new Unicorn2Factory(true))
+                .build(); 
+        //*/
+
+      
+        emulator.getSyscallHandler().setEnableThreadDispatcher(false);
+
+        final Memory memory = emulator.getMemory();               
+        memory.setLibraryResolver(new AndroidResolver(23));
+
+        vm = emulator.createDalvikVM(new File(apkFilePath)); 
+        vm.setJni(this);
+        vm.setVerbose(true); 
+
+        new JniGraphics(emulator, vm).register(memory);
+        new AndroidModule(emulator, vm).register(memory);
+
+                dvmClass = vm.resolveClass(&#34;com/bangcle/comapiprotect/CheckCodeUtil&#34;);
+
+                DalvikModule dm = vm.loadLibrary(&#34;encrypt&#34;, false);
+
+        module = dm.getModule();
+        dm.callJNI_OnLoad(emulator);
+    }
+    private void destroy() {
+        try {
+            emulator.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+}</code></pre>
+</div>
+<p>This is the Hello World of unidbg. Don&rsquo;t rush to run it. As we said before, the key code of so has been extracted, so we can&rsquo;t run so directly. We have to replace it with the result of our dump.</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>// DalvikModule dm = vm.loadLibrary(&#34;encrypt&#34;, false);
+DalvikModule dm = vm.loadLibrary(new File(&#34;/Users/h1yx/Desktop/work/blogCode/xxx/libencrypt.so_0x7634ee7000_0x1d6000.so&#34;), false);</code></pre>
+</div>
+<h3 id="step-by-step-to-complete-the-unidbg-run-so-environment">Step by step to complete the unidbg run so environment</h3>
+<p>Let’s look at the first error first.</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>[07:17:09 068]  WARN [com.github.unidbg.linux.ARM64SyscallHandler] (ARM64SyscallHandler:384) - handleInterrupt intno=2, NR=30, svcNumber=0x16e, PC=unidbg@0xfffe0774, LR=RX@0x40018c9c[libencrypt.so]0x18c9c, syscall=null
+java.lang.UnsupportedOperationException: android/app/ActivityThread-&gt;currentActivityThread()Landroid/app/ActivityThread;
+        at com.github.unidbg.linux.android.dvm.AbstractJni.callStaticObjectMethod(AbstractJni.java:432)
+        at com.github.unidbg.linux.android.dvm.AbstractJni.callStaticObjectMethod(AbstractJni.java:421)
+        at com.github.unidbg.linux.android.dvm.DvmMethod.callStaticObjectMethod(DvmMethod.java:59)
+        at com.github.unidbg.linux.android.dvm.DalvikVM64$111.handle(DalvikVM64.java:1723)
+        at com.github.unidbg.linux.ARM64SyscallHandler.hook(ARM64SyscallHandler.java:130)</code></pre>
+</div>
+<p>The error message of unidbg is very clear, indicating that the static method currentActivityThread of the ActivityThread class is called in callStaticObjectMethod, and the return value is of ActivityThread type.</p>
+<p>We overload the callStaticObjectMethod function in CaranywhereDemo.java to solve this problem:</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>@Override
+    public DvmObject&lt;?&gt; callStaticObjectMethod(BaseVM vm, DvmClass dvmClass, String signature, VarArg varArg) {
+        switch (signature) {
+            case &#34;android/app/ActivityThread-&gt;currentActivityThread()Landroid/app/ActivityThread;&#34;:
+                return vm.resolveClass(&#34;android/app/ActivityThread&#34;).newObject(null);
+        }
+        return super.callStaticObjectMethod(vm, dvmClass, signature, varArg);
+    }</code></pre>
+</div>
+<p>We don&rsquo;t care what this currentActivityThread is going to be used for, just return an empty class.</p>
+<p>Keep running, the next error is still in callStaticObjectMethod, it seems to be getting some system information</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>java.lang.UnsupportedOperationException: android/os/SystemProperties-&gt;get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        at com.github.unidbg.linux.android.dvm.AbstractJni.callStaticObjectMethod(AbstractJni.java:432)
+        at com.h1yx.test.CaranywhereDemo.callStaticObjectMethod(CaranywhereDemo.java:78)
+        at com.github.unidbg.linux.android.dvm.AbstractJni.callStaticObjectMethod(AbstractJni.java:421)
+        at com.github.unidbg.linux.android.dvm.DvmMethod.callStaticObjectMethod(DvmMethod.java:59)
+        at com.github.unidbg.linux.android.dvm.DalvikVM64$111.handle(DalvikVM64.java:1723)
+        at com.github.unidbg.linux.ARM64SyscallHandler.hook(ARM64SyscallHandler.java:130)</code></pre>
+</div>
+<p>In this case, the function with input parameters can simply return an empty string, but people should print out the input parameters first.</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>@Override
+    public DvmObject&lt;?&gt; callStaticObjectMethod(BaseVM vm, DvmClass dvmClass, String signature, VarArg varArg) {
+        switch (signature) {
+            case &#34;android/os/SystemProperties-&gt;get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;&#34;:
+                System.out.println(&#34;android/os/SystemProperties-&gt;get params:&#34; + varArg.formatArgs());
+                return new StringObject(vm, &#34;705KPGS001091&#34;);
+
+            case &#34;android/app/ActivityThread-&gt;currentActivityThread()Landroid/app/ActivityThread;&#34;:
+                return vm.resolveClass(&#34;android/app/ActivityThread&#34;).newObject(null);
+        }
+        return super.callStaticObjectMethod(vm, dvmClass, signature, varArg);
+    }</code></pre>
+</div>
+<h6 id="tip">Tip:</h6>
+<p>The unidbg library function formatArgs prompts that it is not a public function. Change it to public final String formatArgs() in the VarArg class.</p>
+<p>Output</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>android/os/SystemProperties-&gt;get params:&#34;ro.serialno&#34;, &#34;unknown&#34;</code></pre>
+</div>
+<p>It turns out that the purpose is to obtain the Android serial number, so just make one up at random. Since this sample is only called once, I am too lazy to judge the input parameter.</p>
+<h6 id="tip-1">Tip:</h6>
+<p>adb shell getprop ro.serialno can get the Android serial number</p>
+<p>This error is similar to the first one, but it is in the callObjectMethod function.</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>java.lang.UnsupportedOperationException: android/app/ActivityThread-&gt;getSystemContext()Landroid/app/ContextImpl;
+        at com.github.unidbg.linux.android.dvm.AbstractJni.callObjectMethod(AbstractJni.java:921)
+        at com.github.unidbg.linux.android.dvm.AbstractJni.callObjectMethod(AbstractJni.java:855)
+        at com.github.unidbg.linux.android.dvm.DvmMethod.callObjectMethod(DvmMethod.java:74)
+        at com.github.unidbg.linux.android.dvm.DalvikVM64$31.handle(DalvikVM64.java:504)
+        at com.github.unidbg.linux.ARM64SyscallHandler.hook(ARM64SyscallHandler.java:130)</code></pre>
+</div>
+<p>Overload the callObjectMethod function and return the ContextImpl type directly</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>public DvmObject&lt;?&gt; callObjectMethod(BaseVM vm, DvmObject&lt;?&gt; dvmObject, String signature, VarArg varArg) {
+        switch (signature) {
+            case &#34;android/app/ActivityThread-&gt;getSystemContext()Landroid/app/ContextImpl;&#34;:
+                return vm.resolveClass(&#34;android/app/ContextImpl&#34;).newObject(null);
+        }
+
+        return super.callObjectMethod(vm, dvmObject, signature, varArg);
+    }</code></pre>
+</div>
+<p>Continue to report errors, this is to obtain the package management class</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>java.lang.UnsupportedOperationException: android/app/ContextImpl-&gt;getPackageManager()Landroid/content/pm/PackageManager;
+        at com.github.unidbg.linux.android.dvm.AbstractJni.callObjectMethod(AbstractJni.java:921)
+        at com.h1yx.test.CaranywhereDemo.callObjectMethod(CaranywhereDemo.java:91)
+        at com.github.unidbg.linux.android.dvm.AbstractJni.callObjectMethod(AbstractJni.java:855)
+        at com.github.unidbg.linux.android.dvm.DvmMethod.callObjectMethod(DvmMethod.java:74)
+        at com.github.unidbg.linux.android.dvm.DalvikVM64$31.handle(DalvikVM64.java:504)
+        at com.github.unidbg.linux.ARM64SyscallHandler.hook(ARM64SyscallHandler.java:130)</code></pre>
+</div>
+<p>callObjectMethod Constructs the PackageManager class and returns</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>case &#34;android/app/ContextImpl-&gt;getPackageManager()Landroid/content/pm/PackageManager;&#34;:
+                return vm.resolveClass(&#34;android/content/pm/PackageManager&#34;).newObject(null);</code></pre>
+</div>
+<p>Next error.</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>java.lang.UnsupportedOperationException: android/app/ContextImpl-&gt;getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+        at com.github.unidbg.linux.android.dvm.AbstractJni.callObjectMethod(AbstractJni.java:921)
+        at com.h1yx.test.CaranywhereDemo.callObjectMethod(CaranywhereDemo.java:93)
+        at com.github.unidbg.linux.android.dvm.AbstractJni.callObjectMethod(AbstractJni.java:855)
+        at com.github.unidbg.linux.android.dvm.DvmMethod.callObjectMethod(DvmMethod.java:74)</code></pre>
+</div>
+<p>This function has parameters. As usual, print out the parameters.</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>case &#34;android/app/ContextImpl-&gt;getSystemService(Ljava/lang/String;)Ljava/lang/Object;&#34;:
+                System.out.println(&#34;android/app/ContextImpl-&gt;getSystemService params:&#34; + varArg.formatArgs());
+                return vm.resolveClass(&#34;java/lang/Object&#34;).newObject(null);</code></pre>
+</div>
+<p>The parameters printed out are</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>android/app/ContextImpl-&gt;getSystemService :&#34;wifi&#34;</code></pre>
+</div>
+<p>I guess it&rsquo;s wifi related. Let&rsquo;s return an empty Object first.</p>
+<p>The following two errors are related to obtaining the wifi Mac address.</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>case &#34;android/net/wifi/WifiInfo-&gt;getMacAddress()Ljava/lang/String;&#34;:
+                return new StringObject(vm, &#34;00:00:00:00:00:00&#34;);
+            case &#34;java/lang/Object-&gt;getConnectionInfo()Landroid/net/wifi/WifiInfo;&#34;:
+                return vm.resolveClass(&#34;android/net/wifi/WifiInfo&#34;).newObject(null);</code></pre>
+</div>
+<p>Now that we have finally gotten JNI_OnLoad working, we can have a drink.</p>
+<h3 id="call-checkcode">call checkcode</h3>
+<p>After a long time, we started to get to the point. Let&rsquo;s call checkcode</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>public void callA() {
+
+    String strA = &#34;F{\&#34;appInnerVersion\&#34;:\&#34;125\&#34;,\&#34;appOutVersion\&#34;:\&#34;6.1.0\&#34;,\&#34;deviceType\&#34;:0,\&#34;imeiMD5\&#34;:\&#34;EE6431DEBB1E02FE469FA5E8467CD693\&#34;,\&#34;mobileModel\&#34;:\&#34;GOOGLE PIXEL 2 XL\&#34;,\&#34;softType\&#34;:\&#34;0\&#34;}&#34;;
+    String strC = &#34;1662109202156&#34;;
+
+    String methodName = &#34;checkcode(Ljava/lang/String;ILjava/lang/String;)Ljava/lang/String;&#34;;
+    DvmObject ret = dvmClass.callStaticJniMethodObject(emulator, methodName,strA,1,strC);
+    String strOut = (String)ret.getValue();
+    System.out.println(&#34;call checkcode: &#34; + strOut);
+}</code></pre>
+</div>
+<p>There is a new error</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>java.lang.UnsupportedOperationException: android/os/Build-&gt;MODEL:Ljava/lang/String;
+        at com.github.unidbg.linux.android.dvm.AbstractJni.getStaticObjectField(AbstractJni.java:103)
+        at com.github.unidbg.linux.android.dvm.AbstractJni.getStaticObjectField(AbstractJni.java:53)
+        at com.github.unidbg.linux.android.dvm.DvmField.getStaticObjectField(DvmField.java:106)
+        at com.github.unidbg.linux.android.dvm.DalvikVM64$142.handle(DalvikVM64.java:2228)</code></pre>
+</div>
+<p>This time we need to overload the getStaticObjectField class</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>public DvmObject&lt;?&gt; getStaticObjectField(BaseVM vm, DvmClass dvmClass, String signature) {
+        switch (signature){
+            case &#34;android/os/Build$VERSION-&gt;SDK:Ljava/lang/String;&#34;:
+                return new StringObject(vm, &#34;23&#34;);
+            case &#34;android/os/Build-&gt;MANUFACTURER:Ljava/lang/String;&#34;:
+                return new StringObject(vm, &#34;Google&#34;);
+            case &#34;android/os/Build-&gt;MODEL:Ljava/lang/String;&#34;:
+                return new StringObject(vm, &#34;pixel&#34;);
+        }
+        return super.getStaticObjectField(vm,dvmClass,signature);
+    }</code></pre>
+</div>
+<p>These values are relatively simple, all of string type, so we assign them a value.</p>
+<p>Yeah, it&rsquo;s done.</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>call checkcode: FDAEKCAcOAQcNBgkEAwoCDQgEDQ4JBAgAAA4ODgcJBgkKBwYPBwwEBw4LBwsODQcFDQMMCAUJDAcEDQsADwEDDAIGDgQJAQYNDggNDQsCAQcNAwwIBQkMBwQNCwAPAQMMDQYCDAgBBQwGBAUIAwULBAoHBg8HDAQHDgsHCw4NBwUPAwEADAkPBQcODAcDDgYCDwMJCQUEAAgHDAUIBwEDBwMKDgcGBg4NDAgLBAAEAw8PAwEADAkPBQcODAcDDgYCCAQNDgkECAAADg4OBwkGCQIIAwkLBgACCgoGAgcCAwEMAQoIBw4BBw0GCQQDCgINDwMBAAwJDwUHDgwHAw4GAggHBwEMBAAAAwMJDQUDDQECBg4ECQEGDQ4IDQ0LAgEHDw0ADwMJDgQICAsJAgILBw8NAA8DCQ4ECAgLCQICCwcNBgIMCAEFDAYEBQgDBQsEAgYOBAkBBg0OCA0NCwIBBw==</code></pre>
+</div>
+<p>Don’t be too happy yet, this result seems a bit wrong no matter how you look at it, and it is quite different from the result of our hook.</p>
+<p>How do I determine whether the result is right or wrong? How do I compare it with the app to get the correct result?Wait for the next Trace Block and Trace Code tutorial.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>The unidbg environment actually tests your Android programming ability.</p>
+<p>Google the keyword unidbg + error message, and you will usually find someone who has experienced the same problem.</p>
+<p>What? You can&rsquo;t open Google? Is it too late for me to persuade you to change your career?</p>
+
+      </div>
+
+      
+      
+
+
+
+      
+      
+
+
+      <footer class="post-footer">
+        <div class="post-tags">
+          <a href="https://578164.xyz/tags/frida/">frida</a>
+          <a href="https://578164.xyz/tags/android/">android</a>
+          
+        </div>
+
+
+        
+        <nav class="post-nav">
+          
+          <a class="prev" href="/post/other/analysis-of-the-__sig3-signature-of-a-novel-app/">
+            
+            <i class="iconfont">
+              
+<svg aria-hidden="true" class="lucide lucide-chevron-left hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m15 18-6-6 6-6"/></svg>
+            </i>
+            <span class="prev-text nav-default">Analysis of the sig3 signature of a novel app</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+          
+          <a class="next" href="/post/other/encryption-analysis-of-a-car-network-app-communication-protocol-part-1/">
+            <span class="next-text nav-default">Encryption Analysis of a Car Network App Communication Protocol (Part 1)</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              
+<svg aria-hidden="true" class="lucide lucide-chevron-right hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m9 18 6-6-6-6"/></svg>
+            </i>
+          </a>
+        </nav>
+      </footer>
+    </article>
+
+    
+    
+
+
+    
+    
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+    
+
+  
+
+  
+
+
+  </div>
+
+  
+  <nav class="toc" id="toc">
+    <div class="toc-title">Table of Contents</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-objectives">1. Objectives</a></li>
+    <li><a href="#2-steps">2. Steps</a>
+      <ul>
+        <li><a href="#dump-so">Dump so</a></li>
+        <li><a href="#unidbg-run-so-basic-framework">unidbg run so basic framework</a></li>
+        <li><a href="#step-by-step-to-complete-the-unidbg-run-so-environment">Step by step to complete the unidbg run so environment</a></li>
+        <li><a href="#call-checkcode">call checkcode</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+</div>
+  </main>
+
+  <footer id="footer" class="footer">
+    <div class="social-icon-links">
+  
+
+
+
+
+<a href="https://578164.xyz/index.xml" rel="noopener alternate" type="application/rss&#43;xml" class="social-icon-link" title="rss"
+  target="_blank">
+  
+<svg aria-hidden="true" class="lucide lucide-rss hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+</a>
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+    2019 -
+    2024
+    <span class="heart">
+      
+      <i class="iconfont">
+        
+<svg aria-hidden="true" class="lucide lucide-heart hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+      </i>
+    </span><span class="author">
+      h1yx
+      
+    </span></span>
+
+  
+  
+
+  
+</div>
+
+  </footer>
+
+  
+
+
+
+
+<script type="text/javascript" src="/js/main.337fdc53bc7899023427e1f23060e9c67160243e2ff4f7f876358e1277d8664d.js" integrity="sha256-M3/cU7x4mQI0J&#43;HyMGDpxnFgJD4v9Pf4djWOEnfYZk0=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

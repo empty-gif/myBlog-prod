@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Frida on Jane - A super concise theme for Hugo</title>
+    <link>https://578164.xyz/tags/frida/</link>
+    <description>Recent content in Frida on Jane - A super concise theme for Hugo</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 02 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://578164.xyz/tags/frida/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Code restoration technology: Unidbg hook_add_new to achieve conditional breakpoints (Part 2)</title>
+      <link>https://578164.xyz/post/other/code-restoration-technology-unidbg-hook_add_new-to-achieve-conditional-breakpoints-part-2/</link>
+      <pubDate>Mon, 02 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/code-restoration-technology-unidbg-hook_add_new-to-achieve-conditional-breakpoints-part-2/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;When doing code restoration, sometimes you will analyze a set of results and hope to set a conditional breakpoint in the middle, such as triggering a breakpoint at code line 0x1234, R0=0x5678.&lt;/p&gt;&#xA;&lt;p&gt;Let’s try it today.&lt;/p&gt;&#xA;&lt;h6 id=&#34;tip&#34;&gt;Tip:&lt;/h6&gt;&#xA;&lt;p&gt;The Unidbg code has been synchronized to the latest official version, which already supports the display of floating-point registers.&lt;/p&gt;&#xA;&lt;h2 id=&#34;2-steps&#34;&gt;2. Steps&lt;/h2&gt;&#xA;&lt;h3 id=&#34;write-a-floatdemotwo-first&#34;&gt;Write a floatdemotwo first&lt;/h3&gt;&#xA;&lt;p&gt;Upgrade the ancestral algorithm&lt;/p&gt;&#xA;&lt;div class=&#34;highlight-container&#34;&gt;&#xA;&#xA;  &lt;button class=&#34;copy-code-btn outline&#34;&gt;Copy&lt;/button&gt;&#xA;&#xA;  &#xA;  &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;extern &amp;#34;C&amp;#34; JNIEXPORT jstring JNICALL&#xA;Java_com_h1yx_app_floatdemo_MainActivity_stringFromJNI(&#xA;        JNIEnv* env,&#xA;        jobject Obj, jdouble value) {&#xA;    std::string hello = &amp;#34;Hello from C++&amp;#34;;&#xA;&#xA;    double p=3.14159;&#xA;    double s,v,rc;&#xA;&#xA;    for(int i=0 ; i&amp;lt; 10; i++){&#xA;        hello +=&amp;#34;\n&amp;#34;;&#xA;&#xA;        v = 2*p* (value + i);&#xA;        s = p * (value + i) * (value + i);&#xA;&#xA;        rc = v+s;&#xA;&#xA;        hello += std::to_string(rc);&#xA;&#xA;    }&#xA;&#xA;    return env-&amp;gt;NewStringUTF(hello.c_str());&#xA;}&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;Calculate the sum of the circumference and area of 10 circles.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>A series of operations merged the Unidbg update and continued to run the sign</title>
+      <link>https://578164.xyz/post/other/a-series-of-operations-merged-the-unidbg-update-and-continued-to-run-the-sign/</link>
+      <pubDate>Fri, 12 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/a-series-of-operations-merged-the-unidbg-update-and-continued-to-run-the-sign/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;The author of Unidbg has been updating quite frequently recently. We have to keep up with him so as not to be left behind.&lt;/p&gt;&#xA;&lt;h2 id=&#34;2-analysis&#34;&gt;2. Analysis&lt;/h2&gt;&#xA;&lt;h3 id=&#34;code-comparison&#34;&gt;Code comparison&lt;/h3&gt;&#xA;&lt;p&gt;Pull back the latest code first&lt;/p&gt;&#xA;&lt;div class=&#34;highlight-container&#34;&gt;&#xA;&#xA;  &lt;button class=&#34;copy-code-btn outline&#34;&gt;Copy&lt;/button&gt;&#xA;&#xA;  &#xA;  &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git pull&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;Then compared with our previous code, it seems that there are a lot of changes. I merged 3-5 files manually and vomited blood&amp;hellip;&lt;/p&gt;&#xA;&lt;h3 id=&#34;git&#34;&gt;git&lt;/h3&gt;&#xA;&lt;p&gt;As a certified senior programmer, I actually still merged codes manually, and my boss almost suspected that my senior certificate was issued in Zhongguancun.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Code Restoration Trial (Part 2): Modified MD5</title>
+      <link>https://578164.xyz/post/other/code-restoration-trial-part-2-modified-md5/</link>
+      <pubDate>Mon, 13 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/code-restoration-trial-part-2-modified-md5/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;Boss:  AI has already done the work of code restoration. Do we still need to write a tutorial for code restoration?&lt;/p&gt;&#xA;&lt;p&gt;Me: Of course I have to write it. AI is AI, it is a batch assembly line operation, how can it be as cool as my purely manual code? My code is warm.&lt;/p&gt;&#xA;&lt;p&gt;A famous person once said: You can never make money beyond your cognitive scope. So You can&amp;rsquo;t command AI to do work beyond your cognitive scope.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Android high version installation system certificate HTTPS packet capture - the ultimate solution</title>
+      <link>https://578164.xyz/post/other/android-high-version-installation-system-certificate-https-packet-capture---the-ultimate-solution/</link>
+      <pubDate>Sun, 05 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/android-high-version-installation-system-certificate-https-packet-capture---the-ultimate-solution/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;To capture App packages, you first need the App to trust the certificate of the capture software.&lt;/p&gt;&#xA;&lt;p&gt;However, starting from Android 7.0, the system no longer trusts user CA certificates, so you need to install the CA certificate to the system CA certificate directory.&lt;/p&gt;&#xA;&lt;p&gt;If you use Magisk jailbreak, this task is relatively simple. You only need to install a module Move Certificates.&lt;/p&gt;&#xA;&lt;p&gt;But today&amp;rsquo;s story starts with me flashing a new ROM. This ROM is quite strange. After flashing, the adb connection is directly in root state, but the App cannot obtain the root state.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Code Restoration Trial (I): Modified MD5</title>
+      <link>https://578164.xyz/post/other/code-restoration-trial-i-modified-md5/</link>
+      <pubDate>Wed, 22 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/code-restoration-trial-i-modified-md5/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;It’s 2023, and MD5 is already the most basic signature algorithm, but if you still only do a simple MD5 on the input, you will definitely be laughed at by your peers. Adding salt is a basic improvement, but in this era of severe employment, just adding salt is definitely not enough.&lt;/p&gt;&#xA;&lt;p&gt;Today we will talk about the modified MD5 to make this algorithm more advanced.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Vegetable rolls&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;The simplest way to modify it is to change the initial parameters of MD5.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Compile and flash Android 10 source code (QP1A.190711.020) under Mac 10.14.x (Pixel 2 XL)</title>
+      <link>https://578164.xyz/post/other/compile-and-flash-android-10-source-code-qp1a.190711.020-under-mac-10.14.x-pixel-2-xl/</link>
+      <pubDate>Mon, 12 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/compile-and-flash-android-10-source-code-qp1a.190711.020-under-mac-10.14.x-pixel-2-xl/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;Older generations of Windows reverse engineers have been analyzing the Windows kernel one after another, dreaming of taking a look at the Windows source code, but so far they can only see leaked source code from several generations ago. The mobile era is a blessing, the latest version of Android source code is open to you, and you can&amp;rsquo;t just look at it, you have to touch it.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Analysis of the sig3 signature of a novel app</title>
+      <link>https://578164.xyz/post/other/analysis-of-the-__sig3-signature-of-a-novel-app/</link>
+      <pubDate>Mon, 10 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/analysis-of-the-__sig3-signature-of-a-novel-app/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;This sample is somewhat similar to the previous short video app. The signature name and algorithm are probably the same. So if you understand this, you can probably understand the latest version of the short video app.&lt;/p&gt;&#xA;&lt;p&gt;So what is the difference between reading novels and watching short videos?&lt;/p&gt;&#xA;&lt;p&gt;The more I read novels, the sleepier I feel. The more I watch short videos, the more awake I feel. This proves that AI knows you better than you know yourself.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>An analysis of the encryption of the communication protocol of a car networking app (Part 2) Unidbg step by step</title>
+      <link>https://578164.xyz/post/other/an-analysis-of-the-encryption-of-the-communication-protocol-of-a-car-networking-app-part-2-unidbg-step-by-step/</link>
+      <pubDate>Thu, 08 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/an-analysis-of-the-encryption-of-the-communication-protocol-of-a-car-networking-app-part-2-unidbg-step-by-step/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;It has been a while since I wrote an article related to unidbg. This sample is quite suitable, with moderate difficulty and a small pit for you. So the following is a series of articles, including unidbg environment supplement, Trace Block comparison process, Trace Code location difference. Mastering this series of routines, Native analysis can be considered an entry.&lt;/p&gt;&#xA;&lt;p&gt;This time, let&amp;rsquo;s run so with unidbg&lt;/p&gt;&#xA;&lt;p&gt;v6.1.0&lt;/p&gt;&#xA;&lt;h2 id=&#34;2-steps&#34;&gt;2. Steps&lt;/h2&gt;&#xA;&lt;h3 id=&#34;dump-so&#34;&gt;Dump so&lt;/h3&gt;&#xA;&lt;p&gt;IDA openslibencrypt.soGo to the offset addresses 0x24424 and 0x2B1BC corresponding to the two functions checkcode and decheckcode we want to analyze. We will find a strange problem that there is no assembly code at these two addresses, both are 0x00.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Encryption Analysis of a Car Network App Communication Protocol (Part 1)</title>
+      <link>https://578164.xyz/post/other/encryption-analysis-of-a-car-network-app-communication-protocol-part-1/</link>
+      <pubDate>Tue, 30 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/encryption-analysis-of-a-car-network-app-communication-protocol-part-1/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;Boss: I just bought a new car recently. The app that came with it is quite interesting. Would you like to take a look at it?&lt;/p&gt;&#xA;&lt;p&gt;Me: Oh my god, it’s packed, it’s quite interesting, let me try it.&lt;/p&gt;&#xA;&lt;p&gt;v6.1.0&lt;/p&gt;&#xA;&lt;h2 id=&#34;2-steps&#34;&gt;2. Steps&lt;/h2&gt;&#xA;&lt;h3 id=&#34;packet-capture&#34;&gt;Packet capture&lt;/h3&gt;&#xA;&lt;p&gt;My packet capture environment is Mac 10.14.6 + httpToolKit, and I captured the packet smoothly in this step.&lt;/p&gt;&#xA;&lt;p&gt;1:main&lt;/p&gt;&#xA;&lt;p&gt;As you can see, both the http request and the return value are encrypted. This is our goal.requestandresponseThe origin of .&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>appdbg: A virtual machine disguised as a debugger</title>
+      <link>https://578164.xyz/post/other/appdbg-a-virtual-machine-disguised-as-a-debugger/</link>
+      <pubDate>Sun, 29 May 2022 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/appdbg-a-virtual-machine-disguised-as-a-debugger/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;Today&amp;rsquo;s apps are restless. The Java layer tries to flirt with the Native layer, and the Native layer likes to collude with Jave.&lt;/p&gt;&#xA;&lt;p&gt;It&amp;rsquo;s too difficult to analyze a so quietly.&lt;/p&gt;&#xA;&lt;p&gt;Is it possible to simulate the execution of the App on the PC, so that when Native is connected to the Jave layer, a lot of work of supplementing the environment can be saved?&lt;/p&gt;&#xA;&lt;p&gt;appdbg is such a virtual machine disguised as a debugger.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Teach you how to build a Frida &#43; Sekiro RPC framework</title>
+      <link>https://578164.xyz/post/other/teach-you-how-to-build-a-frida-&#43;-sekiro-rpc-framework/</link>
+      <pubDate>Thu, 21 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/teach-you-how-to-build-a-frida-&#43;-sekiro-rpc-framework/</guid>
+      <description>&lt;h2 id=&#34;objectives&#34;&gt;Objectives&lt;/h2&gt;&#xA;&lt;p&gt;Signing with a mobile phone is a tricky solution. We have introduced it before.&lt;/p&gt;&#xA;&lt;p&gt;Sekiro + Xposed signature solution&lt;/p&gt;&#xA;&lt;p&gt;Frida is now widely used, and Sekiro has also upgraded to a new version. Today we will teach you how to build a Frida + Sekiro Rpc framework.&lt;/p&gt;&#xA;&lt;h3 id=&#34;run-the-server-first&#34;&gt;Run the server first&lt;/h3&gt;&#xA;&lt;p&gt;The official website is here &lt;a href=&#34;https://github.com/virjar/sekiro&#34;&gt;https://github.com/virjar/sekiro&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;git clone it;&lt;/p&gt;&#xA;&lt;p&gt;On Linux or Mac, execute the script build_demo_server.sh, and then get the release compressed package: sekiro-service-demo/target/sekiro-release-demo.zip&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>An e-commerce App sign algorithm upgrade verification</title>
+      <link>https://578164.xyz/post/other/an-e-commerce-app-sign-algorithm-upgrade-verification/</link>
+      <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/an-e-commerce-app-sign-algorithm-upgrade-verification/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;The app has been upgraded, but has its algorithm also been upgraded? This is a question. We need to verify it quickly, otherwise Mr. Li will go crazy.&lt;/p&gt;&#xA;&lt;h6 id=&#34;note&#34;&gt;Note:&lt;/h6&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Objection&lt;/li&gt;&#xA;&lt;li&gt;Unidbg&lt;/li&gt;&#xA;&lt;li&gt;gettimeofday&lt;/li&gt;&#xA;&lt;li&gt;lrand48&lt;/li&gt;&#xA;&lt;li&gt;V9.4.2&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;2-analysis&#34;&gt;2. Analysis&lt;/h2&gt;&#xA;&lt;p&gt;In the previous analysis of a signature algorithm of an e-commerce app (Part 1) we located the &lt;strong&gt;com.xxxxxxxx.common.utils.BitmapkitUtils&lt;/strong&gt; class and its &lt;strong&gt;getSignFromJni&lt;/strong&gt; function as the key functions for calculating the sign.&lt;/p&gt;&#xA;&lt;p&gt;In the new version, we first use Objection to hook com.xxxxxxxx.common.utils.BitmapkitUtils&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Code Restoration Technology ARM Assembly Introduction Tutorial (I) Hello World!</title>
+      <link>https://578164.xyz/post/other/code-restoration-technology-arm-assembly-introduction-tutorial-i-hello-world/</link>
+      <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/code-restoration-technology-arm-assembly-introduction-tutorial-i-hello-world/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Why learn ARM assembly?&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;No reason.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Is it useful to learn ARM assembly?&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;It&amp;rsquo;s useless&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Can I find a job after learning ARM assembly?&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;None of the popular large-scale software is written in assembly language, so what do you think?&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Do you still need to learn ARM assembly?&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Why not learn it? You have nothing to do anyway. Knowing some low-level languages and getting close to the essence of computer operation is still very cool.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Iphone Jailbreak 2020</title>
+      <link>https://578164.xyz/post/other/iphone-jailbreak-2020/</link>
+      <pubDate>Sat, 31 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/iphone-jailbreak-2020/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;h6 id=&#34;note&#34;&gt;Note:&lt;/h6&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;iOS jailbreak&lt;/li&gt;&#xA;&lt;li&gt;MacOS Mojave 10.14.6&lt;/li&gt;&#xA;&lt;li&gt;Xcode Version 11.3.1&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;I was planning to build a framework for app signature calculation based on iOS, but I found that the system of my test phone iPhone 11.2.2 could not be jailbroken. A lot of xx assistants&amp;rsquo; corporate signatures have expired, so I couldn&amp;rsquo;t install jailbreak software. Fortunately, I had used Cydia Impactor to do self-signing before, so I continued to use it, and the result was:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Frida installation (I)</title>
+      <link>https://578164.xyz/post/other/frida-installation-i/</link>
+      <pubDate>Fri, 09 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/frida-installation-i/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;Frida is a hook framework based on python+javascript, which can run on various platforms such as android, ios, linux, win, etc. It mainly uses dynamic binary instrumentation technology. It is also a widely used reverse engineering tool.&lt;/p&gt;&#xA;&lt;h2 id=&#34;2-installation&#34;&gt;2. Installation&lt;/h2&gt;&#xA;&lt;h3 id=&#34;install-frida-on-mac&#34;&gt;Install frida on Mac&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight-container&#34;&gt;&#xA;&#xA;  &lt;button class=&#34;copy-code-btn outline&#34;&gt;Copy&lt;/button&gt;&#xA;&#xA;  &#xA;  &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip install frida&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;h6 id=&#34;tip&#34;&gt;Tip:&lt;/h6&gt;&#xA;&lt;div class=&#34;highlight-container&#34;&gt;&#xA;&#xA;  &lt;button class=&#34;copy-code-btn outline&#34;&gt;Copy&lt;/button&gt;&#xA;&#xA;  &#xA;  &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip install frida&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;If you have installed an old version before, you must uninstall the old version first.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight-container&#34;&gt;&#xA;&#xA;  &lt;button class=&#34;copy-code-btn outline&#34;&gt;Copy&lt;/button&gt;&#xA;&#xA;  &#xA;  &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip uninstall frida&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;Then install frida-tools&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

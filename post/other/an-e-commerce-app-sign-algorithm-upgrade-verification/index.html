@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage" data-theme="light">
+
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>
+  An e-commerce App sign algorithm upgrade verification - Jane - A super concise theme for Hugo
+  </title>
+
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
+
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="color-scheme" content="light dark" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="h1yx" />
+<meta name="description" content="1. Objectives The app has been upgraded, but has its algorithm also been upgraded? This is a question. We need to verify it quickly, otherwise Mr. Li will go crazy.
+Note: Objection Unidbg gettimeofday lrand48 V9.4.2 2. Analysis In the previous analysis of a signature algorithm of an e-commerce app (Part 1) we located the com.xxxxxxxx.common.utils.BitmapkitUtils class and its getSignFromJni function as the key functions for calculating the sign.
+In the new version, we first use Objection to hook com.xxxxxxxx.common.utils.BitmapkitUtils
+" />
+
+<meta name="keywords"
+  content="" />
+
+
+
+
+<meta name="generator" content="Hugo 0.136.4" />
+
+
+<link rel="canonical" href="https://578164.xyz/post/other/an-e-commerce-app-sign-algorithm-upgrade-verification/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/style.min.4d9e22c6c4a4cfe9ca1e35f9578ca6c8ff84c408a5f0599c8cbdaf444e95eae8.css" integrity="sha256-TZ4ixsSkz&#43;nKHjX5V4ymyP&#43;ExAil8FmcjL2vRE6V6ug=" media="screen"
+  crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:url" content="https://578164.xyz/post/other/an-e-commerce-app-sign-algorithm-upgrade-verification/">
+  <meta property="og:site_name" content="Jane - A super concise theme for Hugo">
+  <meta property="og:title" content="An e-commerce App sign algorithm upgrade verification">
+  <meta property="og:description" content="1. Objectives The app has been upgraded, but has its algorithm also been upgraded? This is a question. We need to verify it quickly, otherwise Mr. Li will go crazy.
+Note: Objection Unidbg gettimeofday lrand48 V9.4.2 2. Analysis In the previous analysis of a signature algorithm of an e-commerce app (Part 1) we located the com.xxxxxxxx.common.utils.BitmapkitUtils class and its getSignFromJni function as the key functions for calculating the sign.
+In the new version, we first use Objection to hook com.xxxxxxxx.common.utils.BitmapkitUtils">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2021-04-12T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-04-12T00:00:00+00:00">
+    <meta property="article:tag" content="Frida">
+    <meta property="article:tag" content="Android">
+
+  <meta itemprop="name" content="An e-commerce App sign algorithm upgrade verification">
+  <meta itemprop="description" content="1. Objectives The app has been upgraded, but has its algorithm also been upgraded? This is a question. We need to verify it quickly, otherwise Mr. Li will go crazy.
+Note: Objection Unidbg gettimeofday lrand48 V9.4.2 2. Analysis In the previous analysis of a signature algorithm of an e-commerce app (Part 1) we located the com.xxxxxxxx.common.utils.BitmapkitUtils class and its getSignFromJni function as the key functions for calculating the sign.
+In the new version, we first use Objection to hook com.xxxxxxxx.common.utils.BitmapkitUtils">
+  <meta itemprop="datePublished" content="2021-04-12T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2021-04-12T00:00:00+00:00">
+  <meta itemprop="wordCount" content="277">
+  <meta itemprop="keywords" content="Frida,Android">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="An e-commerce App sign algorithm upgrade verification">
+  <meta name="twitter:description" content="1. Objectives The app has been upgraded, but has its algorithm also been upgraded? This is a question. We need to verify it quickly, otherwise Mr. Li will go crazy.
+Note: Objection Unidbg gettimeofday lrand48 V9.4.2 2. Analysis In the previous analysis of a signature algorithm of an e-commerce app (Part 1) we located the com.xxxxxxxx.common.utils.BitmapkitUtils class and its getSignFromJni function as the key functions for calculating the sign.
+In the new version, we first use Objection to hook com.xxxxxxxx.common.utils.BitmapkitUtils">
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+
+<script>
+  (function () {
+    var savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  })();
+</script>
+
+</head>
+
+<body>
+  <div id="back-to-top"></div>
+
+  <header>
+    
+<div class="desktop-header">
+  <div class="desktop-header-logo">
+    <a href="/" class="logo">
+      
+      h1yx blog
+      
+    </a>
+  </div>
+
+  <nav class="desktop-navbar">
+    <ul id="menu" class="menu">
+      
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/">Home</a>
+        
+
+        
+
+      </li>
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/post/">Archives</a>
+        
+
+        
+
+      </li>
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/tags/">Tags</a>
+        
+
+        
+
+      </li>
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/about/">About</a>
+        
+
+        
+
+      </li>
+      
+
+      
+      
+
+      
+
+      <li class="menu-item">
+        <a class="theme-toggle menu-item-link" href="javascript:void(0);">
+
+            
+<svg aria-hidden="true" class="lucide lucide-sun hi-svg-inline theme-icon-light" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+
+            
+<svg aria-hidden="true" class="lucide lucide-moon hi-svg-inline theme-icon-dark" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a class="menu-item-link" href="https://578164.xyz/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+          title="rss" target="_blank">
+          
+<svg aria-hidden="true" class="lucide lucide-rss hi-svg-inline icon--rss" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+        </a>
+        
+      </li>
+    </ul>
+  </nav>
+</div>
+
+    
+
+<div class="mobile-header">
+  <div id="mobile-navbar" class="mobile-navbar">
+    <div id="mobile-navbar-icon" class="mobile-navbar-icon">
+      
+<svg aria-hidden="true" class="lucide lucide-menu hi-svg-inline icon--menu" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+    </div>
+    <div class="mobile-navbar-logo">
+      <a href="/%20/" class="logo">h1yx blog</a>
+    </div>
+  </div>
+
+  <div id="mobile-menu-close-modal" class="mobile-menu-close-modal"></div>
+  <nav id="mobile-menu" class="mobile-menu">
+    <ul class="mobile-menu-list">
+      <li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/">Home</a>
+        
+        
+      </li><li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/post/">Archives</a>
+        
+        
+      </li><li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/tags/">Tags</a>
+        
+        
+      </li><li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/about/">About</a>
+        
+        
+      </li>
+      
+
+      
+
+      <li class="mobile-menu-item">
+        <a class="theme-toggle menu-item-link" href="javascript:void(0);">
+
+            
+<svg aria-hidden="true" class="lucide lucide-sun hi-svg-inline theme-icon-light" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+
+            
+<svg aria-hidden="true" class="lucide lucide-moon hi-svg-inline theme-icon-dark" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+
+        </a>
+      </li>
+
+      <li class="mobile-menu-item">
+        <a class="menu-item-link" href="https://578164.xyz/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+          title="rss" target="_blank">
+          
+<svg aria-hidden="true" class="lucide lucide-rss hi-svg-inline icon--rss" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+        </a>
+        
+      </li>
+    </ul>
+  </nav>
+</div>
+
+  </header>
+
+  
+
+  
+
+
+
+  <main id="main" class="main pico container">
+    <div class="content-wrapper">
+  <aside class="sidebar">
+  </aside>
+  <div id="content" class="content">
+    <article class="post">
+      
+      <header class="post-header">
+        <h1 class="post-title">An e-commerce App sign algorithm upgrade verification</h1>
+        
+
+
+
+        <div class="post-meta-list">
+  <div class="post-meta-item post-meta-author">
+    
+<svg aria-hidden="true" class="lucide lucide-user-round-pen hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M2 21a8 8 0 0 1 10.821-7.487"/><path d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"/><circle cx="10" cy="8" r="5"/></svg>
+    <a href="/about">
+      <span class="post-meta-author-name">
+        h1yx
+      </span>
+    </a>
+    
+  </div>
+
+  <div class="post-meta-item post-meta-time">
+    
+<svg aria-hidden="true" class="lucide lucide-calendar-days hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
+    <time datetime=" 2021-04-12">
+      2021-04-12
+    </time>
+
+
+    
+
+  </div>
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-item post-meta-category">
+      <a href="https://578164.xyz/categories/advanced-learning/"> Advanced Learning </a>
+      
+    </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+      </header>
+
+      
+      <div class="post-content">
+        <h2 id="1-objectives">1. Objectives</h2>
+<p>The app has been upgraded, but has its algorithm also been upgraded? This is a question. We need to verify it quickly, otherwise Mr. Li will go crazy.</p>
+<h6 id="note">Note:</h6>
+<ul>
+<li>Objection</li>
+<li>Unidbg</li>
+<li>gettimeofday</li>
+<li>lrand48</li>
+<li>V9.4.2</li>
+</ul>
+<h2 id="2-analysis">2. Analysis</h2>
+<p>In the previous analysis of a signature algorithm of an e-commerce app (Part 1) we located the <strong>com.xxxxxxxx.common.utils.BitmapkitUtils</strong> class and its <strong>getSignFromJni</strong> function as the key functions for calculating the sign.</p>
+<p>In the new version, we first use Objection to hook com.xxxxxxxx.common.utils.BitmapkitUtils</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>objection -g com.xxxxxxxx.app.mall explore
+android hooking watch class &#39;com.xxxxxxxx.common.utils.BitmapkitUtils&#39;</code></pre>
+</div>
+<p>Then from the App, open any product page:</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>(agent) [3688199735633] Called com.xxxxxxxx.common.utils.BitmapkitUtils.loadBMP()
+(agent) [3688199735633] Called com.xxxxxxxx.common.utils.BitmapkitUtils.isFuncAvailable()
+(agent) [3688199735633] Called com.xxxxxxxx.common.utils.BitmapkitUtils.loadBMP()
+(agent) [3688199735633] Called com.xxxxxxxx.common.utils.BitmapkitUtils.getSignFromJni(android.content.Context, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)</code></pre>
+</div>
+<p>Perfect, indicating that the function entry has not changed, and it is still signed by <strong>getSignFromJni .</strong></p>
+<p>Let&rsquo;s check whether the input parameters and return values are consistent with the packet capture results:</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>android hooking watch class_method &#39;com.xxxxxxxx.common.utils.BitmapkitUtils.getSignFromJni&#39; --dump-args --dump-return</code></pre>
+</div>
+<p>Still OK, I saw the familiar sign value.</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>(agent) [1921806846023] Arguments com.xxxxxxxx.common.utils.BitmapkitUtils.getSignFromJni(&#34;&lt;instance: android.content.Context, $className: com.xxxxxxxx.app.mall.JDApp&gt;&#34;, &#34;asynInteface&#34;, &#34;{\&#34;intefaceType\&#34;:\&#34;asynIntefaceType\&#34;,\&#34;skuId\&#34;:\&#34;10026198901146\&#34;}&#34;, &#34;xxc930c5dcfe67xx&#34;, &#34;android&#34;, &#34;9.4.2&#34;)
+(agent) [1921806846023] Return Value: &#34;st=1615000030090&amp;sign=7841200ddd83d8cda0828b1cae56b41e&amp;sv=110&#34;</code></pre>
+</div>
+<p>Now is the last step, to check whether the sign result is the same as the previous version. To do this, refer to <a href="http://localhost:1313/post/timestops/">the algorithm restoration assistant (I) First stop time</a> and fix the values of gettimeofday and lrand48.</p>
+<p>Turn outKnowledge Planet<strong>There is a practical tutorial on Unidbg simulation execution of big manufacturers</strong> written last year (the Year of the Rat) , and the new version of the apk is loaded.</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>// vm = emulator.createDalvikVM(new File(&#34;/Users/h1yx/Desktop/V9.2.2.85371_T1_350271430_lc029.apk&#34;));
+vm = emulator.createDalvikVM(new File(&#34;/Users/h1yx/Desktop/V9_4_2.apk&#34;));</code></pre>
+</div>
+<p>Run</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>st=1606701201628&amp;sign=59039230dc2e1ea27a4f250d9ec81b8c&amp;sv=111
+destroy
+run</code></pre>
+</div>
+<p>This value looks familiar.</p>
+
+      </div>
+
+      
+      
+
+
+
+      
+      
+
+
+      <footer class="post-footer">
+        <div class="post-tags">
+          <a href="https://578164.xyz/tags/frida/">frida</a>
+          <a href="https://578164.xyz/tags/android/">android</a>
+          
+        </div>
+
+
+        
+        <nav class="post-nav">
+          
+          <a class="prev" href="/post/other/teach-you-how-to-build-a-frida-&#43;-sekiro-rpc-framework/">
+            
+            <i class="iconfont">
+              
+<svg aria-hidden="true" class="lucide lucide-chevron-left hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m15 18-6-6 6-6"/></svg>
+            </i>
+            <span class="prev-text nav-default">Teach you how to build a Frida &#43; Sekiro RPC framework</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+          
+          <a class="next" href="/post/other/code-restoration-technology-arm-assembly-introduction-tutorial-i-hello-world/">
+            <span class="next-text nav-default">Code Restoration Technology ARM Assembly Introduction Tutorial (I) Hello World!</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              
+<svg aria-hidden="true" class="lucide lucide-chevron-right hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m9 18 6-6-6-6"/></svg>
+            </i>
+          </a>
+        </nav>
+      </footer>
+    </article>
+
+    
+    
+
+
+    
+    
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+    
+
+  
+
+  
+
+
+  </div>
+
+  
+  <nav class="toc" id="toc">
+    <div class="toc-title">Table of Contents</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-objectives">1. Objectives</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#2-analysis">2. Analysis</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+</div>
+  </main>
+
+  <footer id="footer" class="footer">
+    <div class="social-icon-links">
+  
+
+
+
+
+<a href="https://578164.xyz/index.xml" rel="noopener alternate" type="application/rss&#43;xml" class="social-icon-link" title="rss"
+  target="_blank">
+  
+<svg aria-hidden="true" class="lucide lucide-rss hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+</a>
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+    2019 -
+    2024
+    <span class="heart">
+      
+      <i class="iconfont">
+        
+<svg aria-hidden="true" class="lucide lucide-heart hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+      </i>
+    </span><span class="author">
+      h1yx
+      
+    </span></span>
+
+  
+  
+
+  
+</div>
+
+  </footer>
+
+  
+
+
+
+
+<script type="text/javascript" src="/js/main.337fdc53bc7899023427e1f23060e9c67160243e2ff4f7f876358e1277d8664d.js" integrity="sha256-M3/cU7x4mQI0J&#43;HyMGDpxnFgJD4v9Pf4djWOEnfYZk0=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

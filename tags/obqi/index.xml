@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Obqi on Jane - A super concise theme for Hugo</title>
+    <link>https://578164.xyz/tags/obqi/</link>
+    <description>Recent content in Obqi on Jane - A super concise theme for Hugo</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 25 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://578164.xyz/tags/obqi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>QBDI User Guide</title>
+      <link>https://578164.xyz/post/other/qbdi-user-guide/</link>
+      <pubDate>Mon, 25 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/qbdi-user-guide/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;p&gt;Today I would like to introduce a new friend to you, &lt;a href=&#34;https://qbdi.quarkslab.com/&#34;&gt;QBDI&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;It can be quickly integrated into your frida script to perform assembly-level trace&lt;/p&gt;&#xA;&lt;h2 id=&#34;2-steps&#34;&gt;2. Steps&lt;/h2&gt;&#xA;&lt;h3 id=&#34;install&#34;&gt;Install&lt;/h3&gt;&#xA;&lt;p&gt;It is very convenient to use QBDI on Android. First go to the official website to download the latest version&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/QBDI/QBDI/releases/download/v0.10.0/QBDI-0.10.0-android-AARCH64.tar.gz&#34;&gt;https://github.com/QBDI/QBDI/releases/download/v0.10.0/QBDI-0.10.0-android-AARCH64.tar.gz&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;For our use of Frida, there are mainly two files in itlibQBDI.soandfrida-qbdi.js, the former is the injection library, the latter is the js encapsulation&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

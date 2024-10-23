@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage" data-theme="light">
+
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>
+  Encryption Analysis of a Car Network App Communication Protocol (Part 1) - Jane - A super concise theme for Hugo
+  </title>
+
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
+
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="color-scheme" content="light dark" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="h1yx" />
+<meta name="description" content="1. Objectives Boss: I just bought a new car recently. The app that came with it is quite interesting. Would you like to take a look at it?
+Me: Oh my god, it’s packed, it’s quite interesting, let me try it.
+v6.1.0
+2. Steps Packet capture My packet capture environment is Mac 10.14.6 &#43; httpToolKit, and I captured the packet smoothly in this step.
+1:main
+As you can see, both the http request and the return value are encrypted. This is our goal.requestandresponseThe origin of .
+" />
+
+<meta name="keywords"
+  content="" />
+
+
+
+
+<meta name="generator" content="Hugo 0.136.4" />
+
+
+<link rel="canonical" href="https://578164.xyz/post/other/encryption-analysis-of-a-car-network-app-communication-protocol-part-1/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/style.min.4d9e22c6c4a4cfe9ca1e35f9578ca6c8ff84c408a5f0599c8cbdaf444e95eae8.css" integrity="sha256-TZ4ixsSkz&#43;nKHjX5V4ymyP&#43;ExAil8FmcjL2vRE6V6ug=" media="screen"
+  crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:url" content="https://578164.xyz/post/other/encryption-analysis-of-a-car-network-app-communication-protocol-part-1/">
+  <meta property="og:site_name" content="Jane - A super concise theme for Hugo">
+  <meta property="og:title" content="Encryption Analysis of a Car Network App Communication Protocol (Part 1)">
+  <meta property="og:description" content="1. Objectives Boss: I just bought a new car recently. The app that came with it is quite interesting. Would you like to take a look at it?
+Me: Oh my god, it’s packed, it’s quite interesting, let me try it.
+v6.1.0
+2. Steps Packet capture My packet capture environment is Mac 10.14.6 &#43; httpToolKit, and I captured the packet smoothly in this step.
+1:main
+As you can see, both the http request and the return value are encrypted. This is our goal.requestandresponseThe origin of .">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2022-08-30T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-08-30T00:00:00+00:00">
+    <meta property="article:tag" content="Frida">
+    <meta property="article:tag" content="Android">
+
+  <meta itemprop="name" content="Encryption Analysis of a Car Network App Communication Protocol (Part 1)">
+  <meta itemprop="description" content="1. Objectives Boss: I just bought a new car recently. The app that came with it is quite interesting. Would you like to take a look at it?
+Me: Oh my god, it’s packed, it’s quite interesting, let me try it.
+v6.1.0
+2. Steps Packet capture My packet capture environment is Mac 10.14.6 &#43; httpToolKit, and I captured the packet smoothly in this step.
+1:main
+As you can see, both the http request and the return value are encrypted. This is our goal.requestandresponseThe origin of .">
+  <meta itemprop="datePublished" content="2022-08-30T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2022-08-30T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1053">
+  <meta itemprop="keywords" content="Frida,Android">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Encryption Analysis of a Car Network App Communication Protocol (Part 1)">
+  <meta name="twitter:description" content="1. Objectives Boss: I just bought a new car recently. The app that came with it is quite interesting. Would you like to take a look at it?
+Me: Oh my god, it’s packed, it’s quite interesting, let me try it.
+v6.1.0
+2. Steps Packet capture My packet capture environment is Mac 10.14.6 &#43; httpToolKit, and I captured the packet smoothly in this step.
+1:main
+As you can see, both the http request and the return value are encrypted. This is our goal.requestandresponseThe origin of .">
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+
+<script>
+  (function () {
+    var savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  })();
+</script>
+
+</head>
+
+<body>
+  <div id="back-to-top"></div>
+
+  <header>
+    
+<div class="desktop-header">
+  <div class="desktop-header-logo">
+    <a href="/" class="logo">
+      
+      h1yx blog
+      
+    </a>
+  </div>
+
+  <nav class="desktop-navbar">
+    <ul id="menu" class="menu">
+      
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/">Home</a>
+        
+
+        
+
+      </li>
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/post/">Archives</a>
+        
+
+        
+
+      </li>
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/tags/">Tags</a>
+        
+
+        
+
+      </li>
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/about/">About</a>
+        
+
+        
+
+      </li>
+      
+
+      
+      
+
+      
+
+      <li class="menu-item">
+        <a class="theme-toggle menu-item-link" href="javascript:void(0);">
+
+            
+<svg aria-hidden="true" class="lucide lucide-sun hi-svg-inline theme-icon-light" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+
+            
+<svg aria-hidden="true" class="lucide lucide-moon hi-svg-inline theme-icon-dark" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a class="menu-item-link" href="https://578164.xyz/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+          title="rss" target="_blank">
+          
+<svg aria-hidden="true" class="lucide lucide-rss hi-svg-inline icon--rss" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+        </a>
+        
+      </li>
+    </ul>
+  </nav>
+</div>
+
+    
+
+<div class="mobile-header">
+  <div id="mobile-navbar" class="mobile-navbar">
+    <div id="mobile-navbar-icon" class="mobile-navbar-icon">
+      
+<svg aria-hidden="true" class="lucide lucide-menu hi-svg-inline icon--menu" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+    </div>
+    <div class="mobile-navbar-logo">
+      <a href="/%20/" class="logo">h1yx blog</a>
+    </div>
+  </div>
+
+  <div id="mobile-menu-close-modal" class="mobile-menu-close-modal"></div>
+  <nav id="mobile-menu" class="mobile-menu">
+    <ul class="mobile-menu-list">
+      <li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/">Home</a>
+        
+        
+      </li><li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/post/">Archives</a>
+        
+        
+      </li><li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/tags/">Tags</a>
+        
+        
+      </li><li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/about/">About</a>
+        
+        
+      </li>
+      
+
+      
+
+      <li class="mobile-menu-item">
+        <a class="theme-toggle menu-item-link" href="javascript:void(0);">
+
+            
+<svg aria-hidden="true" class="lucide lucide-sun hi-svg-inline theme-icon-light" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+
+            
+<svg aria-hidden="true" class="lucide lucide-moon hi-svg-inline theme-icon-dark" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+
+        </a>
+      </li>
+
+      <li class="mobile-menu-item">
+        <a class="menu-item-link" href="https://578164.xyz/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+          title="rss" target="_blank">
+          
+<svg aria-hidden="true" class="lucide lucide-rss hi-svg-inline icon--rss" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+        </a>
+        
+      </li>
+    </ul>
+  </nav>
+</div>
+
+  </header>
+
+  
+
+  
+
+
+
+  <main id="main" class="main pico container">
+    <div class="content-wrapper">
+  <aside class="sidebar">
+  </aside>
+  <div id="content" class="content">
+    <article class="post">
+      
+      <header class="post-header">
+        <h1 class="post-title">Encryption Analysis of a Car Network App Communication Protocol (Part 1)</h1>
+        
+
+
+
+        <div class="post-meta-list">
+  <div class="post-meta-item post-meta-author">
+    
+<svg aria-hidden="true" class="lucide lucide-user-round-pen hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M2 21a8 8 0 0 1 10.821-7.487"/><path d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"/><circle cx="10" cy="8" r="5"/></svg>
+    <a href="/about">
+      <span class="post-meta-author-name">
+        h1yx
+      </span>
+    </a>
+    
+  </div>
+
+  <div class="post-meta-item post-meta-time">
+    
+<svg aria-hidden="true" class="lucide lucide-calendar-days hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
+    <time datetime=" 2022-08-30">
+      2022-08-30
+    </time>
+
+
+    
+
+  </div>
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-item post-meta-category">
+      <a href="https://578164.xyz/categories/android-technology/"> Android Technology </a>
+      
+    </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+      </header>
+
+      
+      <div class="post-content">
+        <h2 id="1-objectives">1. Objectives</h2>
+<p>Boss: I just bought a new car recently. The app that came with it is quite interesting. Would you like to take a look at it?</p>
+<p>Me: Oh my god, it’s packed, it’s quite interesting, let me try it.</p>
+<p>v6.1.0</p>
+<h2 id="2-steps">2. Steps</h2>
+<h3 id="packet-capture">Packet capture</h3>
+<p>My packet capture environment is Mac 10.14.6 + httpToolKit, and I captured the packet smoothly in this step.</p>
+<p>1:main</p>
+<p>As you can see, both the http request and the return value are encrypted. This is our goal.requestandresponseThe origin of .</p>
+<h3 id="shelling">Shelling</h3>
+<p>Our first choice for shelling isBlackDex, easy to use and effective. However, it does not work well for this sample, only one dex is extracted, and it is likely to have failed.</p>
+<p>Then go to the gourd baby bossFRIDA-DEXDump, This sample is very cunning. It crashes as soon as the frida spawn mode is run. It seems that the shell is relatively hard.</p>
+<p>This is a tricky situation. Recall that we used Xcube to deal with packed applications before. Let’s try it again this time.</p>
+<p>Xcube did not disappoint us and the injection was successful. But how to run FRIDA-DEXDump in Xcube mode?</p>
+<p>I wanted to modify the code and merge it in. I accidentally discovered that Yang Shen also wrote DumpDex <a href="https://github.com/lasting-yang/frida_dump">https://github.com/lasting-yang/frida_dump</a></p>
+<p>Easily merged into js, now a successful dump is produced.</p>
+<h3 id="string-search">String Search</h3>
+<p>Direct Search&quot;request&quot; Not much results.</p>
+<p>Obviously, thisjsonObject.addPropertyThe biggest suspect.</p>
+<p>Click in and find the CheckCodeUtil class. Its checkcode and decheckcode are probably our targets this time.</p>
+<p>1:utilcls</p>
+<h3 id="hook">hook</h3>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>var CheckCodeUtilCls = Java.use(&#34;com.bangcle.comapiprotect.CheckCodeUtil&#34;);
+CheckCodeUtilCls.checkcode.implementation = function(a,b,c){
+    var rc = this.checkcode(a,b,c);
+    console.log(TAG + &#34;checkcode &gt;&gt;&gt; a = &#34; + a);
+    console.log(TAG + &#34;checkcode &gt;&gt;&gt; b = &#34; + b);
+    console.log(TAG + &#34;checkcode &gt;&gt;&gt; c = &#34; + c);
+    console.log(TAG + &#34;checkcode &gt;&gt;&gt; rc = &#34; + rc);
+    return rc;
+}
+
+CheckCodeUtilCls.decheckcode.implementation = function(a){
+    var rc = this.decheckcode(a);
+    console.log(TAG + &#34;decheckcode &gt;&gt;&gt; a = &#34; + a);
+    console.log(TAG + &#34;decheckcode &gt;&gt;&gt; rc = &#34; + rc);
+    return rc;
+
+}</code></pre>
+</div>
+<p>I ran it and it was strange, there was no output at all, this doesn&rsquo;t make sense?</p>
+<p>Look carefully, silly, there are two checkcode functions in this class, so we need to specify which one to hook. Because we ignored the error output when printing the output, we did not see the error.</p>
+<p>Notice:If there is no output in the Xcube environment, it is likely that the script reported an error. In this case, do not filter and directly view all output logs to see the error.</p>
+<p>Modify the code</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>CheckCodeUtilCls.checkcode.overload(&#39;java.lang.String&#39;,&#39;int&#39;,&#39;java.lang.String&#39;).implementation = function(a,b,c){</code></pre>
+</div>
+<p>This time the results were printed out smoothly. But something strange happened again, the App crashed.</p>
+<h3 id="rescue-a-crashed-app">Rescue a crashed app</h3>
+<p>Why did it crash? Is there a bug in our printing data?</p>
+<p>First comment out the code that prints the input parameters and results. Still crashes.</p>
+<p>I commented out all the hook codes and it stopped crashing, but I can&rsquo;t play without hooks?</p>
+<p>The ultimate solution is to change your phone. Many times, it is enough to change your phone, maybe the phone is not suitable for the local environment.</p>
+<p>The result was disappointing. I changed the phone and it still crashed.</p>
+<p>There is no fluke mentality, which means that the App or shell has detected the Hook of key functions and will destroy it if it is found to be hooked.</p>
+<p>The App or shell must be doing the detection at the Native layer. If we want to deal with it, we have to be at the same level as it.</p>
+<p>Instead of hooking the functions of the Jave layer, directly hook the checkcode and decheckcode of the Native layer.</p>
+<h3 id="hook-native">Hook Native</h3>
+<p>We found System.loadLibrary(&ldquo;encrypt&rdquo;); in the Java code of CheckCodeUtil, which means that the target we are dealing with is libencrypt.so.</p>
+<p>IDA opened it, exported the table, and exposed two pieces of information.</p>
+<ol>
+<li>The address of the checkcode function is 0x24424, and the address of the decheckcode function is 0x2B1BC.</li>
+<li>These two functions most likely use the AES algorithm.</li>
+</ol>
+<p>Keep Hooking</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>var targetSo = Module.findBaseAddress(&#39;libencrypt.so&#39;);
+console.log(TAG +&#34; ############# libencrypt.so: &#34; +targetSo);
+// 24424    2B1BC
+
+Interceptor.attach(targetSo.add(0x24424 ),{
+    onEnter: function(args){
+        var strCls = Java.use(&#39;java.lang.String&#39;);
+
+        this.rBuf = ptr(this.context.x0);
+        console.log(TAG + &#34; ======================================== &#34;);
+        // console.log(TAG + &#34;-------- checkcode x0 = &#34; + ptr(this.context.x0) ) ;
+
+        var strA = Java.cast(this.context.x2, strCls);
+        console.log(TAG + &#34;-------- checkcode a = &#34; + strA);
+
+        console.log(TAG + &#34;-------- checkcode b = &#34; + ptr(this.context.x3));
+
+        var strC = Java.cast(this.context.x4, strCls);
+        console.log(TAG + &#34;-------- checkcode b = &#34; + strC);
+
+
+    },
+    onLeave: function(retval){
+        var strCls = Java.use(&#39;java.lang.String&#39;);
+        var strRc = Java.cast(retval, strCls);
+        console.log(TAG + &#34;-------- checkcode rc = &#34; + strRc);
+
+    }
+});
+
+Interceptor.attach(targetSo.add(0x2B1BC ),{
+    onEnter: function(args){
+        var strCls = Java.use(&#39;java.lang.String&#39;);
+
+        this.rBuf = ptr(this.context.x0);
+        console.log(TAG + &#34; ======================================== &#34;);
+        // console.log(TAG + &#34;-------- checkcode x0 = &#34; + ptr(this.context.x0) ) ;
+
+        var strA = Java.cast(this.context.x2, strCls);
+        console.log(TAG + &#34;-------- decheckcode a = &#34; + strA);
+
+
+    },
+    onLeave: function(retval){
+        var strCls = Java.use(&#39;java.lang.String&#39;);
+        var strRc = Java.cast(retval, strCls);
+        console.log(TAG + &#34;-------- decheckcode rc = &#34; + strRc);
+
+    }
+});</code></pre>
+</div>
+<p>Boss:  isn&rsquo;t the first parameter of the function X0? Why did you print the first parameter as X2?</p>
+<p>Me: Boss, I asked you to approve more funds to buy books a long time ago, but you didn&rsquo;t agree. Now you are showing your weakness. If you look up JNI programming, you will know that the first two parameters of Java calling C/C++ functions are fixed. The actual parameters passed in start from the third one.</p>
+<p>Run again this time.</p>
+<p>1:rc</p>
+<p>The truth is out.</p>
+<p>It&rsquo;s already autumn in the capital, so it&rsquo;s not time to order fresh beer, but it&rsquo;s time to order Erguotou.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>There are thousands of ways to unpack the shell, but the key is still Dump Dex.</p>
+<p>Don&rsquo;t be afraid of shelled apps, most likely all the clues will be revealed after unpacking. Unshelled apps are the real scary ones.</p>
+<p>If the script does not have any output, it may not necessarily mean that the location is wrong, but it may also be that you did not see the error reported by the script.</p>
+<p>The app crashed, and changing the phone was effective, although I was embarrassed this time.</p>
+<p>For this sample, IDA also tells us that the function entry code in so is also extracted. To analyze this so, we probably have to dump so.</p>
+
+      </div>
+
+      
+      
+
+
+
+      
+      
+
+
+      <footer class="post-footer">
+        <div class="post-tags">
+          <a href="https://578164.xyz/tags/frida/">frida</a>
+          <a href="https://578164.xyz/tags/android/">android</a>
+          
+        </div>
+
+
+        
+        <nav class="post-nav">
+          
+          <a class="prev" href="/post/other/an-analysis-of-the-encryption-of-the-communication-protocol-of-a-car-networking-app-part-2-unidbg-step-by-step/">
+            
+            <i class="iconfont">
+              
+<svg aria-hidden="true" class="lucide lucide-chevron-left hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m15 18-6-6 6-6"/></svg>
+            </i>
+            <span class="prev-text nav-default">An analysis of the encryption of the communication protocol of a car networking app (Part 2) Unidbg step by step</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+          
+          <a class="next" href="/post/other/appdbg-a-virtual-machine-disguised-as-a-debugger/">
+            <span class="next-text nav-default">appdbg: A virtual machine disguised as a debugger</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              
+<svg aria-hidden="true" class="lucide lucide-chevron-right hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m9 18 6-6-6-6"/></svg>
+            </i>
+          </a>
+        </nav>
+      </footer>
+    </article>
+
+    
+    
+
+
+    
+    
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+    
+
+  
+
+  
+
+
+  </div>
+
+  
+  <nav class="toc" id="toc">
+    <div class="toc-title">Table of Contents</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-objectives">1. Objectives</a></li>
+    <li><a href="#2-steps">2. Steps</a>
+      <ul>
+        <li><a href="#packet-capture">Packet capture</a></li>
+        <li><a href="#shelling">Shelling</a></li>
+        <li><a href="#string-search">String Search</a></li>
+        <li><a href="#hook">hook</a></li>
+        <li><a href="#rescue-a-crashed-app">Rescue a crashed app</a></li>
+        <li><a href="#hook-native">Hook Native</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+</div>
+  </main>
+
+  <footer id="footer" class="footer">
+    <div class="social-icon-links">
+  
+
+
+
+
+<a href="https://578164.xyz/index.xml" rel="noopener alternate" type="application/rss&#43;xml" class="social-icon-link" title="rss"
+  target="_blank">
+  
+<svg aria-hidden="true" class="lucide lucide-rss hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+</a>
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+    2019 -
+    2024
+    <span class="heart">
+      
+      <i class="iconfont">
+        
+<svg aria-hidden="true" class="lucide lucide-heart hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+      </i>
+    </span><span class="author">
+      h1yx
+      
+    </span></span>
+
+  
+  
+
+  
+</div>
+
+  </footer>
+
+  
+
+
+
+
+<script type="text/javascript" src="/js/main.337fdc53bc7899023427e1f23060e9c67160243e2ff4f7f876358e1277d8664d.js" integrity="sha256-M3/cU7x4mQI0J&#43;HyMGDpxnFgJD4v9Pf4djWOEnfYZk0=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

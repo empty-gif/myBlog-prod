@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Iphone on Jane - A super concise theme for Hugo</title>
+    <link>https://578164.xyz/tags/iphone/</link>
+    <description>Recent content in Iphone on Jane - A super concise theme for Hugo</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 31 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://578164.xyz/tags/iphone/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Iphone Jailbreak 2020</title>
+      <link>https://578164.xyz/post/other/iphone-jailbreak-2020/</link>
+      <pubDate>Sat, 31 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://578164.xyz/post/other/iphone-jailbreak-2020/</guid>
+      <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;&#xA;&lt;h6 id=&#34;note&#34;&gt;Note:&lt;/h6&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;iOS jailbreak&lt;/li&gt;&#xA;&lt;li&gt;MacOS Mojave 10.14.6&lt;/li&gt;&#xA;&lt;li&gt;Xcode Version 11.3.1&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;I was planning to build a framework for app signature calculation based on iOS, but I found that the system of my test phone iPhone 11.2.2 could not be jailbroken. A lot of xx assistants&amp;rsquo; corporate signatures have expired, so I couldn&amp;rsquo;t install jailbreak software. Fortunately, I had used Cydia Impactor to do self-signing before, so I continued to use it, and the result was:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage" data-theme="light">
+
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>
+  Android high version installation system certificate HTTPS packet capture - the ultimate solution - Jane - A super concise theme for Hugo
+  </title>
+
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
+
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="color-scheme" content="light dark" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="h1yx" />
+<meta name="description" content="1. Objectives To capture App packages, you first need the App to trust the certificate of the capture software.
+However, starting from Android 7.0, the system no longer trusts user CA certificates, so you need to install the CA certificate to the system CA certificate directory.
+If you use Magisk jailbreak, this task is relatively simple. You only need to install a module Move Certificates.
+But today&rsquo;s story starts with me flashing a new ROM. This ROM is quite strange. After flashing, the adb connection is directly in root state, but the App cannot obtain the root state.
+" />
+
+<meta name="keywords"
+  content="" />
+
+
+
+
+<meta name="generator" content="Hugo 0.136.4" />
+
+
+<link rel="canonical" href="https://578164.xyz/post/other/android-high-version-installation-system-certificate-https-packet-capture---the-ultimate-solution/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/style.min.4d9e22c6c4a4cfe9ca1e35f9578ca6c8ff84c408a5f0599c8cbdaf444e95eae8.css" integrity="sha256-TZ4ixsSkz&#43;nKHjX5V4ymyP&#43;ExAil8FmcjL2vRE6V6ug=" media="screen"
+  crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:url" content="https://578164.xyz/post/other/android-high-version-installation-system-certificate-https-packet-capture---the-ultimate-solution/">
+  <meta property="og:site_name" content="Jane - A super concise theme for Hugo">
+  <meta property="og:title" content="Android high version installation system certificate HTTPS packet capture - the ultimate solution">
+  <meta property="og:description" content="1. Objectives To capture App packages, you first need the App to trust the certificate of the capture software.
+However, starting from Android 7.0, the system no longer trusts user CA certificates, so you need to install the CA certificate to the system CA certificate directory.
+If you use Magisk jailbreak, this task is relatively simple. You only need to install a module Move Certificates.
+But today’s story starts with me flashing a new ROM. This ROM is quite strange. After flashing, the adb connection is directly in root state, but the App cannot obtain the root state.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2023-03-05T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-03-05T00:00:00+00:00">
+    <meta property="article:tag" content="Frida">
+    <meta property="article:tag" content="Android">
+
+  <meta itemprop="name" content="Android high version installation system certificate HTTPS packet capture - the ultimate solution">
+  <meta itemprop="description" content="1. Objectives To capture App packages, you first need the App to trust the certificate of the capture software.
+However, starting from Android 7.0, the system no longer trusts user CA certificates, so you need to install the CA certificate to the system CA certificate directory.
+If you use Magisk jailbreak, this task is relatively simple. You only need to install a module Move Certificates.
+But today’s story starts with me flashing a new ROM. This ROM is quite strange. After flashing, the adb connection is directly in root state, but the App cannot obtain the root state.">
+  <meta itemprop="datePublished" content="2023-03-05T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-03-05T00:00:00+00:00">
+  <meta itemprop="wordCount" content="683">
+  <meta itemprop="keywords" content="Frida,Android">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Android high version installation system certificate HTTPS packet capture - the ultimate solution">
+  <meta name="twitter:description" content="1. Objectives To capture App packages, you first need the App to trust the certificate of the capture software.
+However, starting from Android 7.0, the system no longer trusts user CA certificates, so you need to install the CA certificate to the system CA certificate directory.
+If you use Magisk jailbreak, this task is relatively simple. You only need to install a module Move Certificates.
+But today’s story starts with me flashing a new ROM. This ROM is quite strange. After flashing, the adb connection is directly in root state, but the App cannot obtain the root state.">
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+
+<script>
+  (function () {
+    var savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  })();
+</script>
+
+</head>
+
+<body>
+  <div id="back-to-top"></div>
+
+  <header>
+    
+<div class="desktop-header">
+  <div class="desktop-header-logo">
+    <a href="/" class="logo">
+      
+      h1yx blog
+      
+    </a>
+  </div>
+
+  <nav class="desktop-navbar">
+    <ul id="menu" class="menu">
+      
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/">Home</a>
+        
+
+        
+
+      </li>
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/post/">Archives</a>
+        
+
+        
+
+      </li>
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/tags/">Tags</a>
+        
+
+        
+
+      </li>
+      
+      <li class="menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/about/">About</a>
+        
+
+        
+
+      </li>
+      
+
+      
+      
+
+      
+
+      <li class="menu-item">
+        <a class="theme-toggle menu-item-link" href="javascript:void(0);">
+
+            
+<svg aria-hidden="true" class="lucide lucide-sun hi-svg-inline theme-icon-light" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+
+            
+<svg aria-hidden="true" class="lucide lucide-moon hi-svg-inline theme-icon-dark" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a class="menu-item-link" href="https://578164.xyz/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+          title="rss" target="_blank">
+          
+<svg aria-hidden="true" class="lucide lucide-rss hi-svg-inline icon--rss" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+        </a>
+        
+      </li>
+    </ul>
+  </nav>
+</div>
+
+    
+
+<div class="mobile-header">
+  <div id="mobile-navbar" class="mobile-navbar">
+    <div id="mobile-navbar-icon" class="mobile-navbar-icon">
+      
+<svg aria-hidden="true" class="lucide lucide-menu hi-svg-inline icon--menu" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+    </div>
+    <div class="mobile-navbar-logo">
+      <a href="/%20/" class="logo">h1yx blog</a>
+    </div>
+  </div>
+
+  <div id="mobile-menu-close-modal" class="mobile-menu-close-modal"></div>
+  <nav id="mobile-menu" class="mobile-menu">
+    <ul class="mobile-menu-list">
+      <li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/">Home</a>
+        
+        
+      </li><li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/post/">Archives</a>
+        
+        
+      </li><li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/tags/">Tags</a>
+        
+        
+      </li><li class="mobile-menu-item">
+        
+        
+        
+        <a class="menu-item-link" href="https://578164.xyz/about/">About</a>
+        
+        
+      </li>
+      
+
+      
+
+      <li class="mobile-menu-item">
+        <a class="theme-toggle menu-item-link" href="javascript:void(0);">
+
+            
+<svg aria-hidden="true" class="lucide lucide-sun hi-svg-inline theme-icon-light" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+
+            
+<svg aria-hidden="true" class="lucide lucide-moon hi-svg-inline theme-icon-dark" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+
+        </a>
+      </li>
+
+      <li class="mobile-menu-item">
+        <a class="menu-item-link" href="https://578164.xyz/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+          title="rss" target="_blank">
+          
+<svg aria-hidden="true" class="lucide lucide-rss hi-svg-inline icon--rss" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+        </a>
+        
+      </li>
+    </ul>
+  </nav>
+</div>
+
+  </header>
+
+  
+
+  
+
+
+
+  <main id="main" class="main pico container">
+    <div class="content-wrapper">
+  <aside class="sidebar">
+  </aside>
+  <div id="content" class="content">
+    <article class="post">
+      
+      <header class="post-header">
+        <h1 class="post-title">Android high version installation system certificate HTTPS packet capture - the ultimate solution</h1>
+        
+
+
+
+        <div class="post-meta-list">
+  <div class="post-meta-item post-meta-author">
+    
+<svg aria-hidden="true" class="lucide lucide-user-round-pen hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M2 21a8 8 0 0 1 10.821-7.487"/><path d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"/><circle cx="10" cy="8" r="5"/></svg>
+    <a href="/about">
+      <span class="post-meta-author-name">
+        h1yx
+      </span>
+    </a>
+    
+  </div>
+
+  <div class="post-meta-item post-meta-time">
+    
+<svg aria-hidden="true" class="lucide lucide-calendar-days hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
+    <time datetime=" 2023-03-05">
+      2023-03-05
+    </time>
+
+
+    
+
+  </div>
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-item post-meta-category">
+      <a href="https://578164.xyz/categories/android-technology/"> Android Technology </a>
+      
+    </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+      </header>
+
+      
+      <div class="post-content">
+        <h2 id="1-objectives">1. Objectives</h2>
+<p>To capture App packages, you first need the App to trust the certificate of the capture software.</p>
+<p>However, starting from Android 7.0, the system no longer trusts user CA certificates, so you need to install the CA certificate to the system CA certificate directory.</p>
+<p>If you use Magisk jailbreak, this task is relatively simple. You only need to install a module Move Certificates.</p>
+<p>But today&rsquo;s story starts with me flashing a new ROM. This ROM is quite strange. After flashing, the adb connection is directly in root state, but the App cannot obtain the root state.</p>
+<p>Oh my god, didn’t I accidentally flash a hidden root ROM? Now I can’t bear to install Magisk.</p>
+<p>Now the question isHow to install the certificate to the system directory?</p>
+<h2 id="2-steps">2. Steps</h2>
+<h3 id="forced-sex">Forced sex</h3>
+<p>Calculate the certificate name</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>openssl x509 -subject_hash_old -in charles-ssl-proxying-certificate_saved.pem</code></pre>
+</div>
+<p>Calculate the value, such as 3a1074b3</p>
+<p>Then rename the original Charles certificate charles-ssl-proxying-certificate_saved.pem to3a1074b3.0</p>
+<p>Finally3a1074b3.0Copy the file to the /system/etc/security/cacerts/ directory.</p>
+<p>Done~~</p>
+<p>Ideals are full, but reality is skinny. /system is probably not writable, even if you have root privileges, you cannot write into it.</p>
+<p>I asked Google, and he said that I could remount /system as readable and writable, but I didn&rsquo;t succeed.</p>
+<p>There are two ways that have been successful before.</p>
+<ol>
+<li>Install RootExplorer.apk and mount /system as readable and writable.</li>
+<li>adb reboot recovery to enter the previously flashedtwrp, write to /system in twrp</li>
+</ol>
+<p>But this time it crashed, RootExplorer could not load and read. After twrp finished writing /system, the rom went crazy, the settings could not be entered, and the old newspaper crashed.</p>
+<h3 id="learn">Learn</h3>
+<p>I remembered the packet capture software Http Toolkit, which has an Android Device via ADB mode, which can capture packets smoothly.</p>
+<p>This means that it can use ADB to write the certificate to /system. After all, my ADB has root permissions.</p>
+<p>It’s amazing, how is it possible?</p>
+<p>This started a long journey to Google again, and finally I found an article on their official website that described in detailThrough adb with root privilegesA magical solution to write system certificates.</p>
+<ol>
+<li>Push the HTTP Toolkit CA certificate to the device via ADB.</li>
+<li>Copy all system certificates from /system/etc/security/cacerts/ to a temporary directory.</li>
+<li>Mount a tmpfs ram filesystem on /system/etc/security/cacerts/. This effectively places a new, empty, writable filesystem on a small portion of /system. Move the copied system certificates back to that mount point.</li>
+<li>Move the HTTP Toolkit CA certificate to the mount point as well.</li>
+<li>Update the permissions of all files in the temporary mount point to 644, and set the SELinux label of the system file to system_file to make it look like a legitimate Android system file.</li>
+</ol>
+<p>The key point is to mount a memory file system, which is very talented.</p>
+<p>Show me the Code</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code># htk-inject-system-cert.sh
+set -e # Fail on error
+# Create a separate temp directory, to hold the current certificates
+# Without this, when we add the mount we can&#39;t read the current certs anymore.
+mkdir -m 700 /data/local/tmp/htk-ca-copy
+# Copy out the existing certificates
+cp /system/etc/security/cacerts/* /data/local/tmp/htk-ca-copy/
+# Create the in-memory mount on top of the system certs folder
+mount -t tmpfs tmpfs /system/etc/security/cacerts
+# Copy the existing certs back into the tmpfs mount, so we keep trusting them
+mv /data/local/tmp/htk-ca-copy/* /system/etc/security/cacerts/
+# Copy our new cert in, so we trust that too
+cp /data/local/tmp/c88f7ed0.0 /system/etc/security/cacerts/
+# Update the perms &amp; selinux context labels, so everything is as readable as before
+chown root:root /system/etc/security/cacerts/*
+chmod 644 /system/etc/security/cacerts/*
+chcon u:object_r:system_file:s0 /system/etc/security/cacerts/*
+# Delete the temp cert directory &amp; this script itself
+rm -r /data/local/tmp/htk-ca-copy
+# rm ${injectionScriptPath}
+echo &#34;System cert successfully injected&#34;</code></pre>
+</div>
+<p>As for the memory file system, it will definitely become invalid after reboot, so it is not very troublesome to save it as a script and run it before capturing the packet.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Sometimes the magical technology is just a layer of window paper. Once you break it, you will be amazed at how simple it is.</p>
+<p>Once you have mastered a new solution, you can apply it to other situations in the future.</p>
+<p>Reference <a href="https://httptoolkit.com/blog/intercepting-android-https/">https://httptoolkit.com/blog/intercepting-android-https/</a></p>
+<p><a href="https://github.com/httptoolkit/httptoolkit-server/blob/8a4b4d283fbe98694ddd09a44d6e9c9941aa91e2/src/interceptors/android/adb-commands.ts">https://github.com/httptoolkit/httptoolkit-server/blob/8a4b4d283fbe98694ddd09a44d6e9c9941aa91e2/src/interceptors/android/adb-commands.ts</a></p>
+
+      </div>
+
+      
+      
+
+
+
+      
+      
+
+
+      <footer class="post-footer">
+        <div class="post-tags">
+          <a href="https://578164.xyz/tags/frida/">frida</a>
+          <a href="https://578164.xyz/tags/android/">android</a>
+          
+        </div>
+
+
+        
+        <nav class="post-nav">
+          
+          <a class="prev" href="/post/other/code-restoration-trial-part-2-modified-md5/">
+            
+            <i class="iconfont">
+              
+<svg aria-hidden="true" class="lucide lucide-chevron-left hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m15 18-6-6 6-6"/></svg>
+            </i>
+            <span class="prev-text nav-default">Code Restoration Trial (Part 2): Modified MD5</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+          
+          <a class="next" href="/post/other/code-restoration-trial-i-modified-md5/">
+            <span class="next-text nav-default">Code Restoration Trial (I): Modified MD5</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              
+<svg aria-hidden="true" class="lucide lucide-chevron-right hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m9 18 6-6-6-6"/></svg>
+            </i>
+          </a>
+        </nav>
+      </footer>
+    </article>
+
+    
+    
+
+
+    
+    
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+    
+
+  
+
+  
+
+
+  </div>
+
+  
+  <nav class="toc" id="toc">
+    <div class="toc-title">Table of Contents</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-objectives">1. Objectives</a></li>
+    <li><a href="#2-steps">2. Steps</a>
+      <ul>
+        <li><a href="#forced-sex">Forced sex</a></li>
+        <li><a href="#learn">Learn</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+</div>
+  </main>
+
+  <footer id="footer" class="footer">
+    <div class="social-icon-links">
+  
+
+
+
+
+<a href="https://578164.xyz/index.xml" rel="noopener alternate" type="application/rss&#43;xml" class="social-icon-link" title="rss"
+  target="_blank">
+  
+<svg aria-hidden="true" class="lucide lucide-rss hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+</a>
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+    2019 -
+    2024
+    <span class="heart">
+      
+      <i class="iconfont">
+        
+<svg aria-hidden="true" class="lucide lucide-heart hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+      </i>
+    </span><span class="author">
+      h1yx
+      
+    </span></span>
+
+  
+  
+
+  
+</div>
+
+  </footer>
+
+  
+
+
+
+
+<script type="text/javascript" src="/js/main.337fdc53bc7899023427e1f23060e9c67160243e2ff4f7f876358e1277d8664d.js" integrity="sha256-M3/cU7x4mQI0J&#43;HyMGDpxnFgJD4v9Pf4djWOEnfYZk0=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
