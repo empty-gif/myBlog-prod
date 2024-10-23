@@ -9,13 +9,6 @@
   </url>
   
   <url>
-    <loc>https://578164.xyz/</loc>
-    <lastmod>2024-09-02T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://578164.xyz/tags/android/</loc>
     <lastmod>2024-09-02T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -59,6 +52,13 @@
   
   <url>
     <loc>https://578164.xyz/tags/</loc>
+    <lastmod>2024-09-02T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://578164.xyz/</loc>
     <lastmod>2024-09-02T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
