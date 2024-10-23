@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <title>
-  Android high version installation system certificate HTTPS packet capture - the ultimate solution - Jane - A super concise theme for Hugo
+  Analysis of the sig3 signature of a novel app - Jane - A super concise theme for Hugo
   </title>
 
 
@@ -27,10 +27,9 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="h1yx" />
-<meta name="description" content="1. Objectives To capture App packages, you first need the App to trust the certificate of the capture software.
-However, starting from Android 7.0, the system no longer trusts user CA certificates, so you need to install the CA certificate to the system CA certificate directory.
-If you use Magisk jailbreak, this task is relatively simple. You only need to install a module Move Certificates.
-But today&rsquo;s story starts with me flashing a new ROM. This ROM is quite strange. After flashing, the adb connection is directly in root state, but the App cannot obtain the root state.
+<meta name="description" content="1. Objectives This sample is somewhat similar to the previous short video app. The signature name and algorithm are probably the same. So if you understand this, you can probably understand the latest version of the short video app.
+So what is the difference between reading novels and watching short videos?
+The more I read novels, the sleepier I feel. The more I watch short videos, the more awake I feel. This proves that AI knows you better than you know yourself.
 " />
 
 <meta name="keywords"
@@ -42,7 +41,7 @@ But today&rsquo;s story starts with me flashing a new ROM. This ROM is quite str
 <meta name="generator" content="Hugo 0.136.4" />
 
 
-<link rel="canonical" href="https://578164.xyz/post/other/android-high-version-installation-system-certificate-https-packet-capture---the-ultimate-solution/" />
+<link rel="canonical" href="https://578164.xyz/post/other/analysis-of-the-sig3-signature-of-a-novel-app/" />
 
 
 
@@ -70,36 +69,33 @@ But today&rsquo;s story starts with me flashing a new ROM. This ROM is quite str
 
 
 
-<meta property="og:url" content="https://578164.xyz/post/other/android-high-version-installation-system-certificate-https-packet-capture---the-ultimate-solution/">
+<meta property="og:url" content="https://578164.xyz/post/other/analysis-of-the-sig3-signature-of-a-novel-app/">
   <meta property="og:site_name" content="Jane - A super concise theme for Hugo">
-  <meta property="og:title" content="Android high version installation system certificate HTTPS packet capture - the ultimate solution">
-  <meta property="og:description" content="1. Objectives To capture App packages, you first need the App to trust the certificate of the capture software.
-However, starting from Android 7.0, the system no longer trusts user CA certificates, so you need to install the CA certificate to the system CA certificate directory.
-If you use Magisk jailbreak, this task is relatively simple. You only need to install a module Move Certificates.
-But today’s story starts with me flashing a new ROM. This ROM is quite strange. After flashing, the adb connection is directly in root state, but the App cannot obtain the root state.">
+  <meta property="og:title" content="Analysis of the sig3 signature of a novel app">
+  <meta property="og:description" content="1. Objectives This sample is somewhat similar to the previous short video app. The signature name and algorithm are probably the same. So if you understand this, you can probably understand the latest version of the short video app.
+So what is the difference between reading novels and watching short videos?
+The more I read novels, the sleepier I feel. The more I watch short videos, the more awake I feel. This proves that AI knows you better than you know yourself.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
-    <meta property="article:published_time" content="2023-03-05T00:00:00+00:00">
-    <meta property="article:modified_time" content="2023-03-05T00:00:00+00:00">
+    <meta property="article:published_time" content="2022-10-10T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-10-10T00:00:00+00:00">
     <meta property="article:tag" content="Frida">
     <meta property="article:tag" content="Android">
 
-  <meta itemprop="name" content="Android high version installation system certificate HTTPS packet capture - the ultimate solution">
-  <meta itemprop="description" content="1. Objectives To capture App packages, you first need the App to trust the certificate of the capture software.
-However, starting from Android 7.0, the system no longer trusts user CA certificates, so you need to install the CA certificate to the system CA certificate directory.
-If you use Magisk jailbreak, this task is relatively simple. You only need to install a module Move Certificates.
-But today’s story starts with me flashing a new ROM. This ROM is quite strange. After flashing, the adb connection is directly in root state, but the App cannot obtain the root state.">
-  <meta itemprop="datePublished" content="2023-03-05T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2023-03-05T00:00:00+00:00">
-  <meta itemprop="wordCount" content="683">
+  <meta itemprop="name" content="Analysis of the sig3 signature of a novel app">
+  <meta itemprop="description" content="1. Objectives This sample is somewhat similar to the previous short video app. The signature name and algorithm are probably the same. So if you understand this, you can probably understand the latest version of the short video app.
+So what is the difference between reading novels and watching short videos?
+The more I read novels, the sleepier I feel. The more I watch short videos, the more awake I feel. This proves that AI knows you better than you know yourself.">
+  <meta itemprop="datePublished" content="2022-10-10T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2022-10-10T00:00:00+00:00">
+  <meta itemprop="wordCount" content="428">
   <meta itemprop="keywords" content="Frida,Android">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Android high version installation system certificate HTTPS packet capture - the ultimate solution">
-  <meta name="twitter:description" content="1. Objectives To capture App packages, you first need the App to trust the certificate of the capture software.
-However, starting from Android 7.0, the system no longer trusts user CA certificates, so you need to install the CA certificate to the system CA certificate directory.
-If you use Magisk jailbreak, this task is relatively simple. You only need to install a module Move Certificates.
-But today’s story starts with me flashing a new ROM. This ROM is quite strange. After flashing, the adb connection is directly in root state, but the App cannot obtain the root state.">
+  <meta name="twitter:title" content="Analysis of the sig3 signature of a novel app">
+  <meta name="twitter:description" content="1. Objectives This sample is somewhat similar to the previous short video app. The signature name and algorithm are probably the same. So if you understand this, you can probably understand the latest version of the short video app.
+So what is the difference between reading novels and watching short videos?
+The more I read novels, the sleepier I feel. The more I watch short videos, the more awake I feel. This proves that AI knows you better than you know yourself.">
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -304,7 +300,7 @@ But today’s story starts with me flashing a new ROM. This ROM is quite strange
     <article class="post">
       
       <header class="post-header">
-        <h1 class="post-title">Android high version installation system certificate HTTPS packet capture - the ultimate solution</h1>
+        <h1 class="post-title">Analysis of the sig3 signature of a novel app</h1>
         
 
 
@@ -324,8 +320,8 @@ But today’s story starts with me flashing a new ROM. This ROM is quite strange
   <div class="post-meta-item post-meta-time">
     
 <svg aria-hidden="true" class="lucide lucide-calendar-days hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
-    <time datetime=" 2023-03-05">
-      2023-03-05
+    <time datetime=" 2022-10-10">
+      2022-10-10
     </time>
 
 
@@ -357,81 +353,76 @@ But today’s story starts with me flashing a new ROM. This ROM is quite strange
       
       <div class="post-content">
         <h2 id="1-objectives">1. Objectives</h2>
-<p>To capture App packages, you first need the App to trust the certificate of the capture software.</p>
-<p>However, starting from Android 7.0, the system no longer trusts user CA certificates, so you need to install the CA certificate to the system CA certificate directory.</p>
-<p>If you use Magisk jailbreak, this task is relatively simple. You only need to install a module Move Certificates.</p>
-<p>But today&rsquo;s story starts with me flashing a new ROM. This ROM is quite strange. After flashing, the adb connection is directly in root state, but the App cannot obtain the root state.</p>
-<p>Oh my god, didn’t I accidentally flash a hidden root ROM? Now I can’t bear to install Magisk.</p>
-<p>Now the question isHow to install the certificate to the system directory?</p>
+<p>This sample is somewhat similar to the previous short video app. The signature name and algorithm are probably the same. So if you understand this, you can probably understand the latest version of the short video app.</p>
+<p>So what is the difference between reading novels and watching short videos?</p>
+<p>The more I read novels, the sleepier I feel. The more I watch short videos, the more awake I feel. This proves that AI knows you better than you know yourself.</p>
+<p>Today our goal is a novel App v1.0.0.2</p>
 <h2 id="2-steps">2. Steps</h2>
-<h3 id="forced-sex">Forced sex</h3>
-<p>Calculate the certificate name</p>
+<p>1:Search for __sig3</p>
+<p>There are only 5 results. After careful searching, I found this atlasSign function.</p>
+<p>Searching for the atlasSign function again, although the place of the call is correct this time, we found an old friend at a glance</p>
+<p>com.kxxxxxou.android.security.KSecurity</p>
+<p>First of all, its name is very unique. Secondly, it was also his signature when I analyzed the short video app last time.</p>
+<h3 id="hook-atlassign">Hook atlasSign</h3>
 <div class="highlight-container">
 
   <button class="copy-code-btn outline">Copy</button>
 
   
-  <pre tabindex="0"><code>openssl x509 -subject_hash_old -in charles-ssl-proxying-certificate_saved.pem</code></pre>
+  <pre tabindex="0"><code>var KSecurityCls = Java.use(&#34;com.kxxxxxou.android.security.KSecurity&#34;);
+KSecurityCls.atlasSign.implementation = function(a){
+    var rc = this.atlasSign(a);
+    console.log(TAG + &#34;atlasSign a = &#34; + a);
+    console.log(TAG + &#34;atlasSign &gt;&gt;&gt; rc = &#34; + rc);
+    return rc;
+
+}</code></pre>
 </div>
-<p>Calculate the value, such as 3a1074b3</p>
-<p>Then rename the original Charles certificate charles-ssl-proxying-certificate_saved.pem to3a1074b3.0</p>
-<p>Finally3a1074b3.0Copy the file to the /system/etc/security/cacerts/ directory.</p>
-<p>Done~~</p>
-<p>Ideals are full, but reality is skinny. /system is probably not writable, even if you have root privileges, you cannot write into it.</p>
-<p>I asked Google, and he said that I could remount /system as readable and writable, but I didn&rsquo;t succeed.</p>
-<p>There are two ways that have been successful before.</p>
+<p>After running it, the result is there, but the hook outputs 48 bits of data, not the 70-plus bytes of messy data we captured.</p>
+<p>There are two options:</p>
 <ol>
-<li>Install RootExplorer.apk and mount /system as readable and writable.</li>
-<li>adb reboot recovery to enter the previously flashedtwrp, write to /system in twrp</li>
+<li>We firmly believe that we are right. To make the __sig3 signature, atlasSign must be called. It is just possible that the 48-bit signature is changed in some way. In this case, we just need to print the stack;</li>
+<li>The result of the captured packet still looks very much like Base64. Although there is no required Base64 feature such as ==, based on the experience of so many issues, you can still try to hook Base64.</li>
 </ol>
-<p>But this time it crashed, RootExplorer could not load and read. After twrp finished writing /system, the rom went crazy, the settings could not be entered, and the old newspaper crashed.</p>
-<h3 id="learn">Learn</h3>
-<p>I remembered the packet capture software Http Toolkit, which has an Android Device via ADB mode, which can capture packets smoothly.</p>
-<p>This means that it can use ADB to write the certificate to /system. After all, my ADB has root permissions.</p>
-<p>It’s amazing, how is it possible?</p>
-<p>This started a long journey to Google again, and finally I found an article on their official website that described in detailThrough adb with root privilegesA magical solution to write system certificates.</p>
-<ol>
-<li>Push the HTTP Toolkit CA certificate to the device via ADB.</li>
-<li>Copy all system certificates from /system/etc/security/cacerts/ to a temporary directory.</li>
-<li>Mount a tmpfs ram filesystem on /system/etc/security/cacerts/. This effectively places a new, empty, writable filesystem on a small portion of /system. Move the copied system certificates back to that mount point.</li>
-<li>Move the HTTP Toolkit CA certificate to the mount point as well.</li>
-<li>Update the permissions of all files in the temporary mount point to 644, and set the SELinux label of the system file to system_file to make it look like a legitimate Android system file.</li>
-</ol>
-<p>The key point is to mount a memory file system, which is very talented.</p>
-<p>Show me the Code</p>
+<h3 id="stack">Stack</h3>
 <div class="highlight-container">
 
   <button class="copy-code-btn outline">Copy</button>
 
   
-  <pre tabindex="0"><code># htk-inject-system-cert.sh
-set -e # Fail on error
-# Create a separate temp directory, to hold the current certificates
-# Without this, when we add the mount we can&#39;t read the current certs anymore.
-mkdir -m 700 /data/local/tmp/htk-ca-copy
-# Copy out the existing certificates
-cp /system/etc/security/cacerts/* /data/local/tmp/htk-ca-copy/
-# Create the in-memory mount on top of the system certs folder
-mount -t tmpfs tmpfs /system/etc/security/cacerts
-# Copy the existing certs back into the tmpfs mount, so we keep trusting them
-mv /data/local/tmp/htk-ca-copy/* /system/etc/security/cacerts/
-# Copy our new cert in, so we trust that too
-cp /data/local/tmp/c88f7ed0.0 /system/etc/security/cacerts/
-# Update the perms &amp; selinux context labels, so everything is as readable as before
-chown root:root /system/etc/security/cacerts/*
-chmod 644 /system/etc/security/cacerts/*
-chcon u:object_r:system_file:s0 /system/etc/security/cacerts/*
-# Delete the temp cert directory &amp; this script itself
-rm -r /data/local/tmp/htk-ca-copy
-# rm ${injectionScriptPath}
-echo &#34;System cert successfully injected&#34;</code></pre>
+  <pre tabindex="0"><code>h1yxxs: java.lang.Thread.getStackTrace(Thread.java:1720)
+h1yxxs: com.kxxxxxou.android.security.KSecurity.atlasSign(Native Method)
+h1yxxs: k.w.e.a1.t.a(SourceFile:34)
+h1yxxs: k.w.e.a1.t.a(Native Method)
+h1yxxs: k.h.d.h.d.intercept(SourceFile:111)</code></pre>
 </div>
-<p>As for the memory file system, it will definitely become invalid after reboot, so it is not very troublesome to save it as a script and run it before capturing the packet.</p>
-<h2 id="conclusion">Conclusion</h2>
-<p>Sometimes the magical technology is just a layer of window paper. Once you break it, you will be amazed at how simple it is.</p>
-<p>Once you have mastered a new solution, you can apply it to other situations in the future.</p>
-<p>Reference <a href="https://httptoolkit.com/blog/intercepting-android-https/">https://httptoolkit.com/blog/intercepting-android-https/</a></p>
-<p><a href="https://github.com/httptoolkit/httptoolkit-server/blob/8a4b4d283fbe98694ddd09a44d6e9c9941aa91e2/src/interceptors/android/adb-commands.ts">https://github.com/httptoolkit/httptoolkit-server/blob/8a4b4d283fbe98694ddd09a44d6e9c9941aa91e2/src/interceptors/android/adb-commands.ts</a></p>
+<p>The fox&rsquo;s tail is out, this kwea1.ta should be our target</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>var ffSignCls =  Java.use(&#34;k.w.e.a1.t&#34;);
+ffSignCls.a.overload(&#39;java.lang.String&#39;, &#39;java.lang.String&#39;, &#39;java.util.Map&#39;).implementation = function(a,b,c){
+    var rc = this.a(a,b,c);
+    console.log(TAG + &#34;a = &#34; + a);
+    console.log(TAG + &#34;b = &#34; + b);
+    console.log(TAG + &#34;c = &#34; + c.entrySet().toArray());
+    console.log(TAG + &#34;&gt;&gt;&gt; rc = &#34; + rc);
+
+    return rc;
+}</code></pre>
+</div>
+<p>Run it again, and the result is __sig3.</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>h1yxksxs: &gt;&gt;&gt; rc = VVftYQGnh_1jN2Q2ODU4NTVjN2U0NmU1ZGM4ZjhjOGQwYjA0MDA5OGMyNDhkN2Y2OTM5ZTkwODY</code></pre>
+</div>
+<p>After some analysis, it turns out that he just made a Base64 of the result of atlasSign and replaced all the obvious + / =.</p>
+<p>There is also a dpbs in the input parameter that is encrypted, but this is easier to solve and is in the kwea1.ta class.</p>
 
       </div>
 
@@ -455,18 +446,18 @@ echo &#34;System cert successfully injected&#34;</code></pre>
         
         <nav class="post-nav">
           
-          <a class="prev" href="/post/other/code-restoration-trial-part-2-modified-md5/">
+          <a class="prev" href="/post/other/compile-and-flash-android-10-source-codeqp1a.190711.020under-mac-10.14.xpixel2xl/">
             
             <i class="iconfont">
               
 <svg aria-hidden="true" class="lucide lucide-chevron-left hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m15 18-6-6 6-6"/></svg>
             </i>
-            <span class="prev-text nav-default">Code Restoration Trial (Part 2): Modified MD5</span>
+            <span class="prev-text nav-default">Compile and flash Android 10 source code (QP1A.190711.020) under Mac 10.14.x (Pixel 2 XL)</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
           
-          <a class="next" href="/post/other/code-restoration-trial-i-modified-md5/">
-            <span class="next-text nav-default">Code Restoration Trial (I): Modified MD5</span>
+          <a class="next" href="/post/other/an-analysis-of-the-encryption-of-the-communication-protocol-of-a-car-networking-apppart-2unidbg-step-by-step/">
+            <span class="next-text nav-default">An analysis of the encryption of the communication protocol of a car networking app (Part 2) Unidbg step by step</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">
@@ -515,11 +506,10 @@ echo &#34;System cert successfully injected&#34;</code></pre>
     <li><a href="#1-objectives">1. Objectives</a></li>
     <li><a href="#2-steps">2. Steps</a>
       <ul>
-        <li><a href="#forced-sex">Forced sex</a></li>
-        <li><a href="#learn">Learn</a></li>
+        <li><a href="#hook-atlassign">Hook atlasSign</a></li>
+        <li><a href="#stack">Stack</a></li>
       </ul>
     </li>
-    <li><a href="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
     </div>

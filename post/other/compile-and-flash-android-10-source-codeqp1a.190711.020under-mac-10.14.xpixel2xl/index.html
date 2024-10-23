@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <title>
-  Encryption Analysis of a Car Network App Communication Protocol (Part 1) - Jane - A super concise theme for Hugo
+  Compile and flash Android 10 source code (QP1A.190711.020) under Mac 10.14.x (Pixel 2 XL) - Jane - A super concise theme for Hugo
   </title>
 
 
@@ -27,12 +27,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="h1yx" />
-<meta name="description" content="1. Objectives Boss: I just bought a new car recently. The app that came with it is quite interesting. Would you like to take a look at it?
-Me: Oh my god, it’s packed, it’s quite interesting, let me try it.
-v6.1.0
-2. Steps Packet capture My packet capture environment is Mac 10.14.6 &#43; httpToolKit, and I captured the packet smoothly in this step.
-1:main
-As you can see, both the http request and the return value are encrypted. This is our goal.requestandresponseThe origin of .
+<meta name="description" content="1. Objectives Older generations of Windows reverse engineers have been analyzing the Windows kernel one after another, dreaming of taking a look at the Windows source code, but so far they can only see leaked source code from several generations ago. The mobile era is a blessing, the latest version of Android source code is open to you, and you can&rsquo;t just look at it, you have to touch it.
 " />
 
 <meta name="keywords"
@@ -44,7 +39,7 @@ As you can see, both the http request and the return value are encrypted. This i
 <meta name="generator" content="Hugo 0.136.4" />
 
 
-<link rel="canonical" href="https://578164.xyz/post/other/encryption-analysis-of-a-car-network-app-communication-protocol-part-1/" />
+<link rel="canonical" href="https://578164.xyz/post/other/compile-and-flash-android-10-source-codeqp1a.190711.020under-mac-10.14.xpixel2xl/" />
 
 
 
@@ -72,42 +67,27 @@ As you can see, both the http request and the return value are encrypted. This i
 
 
 
-<meta property="og:url" content="https://578164.xyz/post/other/encryption-analysis-of-a-car-network-app-communication-protocol-part-1/">
+<meta property="og:url" content="https://578164.xyz/post/other/compile-and-flash-android-10-source-codeqp1a.190711.020under-mac-10.14.xpixel2xl/">
   <meta property="og:site_name" content="Jane - A super concise theme for Hugo">
-  <meta property="og:title" content="Encryption Analysis of a Car Network App Communication Protocol (Part 1)">
-  <meta property="og:description" content="1. Objectives Boss: I just bought a new car recently. The app that came with it is quite interesting. Would you like to take a look at it?
-Me: Oh my god, it’s packed, it’s quite interesting, let me try it.
-v6.1.0
-2. Steps Packet capture My packet capture environment is Mac 10.14.6 &#43; httpToolKit, and I captured the packet smoothly in this step.
-1:main
-As you can see, both the http request and the return value are encrypted. This is our goal.requestandresponseThe origin of .">
+  <meta property="og:title" content="Compile and flash Android 10 source code (QP1A.190711.020) under Mac 10.14.x (Pixel 2 XL)">
+  <meta property="og:description" content="1. Objectives Older generations of Windows reverse engineers have been analyzing the Windows kernel one after another, dreaming of taking a look at the Windows source code, but so far they can only see leaked source code from several generations ago. The mobile era is a blessing, the latest version of Android source code is open to you, and you can’t just look at it, you have to touch it.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
-    <meta property="article:published_time" content="2022-08-30T00:00:00+00:00">
-    <meta property="article:modified_time" content="2022-08-30T00:00:00+00:00">
+    <meta property="article:published_time" content="2022-12-12T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-12-12T00:00:00+00:00">
     <meta property="article:tag" content="Frida">
     <meta property="article:tag" content="Android">
 
-  <meta itemprop="name" content="Encryption Analysis of a Car Network App Communication Protocol (Part 1)">
-  <meta itemprop="description" content="1. Objectives Boss: I just bought a new car recently. The app that came with it is quite interesting. Would you like to take a look at it?
-Me: Oh my god, it’s packed, it’s quite interesting, let me try it.
-v6.1.0
-2. Steps Packet capture My packet capture environment is Mac 10.14.6 &#43; httpToolKit, and I captured the packet smoothly in this step.
-1:main
-As you can see, both the http request and the return value are encrypted. This is our goal.requestandresponseThe origin of .">
-  <meta itemprop="datePublished" content="2022-08-30T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2022-08-30T00:00:00+00:00">
-  <meta itemprop="wordCount" content="1053">
+  <meta itemprop="name" content="Compile and flash Android 10 source code (QP1A.190711.020) under Mac 10.14.x (Pixel 2 XL)">
+  <meta itemprop="description" content="1. Objectives Older generations of Windows reverse engineers have been analyzing the Windows kernel one after another, dreaming of taking a look at the Windows source code, but so far they can only see leaked source code from several generations ago. The mobile era is a blessing, the latest version of Android source code is open to you, and you can’t just look at it, you have to touch it.">
+  <meta itemprop="datePublished" content="2022-12-12T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2022-12-12T00:00:00+00:00">
+  <meta itemprop="wordCount" content="672">
   <meta itemprop="keywords" content="Frida,Android">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Encryption Analysis of a Car Network App Communication Protocol (Part 1)">
-  <meta name="twitter:description" content="1. Objectives Boss: I just bought a new car recently. The app that came with it is quite interesting. Would you like to take a look at it?
-Me: Oh my god, it’s packed, it’s quite interesting, let me try it.
-v6.1.0
-2. Steps Packet capture My packet capture environment is Mac 10.14.6 &#43; httpToolKit, and I captured the packet smoothly in this step.
-1:main
-As you can see, both the http request and the return value are encrypted. This is our goal.requestandresponseThe origin of .">
+  <meta name="twitter:title" content="Compile and flash Android 10 source code (QP1A.190711.020) under Mac 10.14.x (Pixel 2 XL)">
+  <meta name="twitter:description" content="1. Objectives Older generations of Windows reverse engineers have been analyzing the Windows kernel one after another, dreaming of taking a look at the Windows source code, but so far they can only see leaked source code from several generations ago. The mobile era is a blessing, the latest version of Android source code is open to you, and you can’t just look at it, you have to touch it.">
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -312,7 +292,7 @@ As you can see, both the http request and the return value are encrypted. This i
     <article class="post">
       
       <header class="post-header">
-        <h1 class="post-title">Encryption Analysis of a Car Network App Communication Protocol (Part 1)</h1>
+        <h1 class="post-title">Compile and flash Android 10 source code (QP1A.190711.020) under Mac 10.14.x (Pixel 2 XL)</h1>
         
 
 
@@ -332,8 +312,8 @@ As you can see, both the http request and the return value are encrypted. This i
   <div class="post-meta-item post-meta-time">
     
 <svg aria-hidden="true" class="lucide lucide-calendar-days hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
-    <time datetime=" 2022-08-30">
-      2022-08-30
+    <time datetime=" 2022-12-12">
+      2022-12-12
     </time>
 
 
@@ -346,7 +326,7 @@ As you can see, both the http request and the return value are encrypted. This i
     
 
     <div class="post-meta-item post-meta-category">
-      <a href="https://578164.xyz/categories/android-technology/"> Android Technology </a>
+      <a href="https://578164.xyz/categories/advanced-learning/"> Advanced Learning </a>
       
     </div>
 
@@ -365,147 +345,143 @@ As you can see, both the http request and the return value are encrypted. This i
       
       <div class="post-content">
         <h2 id="1-objectives">1. Objectives</h2>
-<p>Boss: I just bought a new car recently. The app that came with it is quite interesting. Would you like to take a look at it?</p>
-<p>Me: Oh my god, it’s packed, it’s quite interesting, let me try it.</p>
-<p>v6.1.0</p>
-<h2 id="2-steps">2. Steps</h2>
-<h3 id="packet-capture">Packet capture</h3>
-<p>My packet capture environment is Mac 10.14.6 + httpToolKit, and I captured the packet smoothly in this step.</p>
-<p>1:main</p>
-<p>As you can see, both the http request and the return value are encrypted. This is our goal.requestandresponseThe origin of .</p>
-<h3 id="shelling">Shelling</h3>
-<p>Our first choice for shelling isBlackDex, easy to use and effective. However, it does not work well for this sample, only one dex is extracted, and it is likely to have failed.</p>
-<p>Then go to the gourd baby bossFRIDA-DEXDump, This sample is very cunning. It crashes as soon as the frida spawn mode is run. It seems that the shell is relatively hard.</p>
-<p>This is a tricky situation. Recall that we used Xcube to deal with packed applications before. Let’s try it again this time.</p>
-<p>Xcube did not disappoint us and the injection was successful. But how to run FRIDA-DEXDump in Xcube mode?</p>
-<p>I wanted to modify the code and merge it in. I accidentally discovered that Yang Shen also wrote DumpDex <a href="https://github.com/lasting-yang/frida_dump">https://github.com/lasting-yang/frida_dump</a></p>
-<p>Easily merged into js, now a successful dump is produced.</p>
-<h3 id="string-search">String Search</h3>
-<p>Direct Search&quot;request&quot; Not much results.</p>
-<p>Obviously, thisjsonObject.addPropertyThe biggest suspect.</p>
-<p>Click in and find the CheckCodeUtil class. Its checkcode and decheckcode are probably our targets this time.</p>
-<p>1:utilcls</p>
-<h3 id="hook">hook</h3>
+<p>Older generations of Windows reverse engineers have been analyzing the Windows kernel one after another, dreaming of taking a look at the Windows source code, but so far they can only see leaked source code from several generations ago. The mobile era is a blessing, the latest version of Android source code is open to you, and you can&rsquo;t just look at it, you have to touch it.</p>
+<p>Now will tell you in detail the process of downloading source code, compiling and flashing the machine over the past week.</p>
+<ul>
+<li>Mac 10.14.6</li>
+<li>jdk 1.8.0_101</li>
+<li>xcode 11.3.1 (11C504)</li>
+<li>Android 10.0 r2 (QP1A.190711.020)</li>
+<li>Pixel 2 XL</li>
+</ul>
+<h2 id="2-analysis">2. Analysis</h2>
+<p>It is said that in Aolai Country in Dongsheng Shenzhou, there is a thing called a shell, which wraps the App tightly, so you can&rsquo;t even take a look at it, let alone touch it.</p>
+<p>But the Android Heart Sutra came, and every move of the shell is running on Android. So if we study the Android Heart Sutra carefully, we may be able to take a look at it, or even touch it.</p>
+<h3 id="download-source-code">Download source code</h3>
+<p>The Android Heart Sutra I studied this time is not the latest one</p>
+<h3 id="prepare-hard-disk-space-about-200g">Prepare hard disk space, about 200G</h3>
+<ul>
+<li>
+<p>Recommended solution: <strong>Buy a 2T mobile hard drive and format it as Mac OS Extended (case-sensitive, journaled)</strong></p>
+</li>
+<li>
+<p>Not recommended: Free up 200G of space for your beloved Xiaobai</p>
+</li>
+</ul>
 <div class="highlight-container">
 
   <button class="copy-code-btn outline">Copy</button>
 
   
-  <pre tabindex="0"><code>var CheckCodeUtilCls = Java.use(&#34;com.bangcle.comapiprotect.CheckCodeUtil&#34;);
-CheckCodeUtilCls.checkcode.implementation = function(a,b,c){
-    var rc = this.checkcode(a,b,c);
-    console.log(TAG + &#34;checkcode &gt;&gt;&gt; a = &#34; + a);
-    console.log(TAG + &#34;checkcode &gt;&gt;&gt; b = &#34; + b);
-    console.log(TAG + &#34;checkcode &gt;&gt;&gt; c = &#34; + c);
-    console.log(TAG + &#34;checkcode &gt;&gt;&gt; rc = &#34; + rc);
-    return rc;
-}
-
-CheckCodeUtilCls.decheckcode.implementation = function(a){
-    var rc = this.decheckcode(a);
-    console.log(TAG + &#34;decheckcode &gt;&gt;&gt; a = &#34; + a);
-    console.log(TAG + &#34;decheckcode &gt;&gt;&gt; rc = &#34; + rc);
-    return rc;
-
-}</code></pre>
+  <pre tabindex="0"><code>1. Create a case-sensitive disk image</code></pre>
 </div>
-<p>I ran it and it was strange, there was no output at all, this doesn&rsquo;t make sense?</p>
-<p>Look carefully, silly, there are two checkcode functions in this class, so we need to specify which one to hook. Because we ignored the error output when printing the output, we did not see the error.</p>
-<p>Notice:If there is no output in the Xcube environment, it is likely that the script reported an error. In this case, do not filter and directly view all output logs to see the error.</p>
-<p>Modify the code</p>
 <div class="highlight-container">
 
   <button class="copy-code-btn outline">Copy</button>
 
   
-  <pre tabindex="0"><code>CheckCodeUtilCls.checkcode.overload(&#39;java.lang.String&#39;,&#39;int&#39;,&#39;java.lang.String&#39;).implementation = function(a,b,c){</code></pre>
+  <pre tabindex="0"><code>$ sudo hdiutil create -type SPARSE -fs &#39;Case-sensitive Journaled HFS+&#39; -size 200g ~/android.dmg
+2. Load it
+$ sudo hdiutil attach ~/android.dmg.sparseimage -mountpoint /Volumes/android</code></pre>
 </div>
-<p>This time the results were printed out smoothly. But something strange happened again, the App crashed.</p>
-<h3 id="rescue-a-crashed-app">Rescue a crashed app</h3>
-<p>Why did it crash? Is there a bug in our printing data?</p>
-<p>First comment out the code that prints the input parameters and results. Still crashes.</p>
-<p>I commented out all the hook codes and it stopped crashing, but I can&rsquo;t play without hooks?</p>
-<p>The ultimate solution is to change your phone. Many times, it is enough to change your phone, maybe the phone is not suitable for the local environment.</p>
-<p>The result was disappointing. I changed the phone and it still crashed.</p>
-<p>There is no fluke mentality, which means that the App or shell has detected the Hook of key functions and will destroy it if it is found to be hooked.</p>
-<p>The App or shell must be doing the detection at the Native layer. If we want to deal with it, we have to be at the same level as it.</p>
-<p>Instead of hooking the functions of the Jave layer, directly hook the checkcode and decheckcode of the Native layer.</p>
-<h3 id="hook-native">Hook Native</h3>
-<p>We found System.loadLibrary(&ldquo;encrypt&rdquo;); in the Java code of CheckCodeUtil, which means that the target we are dealing with is libencrypt.so.</p>
-<p>IDA opened it, exported the table, and exposed two pieces of information.</p>
-<ol>
-<li>The address of the checkcode function is 0x24424, and the address of the decheckcode function is 0x2B1BC.</li>
-<li>These two functions most likely use the AES algorithm.</li>
-</ol>
-<p>Keep Hooking</p>
+<ul>
+<li>By default, only 1024 files can be opened at the same time on Mac systems. This limit may be exceeded when compiling Android source code, so this limit needs to be lifted. Add the following content to ~/.bash_profile, and the command will take effect immediately: source ~/.bash_profile</li>
+</ul>
 <div class="highlight-container">
 
   <button class="copy-code-btn outline">Copy</button>
 
   
-  <pre tabindex="0"><code>var targetSo = Module.findBaseAddress(&#39;libencrypt.so&#39;);
-console.log(TAG +&#34; ############# libencrypt.so: &#34; +targetSo);
-// 24424    2B1BC
-
-Interceptor.attach(targetSo.add(0x24424 ),{
-    onEnter: function(args){
-        var strCls = Java.use(&#39;java.lang.String&#39;);
-
-        this.rBuf = ptr(this.context.x0);
-        console.log(TAG + &#34; ======================================== &#34;);
-        // console.log(TAG + &#34;-------- checkcode x0 = &#34; + ptr(this.context.x0) ) ;
-
-        var strA = Java.cast(this.context.x2, strCls);
-        console.log(TAG + &#34;-------- checkcode a = &#34; + strA);
-
-        console.log(TAG + &#34;-------- checkcode b = &#34; + ptr(this.context.x3));
-
-        var strC = Java.cast(this.context.x4, strCls);
-        console.log(TAG + &#34;-------- checkcode b = &#34; + strC);
-
-
-    },
-    onLeave: function(retval){
-        var strCls = Java.use(&#39;java.lang.String&#39;);
-        var strRc = Java.cast(retval, strCls);
-        console.log(TAG + &#34;-------- checkcode rc = &#34; + strRc);
-
-    }
-});
-
-Interceptor.attach(targetSo.add(0x2B1BC ),{
-    onEnter: function(args){
-        var strCls = Java.use(&#39;java.lang.String&#39;);
-
-        this.rBuf = ptr(this.context.x0);
-        console.log(TAG + &#34; ======================================== &#34;);
-        // console.log(TAG + &#34;-------- checkcode x0 = &#34; + ptr(this.context.x0) ) ;
-
-        var strA = Java.cast(this.context.x2, strCls);
-        console.log(TAG + &#34;-------- decheckcode a = &#34; + strA);
-
-
-    },
-    onLeave: function(retval){
-        var strCls = Java.use(&#39;java.lang.String&#39;);
-        var strRc = Java.cast(retval, strCls);
-        console.log(TAG + &#34;-------- decheckcode rc = &#34; + strRc);
-
-    }
-});</code></pre>
+  <pre tabindex="0"><code>        ulimit -S -n 1024</code></pre>
 </div>
-<p>Boss:  isn&rsquo;t the first parameter of the function X0? Why did you print the first parameter as X2?</p>
-<p>Me: Boss, I asked you to approve more funds to buy books a long time ago, but you didn&rsquo;t agree. Now you are showing your weakness. If you look up JNI programming, you will know that the first two parameters of Java calling C/C++ functions are fixed. The actual parameters passed in start from the third one.</p>
-<p>Run again this time.</p>
-<p>1:rc</p>
-<p>The truth is out.</p>
-<p>It&rsquo;s already autumn in the capital, so it&rsquo;s not time to order fresh beer, but it&rsquo;s time to order Erguotou.</p>
-<h2 id="conclusion">Conclusion</h2>
-<p>There are thousands of ways to unpack the shell, but the key is still Dump Dex.</p>
-<p>Don&rsquo;t be afraid of shelled apps, most likely all the clues will be revealed after unpacking. Unshelled apps are the real scary ones.</p>
-<p>If the script does not have any output, it may not necessarily mean that the location is wrong, but it may also be that you did not see the error reported by the script.</p>
-<p>The app crashed, and changing the phone was effective, although I was embarrassed this time.</p>
-<p>For this sample, IDA also tells us that the function entry code in so is also extracted. To analyze this so, we probably have to dump so.</p>
+<p>Then put aosp1000r2.7z Unzip to the aosp directory on the hard disk</p>
+<h3 id="download-the-corresponding-mac-sdk-my-version-is-1014">Download the corresponding Mac SDK. My version is 10.14.</h3>
+<p><a href="https://github.com/phracker/MacOSX-SDKs/releases">https://github.com/phracker/MacOSX-SDKs/releases</a></p>
+<p>Unzip to /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>xz -d MacOSX10.14.sdk.tar.xz
+tar xvf MacOSX10.14.sdk.tar</code></pre>
+</div>
+<h3 id="download-the-two-drivers-of-pixel-2xl-to-the-root-directory-of-aosp-source-code-and-unzip-them">Download the two drivers of Pixel 2XL to the root directory of aosp source code and unzip them</h3>
+<p><a href="https://developers.google.com/android/drivers#taimenqp1a.190711.020">https://developers.google.com/android/drivers</a></p>
+<p>Download two files</p>
+<p>google_devices-taimen-qp1a.190711.020-baa894dd.tgz</p>
+<p>qcom-taimen-qp1a.190711.020-1d440636.tgz</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>tar zxvf FileName.tgz</code></pre>
+</div>
+<p>Unzip toaospDirectory, and then execute the decompressed file xx.sh. The generated files are under the vendor directory.</p>
+<h3 id="start-compiling">Start Compiling</h3>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>cd aosp
+source build/envsetup.sh
+lunch  aosp_taimen-userdebug
+make -j16   </code></pre>
+</div>
+<h3 id="after-several-hours-the-image-file-will-eventually-be-generated-in-the-aospouttargetproducttaimen-directory">After several hours, the image file will eventually be generated in the aosp/out/target/product/taimen directory:</h3>
+<ul>
+<li>system.img: system image</li>
+<li>ramdisk.img: root file system image</li>
+<li>userdata.img: User data image</li>
+<li>recovery.img: recovery image</li>
+<li>boot.img: boot image</li>
+<li>vendor.img: driver image</li>
+</ul>
+<h3 id="great-start-flashing">Great, start flashing</h3>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>adb reboot bootloader   
+fastboot flashall -w         </code></pre>
+</div>
+<p>Perfectly done, done&hellip;</p>
+<h3 id="a-sad-story">A sad story</h3>
+<p>I can&rsquo;t connect to wifi and can&rsquo;t access the internet. I asked Google and they said the problem was that the persist partition was damaged and I just needed to format it.</p>
+<p>I don&rsquo;t believe him. I downloaded the QP1A.190711.020 factory package of Pixel 2 XL from <a href="https://developers.google.com/android/images">https://developers.google.com/android/images and found that there was a </a><strong>radio-taimen-g8998-00012-1905270706.img</strong> in it , which was not in the code we compiled.</p>
+<p>Radio is the communication baseband file. I flashed the factory package first, and then flashed the version we compiled. This time I was able to access the Internet successfully.</p>
+<p>I think the problem can be solved by simply flashing the baseband file. Friends who are interested can try it.</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>fastboot flash radio radio-taimen-g8998-00012-1905270706.img</code></pre>
+</div>
+<h3 id="pitfalls">Pitfalls</h3>
+<ul>
+<li>
+<p>Compile error</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>FAIL: TestGlobEscapes //* (0.00s) glob_test.go:562: incorrect matches list: glob_test.go</code></pre>
+</div>
+</li>
+</ul>
+<p>Comment out the lines of <strong>glob_test.go</strong> and <strong>fs_test.go</strong> in the aosp/build/blueprint/Blueprints file</p>
+<ul>
+<li>Install the xcode command line</li>
+</ul>
+<p>xcode-select &ndash;install</p>
+<h2 id="summarize">Summarize</h2>
+<p>The Android source code is already very easy to configure. The compilation on Ubuntu and Mac is very smooth. The only problem is flashing the firmware. Many online tutorials do not explain the flashing steps in detail. The idea provided is to compare it with the official factory package and make up for what is missing.</p>
+<p>Scientific Internet access is a prerequisite for studying Android. (￣▽￣)ゞ</p>
 
       </div>
 
@@ -529,18 +505,18 @@ Interceptor.attach(targetSo.add(0x2B1BC ),{
         
         <nav class="post-nav">
           
-          <a class="prev" href="/post/other/an-analysis-of-the-encryption-of-the-communication-protocol-of-a-car-networking-app-part-2-unidbg-step-by-step/">
+          <a class="prev" href="/post/other/code-restoration-trial-imodified-md5/">
             
             <i class="iconfont">
               
 <svg aria-hidden="true" class="lucide lucide-chevron-left hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m15 18-6-6 6-6"/></svg>
             </i>
-            <span class="prev-text nav-default">An analysis of the encryption of the communication protocol of a car networking app (Part 2) Unidbg step by step</span>
+            <span class="prev-text nav-default">Code Restoration Trial (I): Modified MD5</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
           
-          <a class="next" href="/post/other/appdbg-a-virtual-machine-disguised-as-a-debugger/">
-            <span class="next-text nav-default">appdbg: A virtual machine disguised as a debugger</span>
+          <a class="next" href="/post/other/analysis-of-the-sig3-signature-of-a-novel-app/">
+            <span class="next-text nav-default">Analysis of the sig3 signature of a novel app</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">
@@ -587,17 +563,20 @@ Interceptor.attach(targetSo.add(0x2B1BC ),{
       <nav id="TableOfContents">
   <ul>
     <li><a href="#1-objectives">1. Objectives</a></li>
-    <li><a href="#2-steps">2. Steps</a>
+    <li><a href="#2-analysis">2. Analysis</a>
       <ul>
-        <li><a href="#packet-capture">Packet capture</a></li>
-        <li><a href="#shelling">Shelling</a></li>
-        <li><a href="#string-search">String Search</a></li>
-        <li><a href="#hook">hook</a></li>
-        <li><a href="#rescue-a-crashed-app">Rescue a crashed app</a></li>
-        <li><a href="#hook-native">Hook Native</a></li>
+        <li><a href="#download-source-code">Download source code</a></li>
+        <li><a href="#prepare-hard-disk-space-about-200g">Prepare hard disk space, about 200G</a></li>
+        <li><a href="#download-the-corresponding-mac-sdk-my-version-is-1014">Download the corresponding Mac SDK. My version is 10.14.</a></li>
+        <li><a href="#download-the-two-drivers-of-pixel-2xl-to-the-root-directory-of-aosp-source-code-and-unzip-them">Download the two drivers of Pixel 2XL to the root directory of aosp source code and unzip them</a></li>
+        <li><a href="#start-compiling">Start Compiling</a></li>
+        <li><a href="#after-several-hours-the-image-file-will-eventually-be-generated-in-the-aospouttargetproducttaimen-directory">After several hours, the image file will eventually be generated in the aosp/out/target/product/taimen directory:</a></li>
+        <li><a href="#great-start-flashing">Great, start flashing</a></li>
+        <li><a href="#a-sad-story">A sad story</a></li>
+        <li><a href="#pitfalls">Pitfalls</a></li>
       </ul>
     </li>
-    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#summarize">Summarize</a></li>
   </ul>
 </nav>
     </div>

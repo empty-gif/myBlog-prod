@@ -26,10 +26,10 @@ email：h1yx@outlook.com&lt;/p&gt;
     
     <item>
       <title>Code restoration technology: Unidbg hook_add_new to achieve conditional breakpoints (Part 2)</title>
-      <link>https://578164.xyz/post/other/code-restoration-technology-unidbg-hook_add_new-to-achieve-conditional-breakpoints-part-2/</link>
+      <link>https://578164.xyz/post/other/code-restoration-technology-unidbg-hook-add-new-to-achieve-conditional-breakpointspart2/</link>
       <pubDate>Mon, 02 Sep 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://578164.xyz/post/other/code-restoration-technology-unidbg-hook_add_new-to-achieve-conditional-breakpoints-part-2/</guid>
+      <guid>https://578164.xyz/post/other/code-restoration-technology-unidbg-hook-add-new-to-achieve-conditional-breakpointspart2/</guid>
       
         <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;
 &lt;p&gt;When doing code restoration, sometimes you will analyze a set of results and hope to set a conditional breakpoint in the middle, such as triggering a breakpoint at code line 0x1234, R0=0x5678.&lt;/p&gt;
@@ -595,10 +595,10 @@ cost is 0.063s
     
     <item>
       <title>Code Restoration Trial (Part 2): Modified MD5</title>
-      <link>https://578164.xyz/post/other/code-restoration-trial-part-2-modified-md5/</link>
+      <link>https://578164.xyz/post/other/code-restoration-trial-part2modified-md5/</link>
       <pubDate>Mon, 13 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://578164.xyz/post/other/code-restoration-trial-part-2-modified-md5/</guid>
+      <guid>https://578164.xyz/post/other/code-restoration-trial-part2modified-md5/</guid>
       
         <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;
 &lt;p&gt;Boss:  AI has already done the work of code restoration. Do we still need to write a tutorial for code restoration?&lt;/p&gt;
@@ -845,10 +845,10 @@ int main() {
     
     <item>
       <title>Android high version installation system certificate HTTPS packet capture - the ultimate solution</title>
-      <link>https://578164.xyz/post/other/android-high-version-installation-system-certificate-https-packet-capture---the-ultimate-solution/</link>
+      <link>https://578164.xyz/post/other/android-high-version-installation-system-certificate-https-packet-capture-the-ultimate-solution/</link>
       <pubDate>Sun, 05 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://578164.xyz/post/other/android-high-version-installation-system-certificate-https-packet-capture---the-ultimate-solution/</guid>
+      <guid>https://578164.xyz/post/other/android-high-version-installation-system-certificate-https-packet-capture-the-ultimate-solution/</guid>
       
         <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;
 &lt;p&gt;To capture App packages, you first need the App to trust the certificate of the capture software.&lt;/p&gt;
@@ -932,10 +932,10 @@ echo &amp;#34;System cert successfully injected&amp;#34;&lt;/code&gt;&lt;/pre&gt
     
     <item>
       <title>Code Restoration Trial (I): Modified MD5</title>
-      <link>https://578164.xyz/post/other/code-restoration-trial-i-modified-md5/</link>
+      <link>https://578164.xyz/post/other/code-restoration-trial-imodified-md5/</link>
       <pubDate>Wed, 22 Feb 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://578164.xyz/post/other/code-restoration-trial-i-modified-md5/</guid>
+      <guid>https://578164.xyz/post/other/code-restoration-trial-imodified-md5/</guid>
       
         <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;
 &lt;p&gt;It’s 2023, and MD5 is already the most basic signature algorithm, but if you still only do a simple MD5 on the input, you will definitely be laughed at by your peers. Adding salt is a basic improvement, but in this era of severe employment, just adding salt is definitely not enough.&lt;/p&gt;
@@ -1174,10 +1174,10 @@ start + 0xa80
     
     <item>
       <title>Compile and flash Android 10 source code (QP1A.190711.020) under Mac 10.14.x (Pixel 2 XL)</title>
-      <link>https://578164.xyz/post/other/compile-and-flash-android-10-source-code-qp1a.190711.020-under-mac-10.14.x-pixel-2-xl/</link>
+      <link>https://578164.xyz/post/other/compile-and-flash-android-10-source-codeqp1a.190711.020under-mac-10.14.xpixel2xl/</link>
       <pubDate>Mon, 12 Dec 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://578164.xyz/post/other/compile-and-flash-android-10-source-code-qp1a.190711.020-under-mac-10.14.x-pixel-2-xl/</guid>
+      <guid>https://578164.xyz/post/other/compile-and-flash-android-10-source-codeqp1a.190711.020under-mac-10.14.xpixel2xl/</guid>
       
         <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;
 &lt;p&gt;Older generations of Windows reverse engineers have been analyzing the Windows kernel one after another, dreaming of taking a look at the Windows source code, but so far they can only see leaked source code from several generations ago. The mobile era is a blessing, the latest version of Android source code is open to you, and you can&amp;rsquo;t just look at it, you have to touch it.&lt;/p&gt;
@@ -1323,10 +1323,10 @@ fastboot flashall -w         &lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Analysis of the sig3 signature of a novel app</title>
-      <link>https://578164.xyz/post/other/analysis-of-the-__sig3-signature-of-a-novel-app/</link>
+      <link>https://578164.xyz/post/other/analysis-of-the-sig3-signature-of-a-novel-app/</link>
       <pubDate>Mon, 10 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://578164.xyz/post/other/analysis-of-the-__sig3-signature-of-a-novel-app/</guid>
+      <guid>https://578164.xyz/post/other/analysis-of-the-sig3-signature-of-a-novel-app/</guid>
       
         <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;
 &lt;p&gt;This sample is somewhat similar to the previous short video app. The signature name and algorithm are probably the same. So if you understand this, you can probably understand the latest version of the short video app.&lt;/p&gt;
@@ -1405,10 +1405,10 @@ ffSignCls.a.overload(&amp;#39;java.lang.String&amp;#39;, &amp;#39;java.lang.Stri
     
     <item>
       <title>An analysis of the encryption of the communication protocol of a car networking app (Part 2) Unidbg step by step</title>
-      <link>https://578164.xyz/post/other/an-analysis-of-the-encryption-of-the-communication-protocol-of-a-car-networking-app-part-2-unidbg-step-by-step/</link>
+      <link>https://578164.xyz/post/other/an-analysis-of-the-encryption-of-the-communication-protocol-of-a-car-networking-apppart-2unidbg-step-by-step/</link>
       <pubDate>Thu, 08 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://578164.xyz/post/other/an-analysis-of-the-encryption-of-the-communication-protocol-of-a-car-networking-app-part-2-unidbg-step-by-step/</guid>
+      <guid>https://578164.xyz/post/other/an-analysis-of-the-encryption-of-the-communication-protocol-of-a-car-networking-apppart-2unidbg-step-by-step/</guid>
       
         <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;
 &lt;p&gt;It has been a while since I wrote an article related to unidbg. This sample is quite suitable, with moderate difficulty and a small pit for you. So the following is a series of articles, including unidbg environment supplement, Trace Block comparison process, Trace Code location difference. Mastering this series of routines, Native analysis can be considered an entry.&lt;/p&gt;
@@ -1753,10 +1753,10 @@ java.lang.UnsupportedOperationException: android/app/ActivityThread-&amp;gt;curr
     
     <item>
       <title>Encryption Analysis of a Car Network App Communication Protocol (Part 1)</title>
-      <link>https://578164.xyz/post/other/encryption-analysis-of-a-car-network-app-communication-protocol-part-1/</link>
+      <link>https://578164.xyz/post/other/encryption-analysis-of-a-car-network-app-communication-protocolpart1/</link>
       <pubDate>Tue, 30 Aug 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://578164.xyz/post/other/encryption-analysis-of-a-car-network-app-communication-protocol-part-1/</guid>
+      <guid>https://578164.xyz/post/other/encryption-analysis-of-a-car-network-app-communication-protocolpart1/</guid>
       
         <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;
 &lt;p&gt;Boss: I just bought a new car recently. The app that came with it is quite interesting. Would you like to take a look at it?&lt;/p&gt;
@@ -2111,10 +2111,10 @@ Failed to download any source lists!&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Teach you how to build a Frida &#43; Sekiro RPC framework</title>
-      <link>https://578164.xyz/post/other/teach-you-how-to-build-a-frida-&#43;-sekiro-rpc-framework/</link>
+      <link>https://578164.xyz/post/other/frida-sekiro-rpc-framework/</link>
       <pubDate>Thu, 21 Apr 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://578164.xyz/post/other/teach-you-how-to-build-a-frida-&#43;-sekiro-rpc-framework/</guid>
+      <guid>https://578164.xyz/post/other/frida-sekiro-rpc-framework/</guid>
       
         <description>&lt;h2 id=&#34;objectives&#34;&gt;Objectives&lt;/h2&gt;
 &lt;p&gt;Signing with a mobile phone is a tricky solution. We have introduced it before.&lt;/p&gt;
@@ -2344,10 +2344,10 @@ run&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Code Restoration Technology ARM Assembly Introduction Tutorial (I) Hello World!</title>
-      <link>https://578164.xyz/post/other/code-restoration-technology-arm-assembly-introduction-tutorial-i-hello-world/</link>
+      <link>https://578164.xyz/post/other/code-restoration-technology-arm-assembly-introduction-tutorialihello-world/</link>
       <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://578164.xyz/post/other/code-restoration-technology-arm-assembly-introduction-tutorial-i-hello-world/</guid>
+      <guid>https://578164.xyz/post/other/code-restoration-technology-arm-assembly-introduction-tutorialihello-world/</guid>
       
         <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;
 &lt;ul&gt;
@@ -2512,10 +2512,10 @@ swi     $0&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Frida installation (I)</title>
-      <link>https://578164.xyz/post/other/frida-installation-i/</link>
+      <link>https://578164.xyz/post/other/frida-installationi/</link>
       <pubDate>Fri, 09 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://578164.xyz/post/other/frida-installation-i/</guid>
+      <guid>https://578164.xyz/post/other/frida-installationi/</guid>
       
         <description>&lt;h2 id=&#34;1-objectives&#34;&gt;1. Objectives&lt;/h2&gt;
 &lt;p&gt;Frida is a hook framework based on python+javascript, which can run on various platforms such as android, ios, linux, win, etc. It mainly uses dynamic binary instrumentation technology. It is also a widely used reverse engineering tool.&lt;/p&gt;

@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <title>
-  Code restoration technology: Unidbg hook_add_new to achieve conditional breakpoints (Part 2) - Jane - A super concise theme for Hugo
+  Frida installation (I) - Jane - A super concise theme for Hugo
   </title>
 
 
@@ -27,11 +27,9 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="h1yx" />
-<meta name="description" content="1. Objectives When doing code restoration, sometimes you will analyze a set of results and hope to set a conditional breakpoint in the middle, such as triggering a breakpoint at code line 0x1234, R0=0x5678.
-Let’s try it today.
-Tip: The Unidbg code has been synchronized to the latest official version, which already supports the display of floating-point registers.
-2. Steps Write a floatdemotwo first Upgrade the ancestral algorithm
-Copy extern &#34;C&#34; JNIEXPORT jstring JNICALL Java_com_h1yx_app_floatdemo_MainActivity_stringFromJNI( JNIEnv* env, jobject Obj, jdouble value) { std::string hello = &#34;Hello from C&#43;&#43;&#34;; double p=3.14159; double s,v,rc; for(int i=0 ; i&lt; 10; i&#43;&#43;){ hello &#43;=&#34;\n&#34;; v = 2*p* (value &#43; i); s = p * (value &#43; i) * (value &#43; i); rc = v&#43;s; hello &#43;= std::to_string(rc); } return env-&gt;NewStringUTF(hello.c_str()); } Calculate the sum of the circumference and area of 10 circles.
+<meta name="description" content="1. Objectives Frida is a hook framework based on python&#43;javascript, which can run on various platforms such as android, ios, linux, win, etc. It mainly uses dynamic binary instrumentation technology. It is also a widely used reverse engineering tool.
+2. Installation Install frida on Mac Copy pip install frida Tip: Copy pip install frida If you have installed an old version before, you must uninstall the old version first.
+Copy pip uninstall frida Then install frida-tools
 " />
 
 <meta name="keywords"
@@ -43,7 +41,7 @@ Copy extern &#34;C&#34; JNIEXPORT jstring JNICALL Java_com_h1yx_app_floatdemo_Ma
 <meta name="generator" content="Hugo 0.136.4" />
 
 
-<link rel="canonical" href="https://578164.xyz/post/other/code-restoration-technology-unidbg-hook_add_new-to-achieve-conditional-breakpoints-part-2/" />
+<link rel="canonical" href="https://578164.xyz/post/other/frida-installationi/" />
 
 
 
@@ -71,39 +69,33 @@ Copy extern &#34;C&#34; JNIEXPORT jstring JNICALL Java_com_h1yx_app_floatdemo_Ma
 
 
 
-<meta property="og:url" content="https://578164.xyz/post/other/code-restoration-technology-unidbg-hook_add_new-to-achieve-conditional-breakpoints-part-2/">
+<meta property="og:url" content="https://578164.xyz/post/other/frida-installationi/">
   <meta property="og:site_name" content="Jane - A super concise theme for Hugo">
-  <meta property="og:title" content="Code restoration technology: Unidbg hook_add_new to achieve conditional breakpoints (Part 2)">
-  <meta property="og:description" content="1. Objectives When doing code restoration, sometimes you will analyze a set of results and hope to set a conditional breakpoint in the middle, such as triggering a breakpoint at code line 0x1234, R0=0x5678.
-Let’s try it today.
-Tip: The Unidbg code has been synchronized to the latest official version, which already supports the display of floating-point registers.
-2. Steps Write a floatdemotwo first Upgrade the ancestral algorithm
-Copy extern &#34;C&#34; JNIEXPORT jstring JNICALL Java_com_h1yx_app_floatdemo_MainActivity_stringFromJNI( JNIEnv* env, jobject Obj, jdouble value) { std::string hello = &#34;Hello from C&#43;&#43;&#34;; double p=3.14159; double s,v,rc; for(int i=0 ; i&lt; 10; i&#43;&#43;){ hello &#43;=&#34;\n&#34;; v = 2*p* (value &#43; i); s = p * (value &#43; i) * (value &#43; i); rc = v&#43;s; hello &#43;= std::to_string(rc); } return env-&gt;NewStringUTF(hello.c_str()); } Calculate the sum of the circumference and area of 10 circles.">
+  <meta property="og:title" content="Frida installation (I)">
+  <meta property="og:description" content="1. Objectives Frida is a hook framework based on python&#43;javascript, which can run on various platforms such as android, ios, linux, win, etc. It mainly uses dynamic binary instrumentation technology. It is also a widely used reverse engineering tool.
+2. Installation Install frida on Mac Copy pip install frida Tip: Copy pip install frida If you have installed an old version before, you must uninstall the old version first.
+Copy pip uninstall frida Then install frida-tools">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
-    <meta property="article:published_time" content="2024-09-02T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-09-02T00:00:00+00:00">
+    <meta property="article:published_time" content="2020-10-09T00:00:00+00:00">
+    <meta property="article:modified_time" content="2020-10-09T00:00:00+00:00">
     <meta property="article:tag" content="Frida">
     <meta property="article:tag" content="Android">
 
-  <meta itemprop="name" content="Code restoration technology: Unidbg hook_add_new to achieve conditional breakpoints (Part 2)">
-  <meta itemprop="description" content="1. Objectives When doing code restoration, sometimes you will analyze a set of results and hope to set a conditional breakpoint in the middle, such as triggering a breakpoint at code line 0x1234, R0=0x5678.
-Let’s try it today.
-Tip: The Unidbg code has been synchronized to the latest official version, which already supports the display of floating-point registers.
-2. Steps Write a floatdemotwo first Upgrade the ancestral algorithm
-Copy extern &#34;C&#34; JNIEXPORT jstring JNICALL Java_com_h1yx_app_floatdemo_MainActivity_stringFromJNI( JNIEnv* env, jobject Obj, jdouble value) { std::string hello = &#34;Hello from C&#43;&#43;&#34;; double p=3.14159; double s,v,rc; for(int i=0 ; i&lt; 10; i&#43;&#43;){ hello &#43;=&#34;\n&#34;; v = 2*p* (value &#43; i); s = p * (value &#43; i) * (value &#43; i); rc = v&#43;s; hello &#43;= std::to_string(rc); } return env-&gt;NewStringUTF(hello.c_str()); } Calculate the sum of the circumference and area of 10 circles.">
-  <meta itemprop="datePublished" content="2024-09-02T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2024-09-02T00:00:00+00:00">
-  <meta itemprop="wordCount" content="645">
+  <meta itemprop="name" content="Frida installation (I)">
+  <meta itemprop="description" content="1. Objectives Frida is a hook framework based on python&#43;javascript, which can run on various platforms such as android, ios, linux, win, etc. It mainly uses dynamic binary instrumentation technology. It is also a widely used reverse engineering tool.
+2. Installation Install frida on Mac Copy pip install frida Tip: Copy pip install frida If you have installed an old version before, you must uninstall the old version first.
+Copy pip uninstall frida Then install frida-tools">
+  <meta itemprop="datePublished" content="2020-10-09T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2020-10-09T00:00:00+00:00">
+  <meta itemprop="wordCount" content="264">
   <meta itemprop="keywords" content="Frida,Android">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Code restoration technology: Unidbg hook_add_new to achieve conditional breakpoints (Part 2)">
-  <meta name="twitter:description" content="1. Objectives When doing code restoration, sometimes you will analyze a set of results and hope to set a conditional breakpoint in the middle, such as triggering a breakpoint at code line 0x1234, R0=0x5678.
-Let’s try it today.
-Tip: The Unidbg code has been synchronized to the latest official version, which already supports the display of floating-point registers.
-2. Steps Write a floatdemotwo first Upgrade the ancestral algorithm
-Copy extern &#34;C&#34; JNIEXPORT jstring JNICALL Java_com_h1yx_app_floatdemo_MainActivity_stringFromJNI( JNIEnv* env, jobject Obj, jdouble value) { std::string hello = &#34;Hello from C&#43;&#43;&#34;; double p=3.14159; double s,v,rc; for(int i=0 ; i&lt; 10; i&#43;&#43;){ hello &#43;=&#34;\n&#34;; v = 2*p* (value &#43; i); s = p * (value &#43; i) * (value &#43; i); rc = v&#43;s; hello &#43;= std::to_string(rc); } return env-&gt;NewStringUTF(hello.c_str()); } Calculate the sum of the circumference and area of 10 circles.">
+  <meta name="twitter:title" content="Frida installation (I)">
+  <meta name="twitter:description" content="1. Objectives Frida is a hook framework based on python&#43;javascript, which can run on various platforms such as android, ios, linux, win, etc. It mainly uses dynamic binary instrumentation technology. It is also a widely used reverse engineering tool.
+2. Installation Install frida on Mac Copy pip install frida Tip: Copy pip install frida If you have installed an old version before, you must uninstall the old version first.
+Copy pip uninstall frida Then install frida-tools">
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -308,7 +300,7 @@ Copy extern &#34;C&#34; JNIEXPORT jstring JNICALL Java_com_h1yx_app_floatdemo_Ma
     <article class="post">
       
       <header class="post-header">
-        <h1 class="post-title">Code restoration technology: Unidbg hook_add_new to achieve conditional breakpoints (Part 2)</h1>
+        <h1 class="post-title">Frida installation (I)</h1>
         
 
 
@@ -328,8 +320,8 @@ Copy extern &#34;C&#34; JNIEXPORT jstring JNICALL Java_com_h1yx_app_floatdemo_Ma
   <div class="post-meta-item post-meta-time">
     
 <svg aria-hidden="true" class="lucide lucide-calendar-days hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
-    <time datetime=" 2024-09-02">
-      2024-09-02
+    <time datetime=" 2020-10-09">
+      2020-10-09
     </time>
 
 
@@ -361,182 +353,129 @@ Copy extern &#34;C&#34; JNIEXPORT jstring JNICALL Java_com_h1yx_app_floatdemo_Ma
       
       <div class="post-content">
         <h2 id="1-objectives">1. Objectives</h2>
-<p>When doing code restoration, sometimes you will analyze a set of results and hope to set a conditional breakpoint in the middle, such as triggering a breakpoint at code line 0x1234, R0=0x5678.</p>
-<p>Let’s try it today.</p>
+<p>Frida is a hook framework based on python+javascript, which can run on various platforms such as android, ios, linux, win, etc. It mainly uses dynamic binary instrumentation technology. It is also a widely used reverse engineering tool.</p>
+<h2 id="2-installation">2. Installation</h2>
+<h3 id="install-frida-on-mac">Install frida on Mac</h3>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install frida</span></span></code></pre></div>
+</div>
 <h6 id="tip">Tip:</h6>
-<p>The Unidbg code has been synchronized to the latest official version, which already supports the display of floating-point registers.</p>
-<h2 id="2-steps">2. Steps</h2>
-<h3 id="write-a-floatdemotwo-first">Write a floatdemotwo first</h3>
-<p>Upgrade the ancestral algorithm</p>
 <div class="highlight-container">
 
   <button class="copy-code-btn outline">Copy</button>
 
   
-  <pre tabindex="0"><code>extern &#34;C&#34; JNIEXPORT jstring JNICALL
-Java_com_h1yx_app_floatdemo_MainActivity_stringFromJNI(
-        JNIEnv* env,
-        jobject Obj, jdouble value) {
-    std::string hello = &#34;Hello from C++&#34;;
-
-    double p=3.14159;
-    double s,v,rc;
-
-    for(int i=0 ; i&lt; 10; i++){
-        hello +=&#34;\n&#34;;
-
-        v = 2*p* (value + i);
-        s = p * (value + i) * (value + i);
-
-        rc = v+s;
-
-        hello += std::to_string(rc);
-
-    }
-
-    return env-&gt;NewStringUTF(hello.c_str());
-}</code></pre>
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install frida</span></span></code></pre></div>
 </div>
-<p>Calculate the sum of the circumference and area of 10 circles.</p>
-<p>The printed result is like this</p>
+<p>If you have installed an old version before, you must uninstall the old version first.</p>
 <div class="highlight-container">
 
   <button class="copy-code-btn outline">Copy</button>
 
   
-  <pre tabindex="0"><code>Hello from C++
-150.796320
-197.920170
-251.327200
-311.017410
-376.990800
-449.247370
-527.787120
-612.610050
-703.716160
-801.105450</code></pre>
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip uninstall frida</span></span></code></pre></div>
 </div>
-<p>Our goal is to achieve results equal to449.247370When the breakpoint is triggered, pretend to analyze the following527.787120The calculation process.</p>
-<h3 id="ida">IDA</h3>
-<p>We set a breakpoint at 0x127C0 and single-step a few times until we reach 0x127D4. After executing the addition instruction <strong>FADD D0, D1, D0 , we can see that the value of D0 is</strong> <strong>150.796320</strong> .</p>
-<p>This is the target. We set the conditional breakpoint at 0x127D4, which is triggered when D0=449.247370.</p>
-<h3 id="hook_add_new">hook_add_new</h3>
-<p>First create a ffcodehook class, inherit from com.github.unidbg.arm.backend.CodeHook and then add it to the emulator</p>
+<p>Then install frida-tools</p>
 <div class="highlight-container">
 
   <button class="copy-code-btn outline">Copy</button>
 
   
-  <pre tabindex="0"><code>// com/h1yx/test/runfloatdemo.java
-analyseHookA = new FFCodehook(emulator);
-emulator.getBackend().hook_add_new(analyseHookA, module.base + 0x127D8, module.base + 0x127D8, emulator);
-
-// com/h1yx/test/ffcodehook.java
-public class FFCodehook implements CodeHook {
-    private final Emulator&lt;?&gt; emulator;
-    public FFCodehook(Emulator&lt;?&gt; emulator) {
-        super();
-
-        this.emulator = emulator;
-    }
-
-    private Unicorn.UnHook unHook;
-
-    @Override
-    public void onAttach(Unicorn.UnHook unHook) {
-        if (this.unHook != null) {
-            throw new IllegalStateException();
-        }
-        this.unHook = unHook;
-    }
-
-    @Override
-    public void detach() {
-        if (unHook != null) {
-            unHook.unhook();
-            unHook = null;
-        }
-    }
-
-    private static BigInteger newBigInteger(byte[] data) {
-        if (data.length != 16) {
-            throw new IllegalStateException(&#34;data.length=&#34; + data.length);
-        }
-        byte[] copy = Arrays.copyOf(data, data.length);
-        for (int i = 0; i &lt; 8; i++) {
-            byte b = copy[i];
-            copy[i] = copy[15 - i];
-            copy[15 - i] = b;
-        }
-        byte[] bytes = new byte[copy.length + 1];
-        System.arraycopy(copy, 0, bytes, 1, copy.length); // makePositive
-        return new BigInteger(bytes);
-    }
-
-    @Override
-    public void hook(Backend backend, long address, int size, Object user) {
-        try {
-            if (address == 0x400127d8) {
-
-                byte[] data = backend.reg_read_vector(Arm64Const.UC_ARM64_REG_Q0);
-                if (data != null) {
-                    String strShow = String.format(Locale.US, &#34; Q0=0x%s%s&#34;, newBigInteger(data).toString(16), Utils.decodeVectorRegister(data));
-                    System.out.println(&#34;##### value  &#34; + strShow);
-                }
-            }
-        } catch (BackendException e) {
-            throw new IllegalStateException(e);
-        }
-    }
-}</code></pre>
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install frida-tools</span></span></code></pre></div>
 </div>
-<p>In this way, the value of D0 when running to the 0x127D8 instruction can be printed out.</p>
+<h6 id="tip-1">Tip:</h6>
+<p>If prompted <code>PermissionError: [Errno 13] Permission denied: 'PKG-INFO'</code>, you can add<code>sudo</code></p>
+<p>After the installation is complete, check the installed frida version</p>
 <div class="highlight-container">
 
   <button class="copy-code-btn outline">Copy</button>
 
   
-  <pre tabindex="0"><code>##### value   Q0=0x4062d97b7414a4d2(150.79631999999998)
-##### value   Q0=0x4068bd72085b1854(197.92016999999998)
-##### value   Q0=0x406f6a786c22680a(251.3272)
-##### value   Q0=0x407370474fb549fa(311.01741000000004)
-##### value   Q0=0x40778fda5119ce07(376.9908)
-##### value   Q0=0x407c13f53a3ec02f(449.24737)
-##### value   Q0=0x40807e4c05921038(527.78712)
-##### value   Q0=0x408324e161e4f765(612.6100499999999)
-##### value   Q0=0x4085fdbab21815a0(703.71616)
-##### value   Q0=0x408908d7f62b6ae8(801.10545)</code></pre>
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>frida --version
+</span></span><span style="display:flex;"><span>12.11.18</span></span></code></pre></div>
 </div>
-<h3 id="come-on-a-condition">Come on a condition</h3>
-<p>Now we can make a judgment. When <strong>D0=449.247370,</strong> we will break on the next line and enter the debugging mode.</p>
+<h3 id="install-frida-on-android">Install frida on android</h3>
+<p><a href="https://github.com/frida/frida/releases">Install frida-server</a> on a rooted device</p>
+<ol>
+<li>
+<p>First check the phone model and download the corresponding version of <a href="https://github.com/frida/frida/releases[frida-server]">https://github.com/frida/frida/releases[frida-server]</a></p>
 <div class="highlight-container">
 
   <button class="copy-code-btn outline">Copy</button>
 
   
-  <pre tabindex="0"><code>double bOutD = bytes2Double(data);
-if(bOutD == 449.247370){
-        Debugger MyDbg = emulator.attach(DebuggerType.CONSOLE);
-    MyDbg.addBreakPoint(0x400127dc);
-}</code></pre>
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>adb shell getprop ro.product.cpu.abi
+</span></span><span style="display:flex;"><span>arm64-v8a</span></span></code></pre></div>
 </div>
-<p>OK, we have successfully entered the debugging mode, and we can analyze the following527.787120The calculation process.</p>
-<p>Note: Floating point numbers cannot be directly judged using == because the precision is different. A safer approach is as follows:</p>
+</li>
+<li>
+<p>My phone model is arm64-v8a, so I downloaded frida-server-12.11.18-android-arm64.xz and unzipped it intofrida-server-12.11.18-android-arm64</p>
+</li>
+<li>
+<p>Push the unzipped file to the device, specify the path /data/local/tmp and rename it to <strong>frida-server</strong></p>
 <div class="highlight-container">
 
   <button class="copy-code-btn outline">Copy</button>
 
   
-  <pre tabindex="0"><code>final double THRESHOLD = .0001;
-double bOutD = bytes2Double(data);
-if (Math.abs(bOutD - 449.247370 ) &lt; THRESHOLD) {
-        ...
-}</code></pre>
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>adb push frida-server-12.11.18-android-arm64 /data/local/tmp/frida-server</span></span></code></pre></div>
 </div>
-<h2 id="conclusion">Conclusion</h2>
-<p>Conditional breakpoints are useful when analyzing a set of data.</p>
-<p>hook_add_new can actually be used as an Inline Hook. You may ask, isn&rsquo;t it better to use xhook and some other Hook tools for Inline Hook?</p>
-<p>Wukong, when you encounter those monsters with great powers that can detect whether important codes have been modified, you will remember the benefits of &ldquo;hardware breakpoints&rdquo;.</p>
+</li>
+<li>
+<p>Run <em>frida-server</em> in the android device</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>adb shell
+</span></span><span style="display:flex;"><span>su
+</span></span><span style="display:flex;"><span>cd /data/local/tmp
+</span></span><span style="display:flex;"><span>chmod <span style="color:#ae81ff">755</span> frida-server
+</span></span><span style="display:flex;"><span>./frida-server</span></span></code></pre></div>
+</div>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>After the execution is completed, it is in the running state. This shell cannot be closed. If you close it, Frida will stop.</code></pre>
+</div>
+</li>
+<li>
+<p>Perform port forwarding monitoring</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>adb forward tcp:27042 tcp:27042
+</span></span><span style="display:flex;"><span>adb forward tcp:27043 tcp:27043</span></span></code></pre></div>
+</div>
+</li>
+<li>
+<p>Check whether the <strong>frida-ps -U</strong> command is successfully executed and the process list is successfully output, as shown below</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>MacBook-Pro:~ h1yx$ frida-ps -U
+</span></span><span style="display:flex;"><span>  PID  Name
+</span></span><span style="display:flex;"><span>-----  -------------------------------------
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">3973</span>  .dataservices
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">484</span>  adbd
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">527</span>  adsprpcd
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">3891</span>  android.ext.services
+</span></span><span style="display:flex;"><span> ...</span></span></code></pre></div>
+</div>
+</li>
+</ol>
+<p>This way frida is installed successfully.</p>
 
       </div>
 
@@ -560,16 +499,16 @@ if (Math.abs(bOutD - 449.247370 ) &lt; THRESHOLD) {
         
         <nav class="post-nav">
           
-          
-          <a class="next" href="/post/other/a-series-of-operations-merged-the-unidbg-update-and-continued-to-run-the-sign/">
-            <span class="next-text nav-default">A series of operations merged the Unidbg update and continued to run the sign</span>
-            <span class="prev-text nav-mobile">Next</span>
+          <a class="prev" href="/post/other/iphone-jailbreak-2020/">
             
             <i class="iconfont">
               
-<svg aria-hidden="true" class="lucide lucide-chevron-right hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m9 18 6-6-6-6"/></svg>
+<svg aria-hidden="true" class="lucide lucide-chevron-left hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m15 18-6-6 6-6"/></svg>
             </i>
+            <span class="prev-text nav-default">Iphone Jailbreak 2020</span>
+            <span class="prev-text nav-mobile">Prev</span>
           </a>
+          
         </nav>
       </footer>
     </article>
@@ -608,20 +547,13 @@ if (Math.abs(bOutD - 449.247370 ) &lt; THRESHOLD) {
     <div class="toc-content custom-scrollbar">
       <nav id="TableOfContents">
   <ul>
-    <li><a href="#1-objectives">1. Objectives</a>
+    <li><a href="#1-objectives">1. Objectives</a></li>
+    <li><a href="#2-installation">2. Installation</a>
       <ul>
-        <li></li>
+        <li><a href="#install-frida-on-mac">Install frida on Mac</a></li>
+        <li><a href="#install-frida-on-android">Install frida on android</a></li>
       </ul>
     </li>
-    <li><a href="#2-steps">2. Steps</a>
-      <ul>
-        <li><a href="#write-a-floatdemotwo-first">Write a floatdemotwo first</a></li>
-        <li><a href="#ida">IDA</a></li>
-        <li><a href="#hook_add_new">hook_add_new</a></li>
-        <li><a href="#come-on-a-condition">Come on a condition</a></li>
-      </ul>
-    </li>
-    <li><a href="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
     </div>

@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <title>
-  Code Restoration Technology ARM Assembly Introduction Tutorial (I) Hello World! - Jane - A super concise theme for Hugo
+  Encryption Analysis of a Car Network App Communication Protocol (Part 1) - Jane - A super concise theme for Hugo
   </title>
 
 
@@ -27,10 +27,12 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="h1yx" />
-<meta name="description" content="1. Objectives Why learn ARM assembly? No reason.
-Is it useful to learn ARM assembly? It&rsquo;s useless
-Can I find a job after learning ARM assembly? None of the popular large-scale software is written in assembly language, so what do you think?
-Do you still need to learn ARM assembly? Why not learn it? You have nothing to do anyway. Knowing some low-level languages and getting close to the essence of computer operation is still very cool.
+<meta name="description" content="1. Objectives Boss: I just bought a new car recently. The app that came with it is quite interesting. Would you like to take a look at it?
+Me: Oh my god, it’s packed, it’s quite interesting, let me try it.
+v6.1.0
+2. Steps Packet capture My packet capture environment is Mac 10.14.6 &#43; httpToolKit, and I captured the packet smoothly in this step.
+1:main
+As you can see, both the http request and the return value are encrypted. This is our goal.requestandresponseThe origin of .
 " />
 
 <meta name="keywords"
@@ -42,7 +44,7 @@ Do you still need to learn ARM assembly? Why not learn it? You have nothing to d
 <meta name="generator" content="Hugo 0.136.4" />
 
 
-<link rel="canonical" href="https://578164.xyz/post/other/code-restoration-technology-arm-assembly-introduction-tutorial-i-hello-world/" />
+<link rel="canonical" href="https://578164.xyz/post/other/encryption-analysis-of-a-car-network-app-communication-protocolpart1/" />
 
 
 
@@ -70,36 +72,42 @@ Do you still need to learn ARM assembly? Why not learn it? You have nothing to d
 
 
 
-<meta property="og:url" content="https://578164.xyz/post/other/code-restoration-technology-arm-assembly-introduction-tutorial-i-hello-world/">
+<meta property="og:url" content="https://578164.xyz/post/other/encryption-analysis-of-a-car-network-app-communication-protocolpart1/">
   <meta property="og:site_name" content="Jane - A super concise theme for Hugo">
-  <meta property="og:title" content="Code Restoration Technology ARM Assembly Introduction Tutorial (I) Hello World!">
-  <meta property="og:description" content="1. Objectives Why learn ARM assembly? No reason.
-Is it useful to learn ARM assembly? It’s useless
-Can I find a job after learning ARM assembly? None of the popular large-scale software is written in assembly language, so what do you think?
-Do you still need to learn ARM assembly? Why not learn it? You have nothing to do anyway. Knowing some low-level languages and getting close to the essence of computer operation is still very cool.">
+  <meta property="og:title" content="Encryption Analysis of a Car Network App Communication Protocol (Part 1)">
+  <meta property="og:description" content="1. Objectives Boss: I just bought a new car recently. The app that came with it is quite interesting. Would you like to take a look at it?
+Me: Oh my god, it’s packed, it’s quite interesting, let me try it.
+v6.1.0
+2. Steps Packet capture My packet capture environment is Mac 10.14.6 &#43; httpToolKit, and I captured the packet smoothly in this step.
+1:main
+As you can see, both the http request and the return value are encrypted. This is our goal.requestandresponseThe origin of .">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
-    <meta property="article:published_time" content="2021-04-12T00:00:00+00:00">
-    <meta property="article:modified_time" content="2021-04-12T00:00:00+00:00">
+    <meta property="article:published_time" content="2022-08-30T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-08-30T00:00:00+00:00">
     <meta property="article:tag" content="Frida">
     <meta property="article:tag" content="Android">
 
-  <meta itemprop="name" content="Code Restoration Technology ARM Assembly Introduction Tutorial (I) Hello World!">
-  <meta itemprop="description" content="1. Objectives Why learn ARM assembly? No reason.
-Is it useful to learn ARM assembly? It’s useless
-Can I find a job after learning ARM assembly? None of the popular large-scale software is written in assembly language, so what do you think?
-Do you still need to learn ARM assembly? Why not learn it? You have nothing to do anyway. Knowing some low-level languages and getting close to the essence of computer operation is still very cool.">
-  <meta itemprop="datePublished" content="2021-04-12T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2021-04-12T00:00:00+00:00">
-  <meta itemprop="wordCount" content="449">
+  <meta itemprop="name" content="Encryption Analysis of a Car Network App Communication Protocol (Part 1)">
+  <meta itemprop="description" content="1. Objectives Boss: I just bought a new car recently. The app that came with it is quite interesting. Would you like to take a look at it?
+Me: Oh my god, it’s packed, it’s quite interesting, let me try it.
+v6.1.0
+2. Steps Packet capture My packet capture environment is Mac 10.14.6 &#43; httpToolKit, and I captured the packet smoothly in this step.
+1:main
+As you can see, both the http request and the return value are encrypted. This is our goal.requestandresponseThe origin of .">
+  <meta itemprop="datePublished" content="2022-08-30T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2022-08-30T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1053">
   <meta itemprop="keywords" content="Frida,Android">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Code Restoration Technology ARM Assembly Introduction Tutorial (I) Hello World!">
-  <meta name="twitter:description" content="1. Objectives Why learn ARM assembly? No reason.
-Is it useful to learn ARM assembly? It’s useless
-Can I find a job after learning ARM assembly? None of the popular large-scale software is written in assembly language, so what do you think?
-Do you still need to learn ARM assembly? Why not learn it? You have nothing to do anyway. Knowing some low-level languages and getting close to the essence of computer operation is still very cool.">
+  <meta name="twitter:title" content="Encryption Analysis of a Car Network App Communication Protocol (Part 1)">
+  <meta name="twitter:description" content="1. Objectives Boss: I just bought a new car recently. The app that came with it is quite interesting. Would you like to take a look at it?
+Me: Oh my god, it’s packed, it’s quite interesting, let me try it.
+v6.1.0
+2. Steps Packet capture My packet capture environment is Mac 10.14.6 &#43; httpToolKit, and I captured the packet smoothly in this step.
+1:main
+As you can see, both the http request and the return value are encrypted. This is our goal.requestandresponseThe origin of .">
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -304,7 +312,7 @@ Do you still need to learn ARM assembly? Why not learn it? You have nothing to d
     <article class="post">
       
       <header class="post-header">
-        <h1 class="post-title">Code Restoration Technology ARM Assembly Introduction Tutorial (I) Hello World!</h1>
+        <h1 class="post-title">Encryption Analysis of a Car Network App Communication Protocol (Part 1)</h1>
         
 
 
@@ -324,8 +332,8 @@ Do you still need to learn ARM assembly? Why not learn it? You have nothing to d
   <div class="post-meta-item post-meta-time">
     
 <svg aria-hidden="true" class="lucide lucide-calendar-days hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
-    <time datetime=" 2021-04-12">
-      2021-04-12
+    <time datetime=" 2022-08-30">
+      2022-08-30
     </time>
 
 
@@ -338,7 +346,7 @@ Do you still need to learn ARM assembly? Why not learn it? You have nothing to d
     
 
     <div class="post-meta-item post-meta-category">
-      <a href="https://578164.xyz/categories/basic-learning/"> Basic Learning </a>
+      <a href="https://578164.xyz/categories/android-technology/"> Android Technology </a>
       
     </div>
 
@@ -357,119 +365,147 @@ Do you still need to learn ARM assembly? Why not learn it? You have nothing to d
       
       <div class="post-content">
         <h2 id="1-objectives">1. Objectives</h2>
-<ul>
-<li>Why learn ARM assembly?</li>
-</ul>
-<p>No reason.</p>
-<ul>
-<li>Is it useful to learn ARM assembly?</li>
-</ul>
-<p>It&rsquo;s useless</p>
-<ul>
-<li>Can I find a job after learning ARM assembly?</li>
-</ul>
-<p>None of the popular large-scale software is written in assembly language, so what do you think?</p>
-<ul>
-<li>Do you still need to learn ARM assembly?</li>
-</ul>
-<p>Why not learn it? You have nothing to do anyway. Knowing some low-level languages and getting close to the essence of computer operation is still very cool.</p>
+<p>Boss: I just bought a new car recently. The app that came with it is quite interesting. Would you like to take a look at it?</p>
+<p>Me: Oh my god, it’s packed, it’s quite interesting, let me try it.</p>
+<p>v6.1.0</p>
 <h2 id="2-steps">2. Steps</h2>
-<h3 id="hello-world">Hello World!</h3>
-<p>Boss&rsquo;s father, was also engaged in research and development when he was young. After retirement, he had some free time and planned to practice calligraphy.</p>
-<p>One day, the weather was fine and the old boss had finished three rounds of drinks. He was in a relaxed mood and wrote down the following poem on the fine rice paper that the young boss had given him:Hello World!</p>
+<h3 id="packet-capture">Packet capture</h3>
+<p>My packet capture environment is Mac 10.14.6 + httpToolKit, and I captured the packet smoothly in this step.</p>
+<p>1:main</p>
+<p>As you can see, both the http request and the return value are encrypted. This is our goal.requestandresponseThe origin of .</p>
+<h3 id="shelling">Shelling</h3>
+<p>Our first choice for shelling isBlackDex, easy to use and effective. However, it does not work well for this sample, only one dex is extracted, and it is likely to have failed.</p>
+<p>Then go to the gourd baby bossFRIDA-DEXDump, This sample is very cunning. It crashes as soon as the frida spawn mode is run. It seems that the shell is relatively hard.</p>
+<p>This is a tricky situation. Recall that we used Xcube to deal with packed applications before. Let’s try it again this time.</p>
+<p>Xcube did not disappoint us and the injection was successful. But how to run FRIDA-DEXDump in Xcube mode?</p>
+<p>I wanted to modify the code and merge it in. I accidentally discovered that Yang Shen also wrote DumpDex <a href="https://github.com/lasting-yang/frida_dump">https://github.com/lasting-yang/frida_dump</a></p>
+<p>Easily merged into js, now a successful dump is produced.</p>
+<h3 id="string-search">String Search</h3>
+<p>Direct Search&quot;request&quot; Not much results.</p>
+<p>Obviously, thisjsonObject.addPropertyThe biggest suspect.</p>
+<p>Click in and find the CheckCodeUtil class. Its checkcode and decheckcode are probably our targets this time.</p>
+<p>1:utilcls</p>
+<h3 id="hook">hook</h3>
 <div class="highlight-container">
 
   <button class="copy-code-btn outline">Copy</button>
 
   
-  <pre tabindex="0"><code>.text
+  <pre tabindex="0"><code>var CheckCodeUtilCls = Java.use(&#34;com.bangcle.comapiprotect.CheckCodeUtil&#34;);
+CheckCodeUtilCls.checkcode.implementation = function(a,b,c){
+    var rc = this.checkcode(a,b,c);
+    console.log(TAG + &#34;checkcode &gt;&gt;&gt; a = &#34; + a);
+    console.log(TAG + &#34;checkcode &gt;&gt;&gt; b = &#34; + b);
+    console.log(TAG + &#34;checkcode &gt;&gt;&gt; c = &#34; + c);
+    console.log(TAG + &#34;checkcode &gt;&gt;&gt; rc = &#34; + rc);
+    return rc;
+}
 
-.globl _start
+CheckCodeUtilCls.decheckcode.implementation = function(a){
+    var rc = this.decheckcode(a);
+    console.log(TAG + &#34;decheckcode &gt;&gt;&gt; a = &#34; + a);
+    console.log(TAG + &#34;decheckcode &gt;&gt;&gt; rc = &#34; + rc);
+    return rc;
 
-_start:
-    mov     %r0, $1                                // fd 1 (stdout)
-    ldr     %r1, =message
-    mov     %r2, $message_len
-    mov     %r7, $4                                // syscall 4 (write)
-    swi     $0
-
-    mov     %r0, $0                                // exit status 0 (ok)
-    mov     %r7, $1                                // syscall 1 (exit)
-    swi     $0
-
-.data
-
-message:
-    .ascii      &#34;Hello World!\n&#34;
-message_len = . - message</code></pre>
+}</code></pre>
 </div>
-<h3 id="compile">Compile</h3>
-<p>To compile this ARM assembly source code, there are two options</p>
+<p>I ran it and it was strange, there was no output at all, this doesn&rsquo;t make sense?</p>
+<p>Look carefully, silly, there are two checkcode functions in this class, so we need to specify which one to hook. Because we ignored the error output when printing the output, we did not see the error.</p>
+<p>Notice:If there is no output in the Xcube environment, it is likely that the script reported an error. In this case, do not filter and directly view all output logs to see the error.</p>
+<p>Modify the code</p>
+<div class="highlight-container">
+
+  <button class="copy-code-btn outline">Copy</button>
+
+  
+  <pre tabindex="0"><code>CheckCodeUtilCls.checkcode.overload(&#39;java.lang.String&#39;,&#39;int&#39;,&#39;java.lang.String&#39;).implementation = function(a,b,c){</code></pre>
+</div>
+<p>This time the results were printed out smoothly. But something strange happened again, the App crashed.</p>
+<h3 id="rescue-a-crashed-app">Rescue a crashed app</h3>
+<p>Why did it crash? Is there a bug in our printing data?</p>
+<p>First comment out the code that prints the input parameters and results. Still crashes.</p>
+<p>I commented out all the hook codes and it stopped crashing, but I can&rsquo;t play without hooks?</p>
+<p>The ultimate solution is to change your phone. Many times, it is enough to change your phone, maybe the phone is not suitable for the local environment.</p>
+<p>The result was disappointing. I changed the phone and it still crashed.</p>
+<p>There is no fluke mentality, which means that the App or shell has detected the Hook of key functions and will destroy it if it is found to be hooked.</p>
+<p>The App or shell must be doing the detection at the Native layer. If we want to deal with it, we have to be at the same level as it.</p>
+<p>Instead of hooking the functions of the Jave layer, directly hook the checkcode and decheckcode of the Native layer.</p>
+<h3 id="hook-native">Hook Native</h3>
+<p>We found System.loadLibrary(&ldquo;encrypt&rdquo;); in the Java code of CheckCodeUtil, which means that the target we are dealing with is libencrypt.so.</p>
+<p>IDA opened it, exported the table, and exposed two pieces of information.</p>
 <ol>
-<li>Install the compiler on your Android phone.</li>
-<li>Use the Android NDK cross-compilation tool to compile on your computer.</li>
+<li>The address of the checkcode function is 0x24424, and the address of the decheckcode function is 0x2B1BC.</li>
+<li>These two functions most likely use the AES algorithm.</li>
 </ol>
-<p>Here we introduce solution 2, cross-compiling on the computer.</p>
-<p>My development machine is MacOs 10.14, Android NDK is installed on</p>
-<p>/Users/h1yx/Library/Android/sdk/ndk/21.3.6528147</p>
-<p>Then under it</p>
-<p>toolchains/arm-linux-androideabi-4.9/prebuilt/darwin-x86_64/bin/</p>
-<p>The directory can be found</p>
-<p>arm-linux-androideabi-as and arm-linux-androideabi-ld</p>
-<p><strong>Windows students should be able to find arm-linux-androideabi-as.exe and arm-linux-androideabi-ld.exe in similar directories</strong></p>
-<p>This is the ARM assembly compiler and linker</p>
+<p>Keep Hooking</p>
 <div class="highlight-container">
 
   <button class="copy-code-btn outline">Copy</button>
 
   
-  <pre tabindex="0"><code>arm-linux-androideabi-as -o hello.o hello.S
-arm-linux-androideabi-ld -o hello hello.o
+  <pre tabindex="0"><code>var targetSo = Module.findBaseAddress(&#39;libencrypt.so&#39;);
+console.log(TAG +&#34; ############# libencrypt.so: &#34; +targetSo);
+// 24424    2B1BC
 
-adb push hello /data/local/tmp/hello
-adb shell chmod +x /data/local/tmp/hello
-adb shell /data/local/tmp/hello</code></pre>
+Interceptor.attach(targetSo.add(0x24424 ),{
+    onEnter: function(args){
+        var strCls = Java.use(&#39;java.lang.String&#39;);
+
+        this.rBuf = ptr(this.context.x0);
+        console.log(TAG + &#34; ======================================== &#34;);
+        // console.log(TAG + &#34;-------- checkcode x0 = &#34; + ptr(this.context.x0) ) ;
+
+        var strA = Java.cast(this.context.x2, strCls);
+        console.log(TAG + &#34;-------- checkcode a = &#34; + strA);
+
+        console.log(TAG + &#34;-------- checkcode b = &#34; + ptr(this.context.x3));
+
+        var strC = Java.cast(this.context.x4, strCls);
+        console.log(TAG + &#34;-------- checkcode b = &#34; + strC);
+
+
+    },
+    onLeave: function(retval){
+        var strCls = Java.use(&#39;java.lang.String&#39;);
+        var strRc = Java.cast(retval, strCls);
+        console.log(TAG + &#34;-------- checkcode rc = &#34; + strRc);
+
+    }
+});
+
+Interceptor.attach(targetSo.add(0x2B1BC ),{
+    onEnter: function(args){
+        var strCls = Java.use(&#39;java.lang.String&#39;);
+
+        this.rBuf = ptr(this.context.x0);
+        console.log(TAG + &#34; ======================================== &#34;);
+        // console.log(TAG + &#34;-------- checkcode x0 = &#34; + ptr(this.context.x0) ) ;
+
+        var strA = Java.cast(this.context.x2, strCls);
+        console.log(TAG + &#34;-------- decheckcode a = &#34; + strA);
+
+
+    },
+    onLeave: function(retval){
+        var strCls = Java.use(&#39;java.lang.String&#39;);
+        var strRc = Java.cast(retval, strCls);
+        console.log(TAG + &#34;-------- decheckcode rc = &#34; + strRc);
+
+    }
+});</code></pre>
 </div>
-<p>Perfect, my first ARM assembly program is running, and it is alsoHello World!Boss should have a different understanding from us.</p>
-<h3 id="pay-attention">Pay attention</h3>
-<p>The first word of each line of ARM assembly code is called an assembly instruction.</p>
-<p>r0-rX are called registers, which can be understood as variables that come with the CPU. The access speed is much faster than the memory, but the number is limited.</p>
-<p>There are three instructions in the hello program: mov ldr swi</p>
-<ul>
-<li>MOV data operation instruction</li>
-</ul>
-<div class="highlight-container">
-
-  <button class="copy-code-btn outline">Copy</button>
-
-  
-  <pre tabindex="0"><code>mov %r0, $1                                
-mov %r2, $message_len</code></pre>
-</div>
-<ul>
-<li>LDR memory operation instruction</li>
-</ul>
-<div class="highlight-container">
-
-  <button class="copy-code-btn outline">Copy</button>
-
-  
-  <pre tabindex="0"><code>ldr %r1, =message              </code></pre>
-</div>
-<ul>
-<li>SWI soft interrupt instruction</li>
-</ul>
-<p>In fact, here we can understand it as a call to the system API.</p>
-<p>Call system API write</p>
-<div class="highlight-container">
-
-  <button class="copy-code-btn outline">Copy</button>
-
-  
-  <pre tabindex="0"><code>mov     %r7, $4                        // syscall 4 (write)
-swi     $0</code></pre>
-</div>
-<p>The parameters of this write API need to be checked in the system manual. <a href="https://chromium.googlesource.com/chromiumos/docs/+/master/constants/syscalls.md">https://chromium.googlesource.com/chromiumos/docs/+/master/constants/syscalls.md</a></p>
+<p>Boss:  isn&rsquo;t the first parameter of the function X0? Why did you print the first parameter as X2?</p>
+<p>Me: Boss, I asked you to approve more funds to buy books a long time ago, but you didn&rsquo;t agree. Now you are showing your weakness. If you look up JNI programming, you will know that the first two parameters of Java calling C/C++ functions are fixed. The actual parameters passed in start from the third one.</p>
+<p>Run again this time.</p>
+<p>1:rc</p>
+<p>The truth is out.</p>
+<p>It&rsquo;s already autumn in the capital, so it&rsquo;s not time to order fresh beer, but it&rsquo;s time to order Erguotou.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>There are thousands of ways to unpack the shell, but the key is still Dump Dex.</p>
+<p>Don&rsquo;t be afraid of shelled apps, most likely all the clues will be revealed after unpacking. Unshelled apps are the real scary ones.</p>
+<p>If the script does not have any output, it may not necessarily mean that the location is wrong, but it may also be that you did not see the error reported by the script.</p>
+<p>The app crashed, and changing the phone was effective, although I was embarrassed this time.</p>
+<p>For this sample, IDA also tells us that the function entry code in so is also extracted. To analyze this so, we probably have to dump so.</p>
 
       </div>
 
@@ -493,18 +529,18 @@ swi     $0</code></pre>
         
         <nav class="post-nav">
           
-          <a class="prev" href="/post/other/an-e-commerce-app-sign-algorithm-upgrade-verification/">
+          <a class="prev" href="/post/other/an-analysis-of-the-encryption-of-the-communication-protocol-of-a-car-networking-apppart-2unidbg-step-by-step/">
             
             <i class="iconfont">
               
 <svg aria-hidden="true" class="lucide lucide-chevron-left hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m15 18-6-6 6-6"/></svg>
             </i>
-            <span class="prev-text nav-default">An e-commerce App sign algorithm upgrade verification</span>
+            <span class="prev-text nav-default">An analysis of the encryption of the communication protocol of a car networking app (Part 2) Unidbg step by step</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
           
-          <a class="next" href="/post/other/iphone-jailbreak-2020/">
-            <span class="next-text nav-default">Iphone Jailbreak 2020</span>
+          <a class="next" href="/post/other/appdbg-a-virtual-machine-disguised-as-a-debugger/">
+            <span class="next-text nav-default">appdbg: A virtual machine disguised as a debugger</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">
@@ -553,11 +589,15 @@ swi     $0</code></pre>
     <li><a href="#1-objectives">1. Objectives</a></li>
     <li><a href="#2-steps">2. Steps</a>
       <ul>
-        <li><a href="#hello-world">Hello World!</a></li>
-        <li><a href="#compile">Compile</a></li>
-        <li><a href="#pay-attention">Pay attention</a></li>
+        <li><a href="#packet-capture">Packet capture</a></li>
+        <li><a href="#shelling">Shelling</a></li>
+        <li><a href="#string-search">String Search</a></li>
+        <li><a href="#hook">hook</a></li>
+        <li><a href="#rescue-a-crashed-app">Rescue a crashed app</a></li>
+        <li><a href="#hook-native">Hook Native</a></li>
       </ul>
     </li>
+    <li><a href="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
     </div>
